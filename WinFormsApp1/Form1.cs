@@ -29,7 +29,7 @@ namespace WinFormsApp1
         ///------------- Panel içinde alt formu açar
         ///-------------------------------------------------------
         private Form activeForm;  // Aktif alt formu takip eder
-        private void AltFormAcPanelÝcinde(Form childForm, object btnSender)
+        public void AltFormAcPanelÝcinde(Form childForm, object btnSender)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -64,6 +64,18 @@ namespace WinFormsApp1
         {
             AltFormAcPanelÝcinde(new seferAra(), sender);
 
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MessageBox.Show("Uygulamadan çýkmak üzeresiniz, emin misiniz?",
+                                         "Çýkýþ Onayý",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit(); // Uygulamayý kapat
+            }
         }
     }
 }

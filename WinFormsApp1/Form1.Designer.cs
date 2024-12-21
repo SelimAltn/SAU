@@ -44,10 +44,7 @@ namespace WinFormsApp1
             LBBulunduSayfaAdi = new Label();
             panelUst = new Panel();
             btnBackSatisİcin = new Button();
-            btrSakla = new Button();
             btnBackhizmet = new Button();
-            btnGenisle = new Button();
-            btnClose = new Button();
             panelFormlar = new Panel();
             panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -101,6 +98,7 @@ namespace WinFormsApp1
             btnKapat.TabIndex = 12;
             btnKapat.Text = "Kapat";
             btnKapat.UseVisualStyleBackColor = true;
+            btnKapat.Click += btnKapat_Click;
             // 
             // btnBiletDurumu
             // 
@@ -229,10 +227,7 @@ namespace WinFormsApp1
             // 
             panelUst.BackColor = Color.FromArgb(39, 49, 65);
             panelUst.Controls.Add(btnBackSatisİcin);
-            panelUst.Controls.Add(btrSakla);
             panelUst.Controls.Add(btnBackhizmet);
-            panelUst.Controls.Add(btnGenisle);
-            panelUst.Controls.Add(btnClose);
             panelUst.Dock = DockStyle.Top;
             panelUst.Location = new Point(233, 0);
             panelUst.Margin = new Padding(4, 3, 4, 3);
@@ -254,18 +249,6 @@ namespace WinFormsApp1
             btnBackSatisİcin.UseVisualStyleBackColor = true;
             btnBackSatisİcin.Visible = false;
             // 
-            // btrSakla
-            // 
-            btrSakla.Dock = DockStyle.Right;
-            btrSakla.FlatAppearance.BorderSize = 0;
-            btrSakla.FlatStyle = FlatStyle.Flat;
-            btrSakla.Location = new Point(1565, 0);
-            btrSakla.Margin = new Padding(4, 3, 4, 3);
-            btrSakla.Name = "btrSakla";
-            btrSakla.Size = new Size(42, 48);
-            btrSakla.TabIndex = 0;
-            btrSakla.UseVisualStyleBackColor = true;
-            // 
             // btnBackhizmet
             // 
             btnBackhizmet.Dock = DockStyle.Left;
@@ -278,30 +261,6 @@ namespace WinFormsApp1
             btnBackhizmet.TabIndex = 0;
             btnBackhizmet.UseVisualStyleBackColor = true;
             btnBackhizmet.Visible = false;
-            // 
-            // btnGenisle
-            // 
-            btnGenisle.Dock = DockStyle.Right;
-            btnGenisle.FlatAppearance.BorderSize = 0;
-            btnGenisle.FlatStyle = FlatStyle.Flat;
-            btnGenisle.Location = new Point(1607, 0);
-            btnGenisle.Margin = new Padding(4, 3, 4, 3);
-            btnGenisle.Name = "btnGenisle";
-            btnGenisle.Size = new Size(42, 48);
-            btnGenisle.TabIndex = 1;
-            btnGenisle.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            btnClose.Dock = DockStyle.Right;
-            btnClose.FlatAppearance.BorderSize = 0;
-            btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Location = new Point(1649, 0);
-            btnClose.Margin = new Padding(4, 3, 4, 3);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(42, 48);
-            btnClose.TabIndex = 2;
-            btnClose.UseVisualStyleBackColor = true;
             // 
             // panelFormlar
             // 
@@ -348,9 +307,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label LBBulunduSayfaAdi;
         private System.Windows.Forms.Panel panelFormlar;
         private System.Windows.Forms.Button btnBackhizmet;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btrSakla;
-        private System.Windows.Forms.Button btnGenisle;
         private System.Windows.Forms.Button btnBiletDurumu;
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnBackSatisİcin;

@@ -30,13 +30,13 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
+            LBBulunduSayfaAdi = new Label();
             btnSeferlerimGoruntule = new Button();
             btnSeferinizDegerlendiriniz = new Button();
             btnBiletDegistir = new Button();
             btnBiletiptalet = new Button();
             btnBiletAl = new Button();
             panelLogo = new Panel();
-            LBBulunduSayfaAdi = new Label();
             panelUst = new Panel();
             btnBackSatisİcin = new Button();
             btrSakla = new Button();
@@ -59,11 +59,23 @@
             panelMenu.Controls.Add(btnBiletAl);
             panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Right;
-            panelMenu.Location = new Point(1894, 0);
+            panelMenu.Location = new Point(1902, 0);
             panelMenu.Margin = new Padding(4, 3, 4, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(233, 929);
+            panelMenu.Size = new Size(225, 929);
             panelMenu.TabIndex = 0;
+            // 
+            // LBBulunduSayfaAdi
+            // 
+            LBBulunduSayfaAdi.AutoSize = true;
+            LBBulunduSayfaAdi.Font = new Font("Sakkal Majalla", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LBBulunduSayfaAdi.ForeColor = SystemColors.ButtonFace;
+            LBBulunduSayfaAdi.Location = new Point(23, 8);
+            LBBulunduSayfaAdi.Margin = new Padding(4, 0, 4, 0);
+            LBBulunduSayfaAdi.Name = "LBBulunduSayfaAdi";
+            LBBulunduSayfaAdi.Size = new Size(170, 35);
+            LBBulunduSayfaAdi.TabIndex = 2;
+            LBBulunduSayfaAdi.Text = "       Kullancı Girişi";
             // 
             // btnSeferlerimGoruntule
             // 
@@ -147,20 +159,8 @@
             panelLogo.Location = new Point(0, 0);
             panelLogo.Margin = new Padding(4, 3, 4, 3);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(233, 48);
+            panelLogo.Size = new Size(225, 48);
             panelLogo.TabIndex = 1;
-            // 
-            // LBBulunduSayfaAdi
-            // 
-            LBBulunduSayfaAdi.AutoSize = true;
-            LBBulunduSayfaAdi.Font = new Font("Sakkal Majalla", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LBBulunduSayfaAdi.ForeColor = SystemColors.ButtonFace;
-            LBBulunduSayfaAdi.Location = new Point(23, 8);
-            LBBulunduSayfaAdi.Margin = new Padding(4, 0, 4, 0);
-            LBBulunduSayfaAdi.Name = "LBBulunduSayfaAdi";
-            LBBulunduSayfaAdi.Size = new Size(170, 35);
-            LBBulunduSayfaAdi.TabIndex = 2;
-            LBBulunduSayfaAdi.Text = "       Kullancı Girişi";
             // 
             // panelUst
             // 
@@ -174,7 +174,7 @@
             panelUst.Location = new Point(0, 0);
             panelUst.Margin = new Padding(4, 3, 4, 3);
             panelUst.Name = "panelUst";
-            panelUst.Size = new Size(1894, 48);
+            panelUst.Size = new Size(1902, 48);
             panelUst.TabIndex = 1;
             // 
             // btnBackSatisİcin
@@ -195,7 +195,7 @@
             btrSakla.Dock = DockStyle.Right;
             btrSakla.FlatAppearance.BorderSize = 0;
             btrSakla.FlatStyle = FlatStyle.Flat;
-            btrSakla.Location = new Point(1768, 0);
+            btrSakla.Location = new Point(1776, 0);
             btrSakla.Margin = new Padding(4, 3, 4, 3);
             btrSakla.Name = "btrSakla";
             btrSakla.Size = new Size(42, 48);
@@ -220,7 +220,7 @@
             btnGenisle.Dock = DockStyle.Right;
             btnGenisle.FlatAppearance.BorderSize = 0;
             btnGenisle.FlatStyle = FlatStyle.Flat;
-            btnGenisle.Location = new Point(1810, 0);
+            btnGenisle.Location = new Point(1818, 0);
             btnGenisle.Margin = new Padding(4, 3, 4, 3);
             btnGenisle.Name = "btnGenisle";
             btnGenisle.Size = new Size(42, 48);
@@ -232,7 +232,7 @@
             btnClose.Dock = DockStyle.Right;
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Location = new Point(1852, 0);
+            btnClose.Location = new Point(1860, 0);
             btnClose.Margin = new Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(42, 48);
@@ -245,7 +245,7 @@
             panelFormlar.Location = new Point(0, 48);
             panelFormlar.Margin = new Padding(4, 3, 4, 3);
             panelFormlar.Name = "panelFormlar";
-            panelFormlar.Size = new Size(1894, 881);
+            panelFormlar.Size = new Size(1902, 881);
             panelFormlar.TabIndex = 2;
             // 
             // KullanciGiris
