@@ -35,17 +35,14 @@
             txtSifre = new MaskedTextBox();
             txtKullanciAdi = new MaskedTextBox();
             lbBaslik = new Label();
+            groupBox1 = new GroupBox();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnGiris);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(txtSifre);
-            panel1.Controls.Add(txtKullanciAdi);
-            panel1.Controls.Add(lbBaslik);
+            panel1.Controls.Add(groupBox1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
@@ -57,7 +54,7 @@
             // 
             btnGiris.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             btnGiris.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGiris.Location = new Point(978, 352);
+            btnGiris.Location = new Point(797, 223);
             btnGiris.Margin = new Padding(4, 3, 4, 3);
             btnGiris.Name = "btnGiris";
             btnGiris.Size = new Size(248, 48);
@@ -69,7 +66,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.Location = new Point(694, 389);
+            label3.Location = new Point(513, 260);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(59, 28);
@@ -80,7 +77,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label2.Location = new Point(629, 338);
+            label2.Location = new Point(448, 209);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(128, 28);
@@ -90,7 +87,7 @@
             // 
             // txtSifre
             // 
-            txtSifre.Location = new Point(788, 395);
+            txtSifre.Location = new Point(607, 266);
             txtSifre.Margin = new Padding(4, 3, 4, 3);
             txtSifre.Name = "txtSifre";
             txtSifre.Size = new Size(146, 23);
@@ -98,7 +95,7 @@
             // 
             // txtKullanciAdi
             // 
-            txtKullanciAdi.Location = new Point(788, 339);
+            txtKullanciAdi.Location = new Point(607, 210);
             txtKullanciAdi.Margin = new Padding(4, 3, 4, 3);
             txtKullanciAdi.Name = "txtKullanciAdi";
             txtKullanciAdi.Size = new Size(146, 23);
@@ -108,13 +105,28 @@
             // 
             lbBaslik.AutoSize = true;
             lbBaslik.Font = new Font("Palatino Linotype", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lbBaslik.Location = new Point(706, 74);
+            lbBaslik.Location = new Point(588, 57);
             lbBaslik.Margin = new Padding(4, 0, 4, 0);
             lbBaslik.Name = "lbBaslik";
             lbBaslik.Size = new Size(298, 32);
             lbBaslik.TabIndex = 0;
             lbBaslik.Text = "Hesap Bilgilerinizi Giriniz";
             lbBaslik.Click += lbBaslik_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.FromArgb(204, 221, 231);
+            groupBox1.Controls.Add(btnGiris);
+            groupBox1.Controls.Add(lbBaslik);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtKullanciAdi);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(txtSifre);
+            groupBox1.Location = new Point(-11, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(2313, 401);
+            groupBox1.TabIndex = 14;
+            groupBox1.TabStop = false;
             // 
             // KullanciGirişKontrolu
             // 
@@ -127,7 +139,8 @@
             Name = "KullanciGirişKontrolu";
             Text = "HostGirisi";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -140,5 +153,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGiris;
+        private GroupBox groupBox1;
     }
 }

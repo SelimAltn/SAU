@@ -198,7 +198,7 @@ namespace WinFormsApp1
             btnYeniKullanci.Padding = new Padding(14, 0, 0, 0);
             btnYeniKullanci.Size = new Size(233, 70);
             btnYeniKullanci.TabIndex = 1;
-            btnYeniKullanci.Text = "Yeni Kullancı Hesapı Oluştur";
+            btnYeniKullanci.Text = "Yeni  Hesap ";
             btnYeniKullanci.UseVisualStyleBackColor = true;
             btnYeniKullanci.Click += btnYeniKullanci_Click;
             // 
