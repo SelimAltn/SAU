@@ -203,11 +203,13 @@ namespace WinFormsApp1
 
         private void btnSeferAra_Click(object sender, EventArgs e)
         {
+            btnBiletİptali.Visible = false;
             button2.Visible = true;
             button3.Visible = false;
             dataGridView1.Visible = false;
             groupBox2.Visible = false;
             button2.Text = "Rezervasyon yap";
+            txtUygunSeferId.Text = "";
             try
             {
                 // PostgreSQL bağlantısı aç
@@ -312,7 +314,7 @@ namespace WinFormsApp1
             // Uygun seferleri arama işlemleri burada gerçekleştirilecek...
         }
 
-      
+
         private void txtKullaniciID_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Eğer basılan tuş bir rakam değilse ve geri al (Backspace) değilse
@@ -387,7 +389,9 @@ namespace WinFormsApp1
 
         private void btnBiletAl_Click(object sender, EventArgs e)
         {
+            btnBiletİptali.Visible = false;
             gboxSefer.Visible = false;
+            button3.Visible = true;
             dataGridView1.Visible = true;
             groupBox2.Visible = true;
             button2.Visible = false;
@@ -421,75 +425,76 @@ namespace WinFormsApp1
                 }
             }
         }
-        private bool KontrolRezervasyon(int kullaniciId, int rezervasyonId)
+        private bool KontrolRezervasyon(int rezervasyonId, int kullaniciId)
         {
             bool sonuc = false;
-
             using (var connection = new NpgsqlConnection(baglanti))
             {
                 try
                 {
                     connection.Open();
-
-                    string query = "SELECT KontrolRezervasyon(@kullanici_id, @rezervasyon_id)";
+                    string query = "SELECT kontrol_rezervasyon(@rezervasyon_id, @kullanici_id)";
                     using (var command = new NpgsqlCommand(query, connection))
                     {
-                        // Parametreleri ekle
-                        command.Parameters.AddWithValue("@kullanici_id", kullaniciId);
                         command.Parameters.AddWithValue("@rezervasyon_id", rezervasyonId);
+                        command.Parameters.AddWithValue("@kullanici_id", kullaniciId);
 
-                        // Fonksiyonun sonucunu al
-                        sonuc = Convert.ToBoolean(command.ExecuteScalar());
+                        sonuc = (bool)command.ExecuteScalar();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hata: " + ex.Message);
                 }
             }
-
             return sonuc;
         }
+
+        // Rezervasyonu bilete dönüştürme fonksiyonu
         private int RezervasyonuBileteDonustur(int rezervasyonId)
         {
-            int biletId = -1;
-
+            int biletId = 0;
             using (var connection = new NpgsqlConnection(baglanti))
             {
                 try
                 {
                     connection.Open();
-
-                    string query = "SELECT RezervasyonuBileteDonustur(@rezervasyon_id)";
+                    string query = "SELECT rezervasyonu_bilete_donustur(@rezervasyon_id)";
                     using (var command = new NpgsqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@rezervasyon_id", rezervasyonId);
 
-                        // Yeni bilet ID'sini al
-                        biletId = Convert.ToInt32(command.ExecuteScalar());
+                        biletId = (int)command.ExecuteScalar();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hata: " + ex.Message);
                 }
             }
-
             return biletId;
         }
 
-
-        void BiletiOdemeyeDonustur(int biletId, string odemeTuru)
+        // Bilet ödeme ekleme fonksiyonu
+        private void BiletiOdemeyeEkle(int biletId, string odemeTuru)
         {
             using (var connection = new NpgsqlConnection(baglanti))
             {
-                connection.Open();
-
-                using (var command = new NpgsqlCommand("SELECT BiletiOdemeyeDonustur(@bilet_id, @odeme_turu)", connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@bilet_id", biletId);
-                    command.Parameters.AddWithValue("@odeme_turu", odemeTuru);
-                    command.ExecuteNonQuery();
+                    connection.Open();
+                    string query = "SELECT bileti_odemeye_ekle(@bilet_id, @odeme_turu)";
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@bilet_id", biletId);
+                        command.Parameters.AddWithValue("@odeme_turu", odemeTuru);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
                 }
             }
         }
@@ -497,33 +502,34 @@ namespace WinFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             int rezervasyonId;
-            if (!(int.TryParse(txtUygunSeferId.Text, out rezervasyonId)))
+
+            // Rezervasyon ID'nin geçerli olup olmadığını kontrol et
+            if (!int.TryParse(txtUygunSeferId.Text, out rezervasyonId))
             {
                 MessageBox.Show("Lütfen geçerli bir rezervasyon ID giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            bool rezervasyonAitMi = KontrolRezervasyon(aktifKullaniciId, rezervasyonId);
-
-            if (rezervasyonAitMi)
+            bool rezervasyonGeçerli = KontrolRezervasyon(rezervasyonId, aktifKullaniciId);
+            if (rezervasyonGeçerli)
             {
+                // Rezervasyonu bilete dönüştür
                 int biletId = RezervasyonuBileteDonustur(rezervasyonId);
-                if (biletId == -1)
-                {
-                    MessageBox.Show("Bilet oluşturulamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
-                // Bileti ödemeye dönüştür
-                BiletiOdemeyeDonustur(biletId, "Kredi Kartı");
+                // Bilet ödemesini ekle
+                string odemeTuru = "Kredi kart"; // cmbOdemeTuru bir ComboBox
+                BiletiOdemeyeEkle(biletId, odemeTuru);
 
-                MessageBox.Show("Ödeme başarıyla tamamlandı!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // DataGridView'i güncelle
+                btnBiletAl_Click(sender, e);
+                txtUygunSeferId.Text = "";
 
+                MessageBox.Show("Bilet ve ödeme işlemi başarıyla tamamlandı!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"Rezervasyon ID ({rezervasyonId}) bu kullanıcıya ait değil!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rezervasyon geçerli değil veya zaten ödenmiş.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void txtUygunSeferId_KeyPress_1(object sender, KeyPressEventArgs e)
@@ -532,6 +538,81 @@ namespace WinFormsApp1
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Tuşu kabul etme
+            }
+        }
+
+        private void btnBiletiptalet_Click(object sender, EventArgs e)
+        {
+            gboxSefer.Visible = false;
+            button3.Visible = false;
+            dataGridView1.Visible = true;
+            groupBox2.Visible = true;
+            button2.Visible = false;
+            label8.Text = "Bilet id :";
+            txtUygunSeferId.Text = "";
+            btnBiletİptali.Visible = true;
+            try
+            {
+                using (var connection = new NpgsqlConnection(baglanti))
+                {
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand("SELECT * FROM kullaniciya_ait_biletler(@kullanici_id)", connection))
+                    {
+                        command.Parameters.AddWithValue("@kullanici_id", aktifKullaniciId);
+
+                        // Sorguyu çalıştır ve sonucu al
+                        using (var reader = command.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+
+                            // DataGridView'e veri kaynağı olarak ata
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void btnBiletİptali_Click(object sender, EventArgs e)
+        {
+            int rezervasyonId;
+
+            // Rezervasyon ID'nin geçerli olup olmadığını kontrol et
+            if (!int.TryParse(txtUygunSeferId.Text, out rezervasyonId))
+            {
+                MessageBox.Show("Lütfen geçerli bir rezervasyon ID giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                using (var connection = new NpgsqlConnection(baglanti))
+                {
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand("SELECT bilet_iptali(@bilet_id, @kullanici_id)", connection))
+                    {
+                        command.Parameters.AddWithValue("@bilet_id", rezervasyonId);
+                        command.Parameters.AddWithValue("@kullanici_id", aktifKullaniciId);
+
+                        // Fonksiyonu çalıştır
+                        command.ExecuteNonQuery();
+                        btnBiletiptalet_Click(sender,e);
+                        MessageBox.Show("Bilet ve ödeme başarıyla iptal edildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -51,6 +51,7 @@
             btnBackhizmet = new Button();
             panel1 = new Panel();
             groupBox2 = new GroupBox();
+            btnBiletİptali = new Button();
             txtUygunSeferId = new TextBox();
             button3 = new Button();
             button2 = new Button();
@@ -241,7 +242,7 @@
             lbKullanciAdi.AutoSize = true;
             lbKullanciAdi.Font = new Font("Segoe Print", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lbKullanciAdi.ForeColor = SystemColors.ButtonFace;
-            lbKullanciAdi.Location = new Point(-2, 5);
+            lbKullanciAdi.Location = new Point(-5, -5);
             lbKullanciAdi.Margin = new Padding(4, 0, 4, 0);
             lbKullanciAdi.Name = "lbKullanciAdi";
             lbKullanciAdi.Size = new Size(126, 37);
@@ -296,6 +297,7 @@
             btnBiletiptalet.TabIndex = 2;
             btnBiletiptalet.Text = "Bilet iptal et";
             btnBiletiptalet.UseVisualStyleBackColor = true;
+            btnBiletiptalet.Click += btnBiletiptalet_Click;
             // 
             // btnBiletDegistir
             // 
@@ -368,6 +370,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnBiletİptali);
             groupBox2.Controls.Add(txtUygunSeferId);
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(button2);
@@ -378,6 +381,20 @@
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Visible = false;
+            // 
+            // btnBiletİptali
+            // 
+            btnBiletİptali.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnBiletİptali.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBiletİptali.Location = new Point(341, 40);
+            btnBiletİptali.Margin = new Padding(4, 3, 4, 3);
+            btnBiletİptali.Name = "btnBiletİptali";
+            btnBiletİptali.Size = new Size(248, 48);
+            btnBiletİptali.TabIndex = 20;
+            btnBiletİptali.Text = "Bilet iptalet";
+            btnBiletİptali.UseVisualStyleBackColor = true;
+            btnBiletİptali.Visible = false;
+            btnBiletİptali.Click += btnBiletİptali_Click;
             // 
             // txtUygunSeferId
             // 
@@ -661,5 +678,6 @@
         private DataGridView dataGridView1;
         private Button button3;
         private TextBox txtUygunSeferId;
+        private Button btnBiletİptali;
     }
 }
