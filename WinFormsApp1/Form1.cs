@@ -62,7 +62,6 @@ namespace WinFormsApp1
 
         private void btnSeferAra_Click(object sender, EventArgs e)
         {
-            AltFormAcPanel›cinde(new seferAra(), sender);
 
         }
 

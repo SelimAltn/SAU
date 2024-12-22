@@ -79,12 +79,12 @@ namespace WinFormsApp1
                 {
                     con.Open();
 
-                    using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT ekle_kullanici(@ad, @soyad, @email, @sifre, @telefon)", con))
+                    using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT ekle_kullanici(@ad, @soyad, @email, @Kullancici_Sifre, @telefon)", con))
                     {
                         cmd.Parameters.AddWithValue("ad", ad);
                         cmd.Parameters.AddWithValue("soyad", soyad);
                         cmd.Parameters.AddWithValue("email", email);
-                        cmd.Parameters.AddWithValue("sifre", sifre);
+                        cmd.Parameters.AddWithValue("Kullancici_Sifre", sifre);
                         cmd.Parameters.AddWithValue("telefon", telefon);
 
                         cmd.ExecuteNonQuery();

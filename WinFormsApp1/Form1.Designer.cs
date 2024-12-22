@@ -37,7 +37,6 @@ namespace WinFormsApp1
             btnBiletDurumu = new Button();
             btnSeferDurumu = new Button();
             btnKampanyalar = new Button();
-            btnSeferAra = new Button();
             btnKullanciGirisi = new Button();
             btnYeniKullanci = new Button();
             panelLogo = new Panel();
@@ -60,7 +59,6 @@ namespace WinFormsApp1
             panelMenu.Controls.Add(btnBiletDurumu);
             panelMenu.Controls.Add(btnSeferDurumu);
             panelMenu.Controls.Add(btnKampanyalar);
-            panelMenu.Controls.Add(btnSeferAra);
             panelMenu.Controls.Add(btnKullanciGirisi);
             panelMenu.Controls.Add(btnYeniKullanci);
             panelMenu.Controls.Add(panelLogo);
@@ -90,7 +88,7 @@ namespace WinFormsApp1
             btnKapat.Font = new Font("Book Antiqua", 15.75F);
             btnKapat.ForeColor = SystemColors.ButtonFace;
             btnKapat.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKapat.Location = new Point(0, 680);
+            btnKapat.Location = new Point(0, 604);
             btnKapat.Margin = new Padding(4, 3, 4, 3);
             btnKapat.Name = "btnKapat";
             btnKapat.Padding = new Padding(14, 0, 0, 0);
@@ -107,7 +105,7 @@ namespace WinFormsApp1
             btnBiletDurumu.Font = new Font("Book Antiqua", 15.75F);
             btnBiletDurumu.ForeColor = SystemColors.ButtonFace;
             btnBiletDurumu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBiletDurumu.Location = new Point(0, 620);
+            btnBiletDurumu.Location = new Point(0, 544);
             btnBiletDurumu.Margin = new Padding(4, 3, 4, 3);
             btnBiletDurumu.Name = "btnBiletDurumu";
             btnBiletDurumu.Padding = new Padding(14, 0, 0, 0);
@@ -123,7 +121,7 @@ namespace WinFormsApp1
             btnSeferDurumu.Font = new Font("Book Antiqua", 15.75F);
             btnSeferDurumu.ForeColor = SystemColors.ButtonFace;
             btnSeferDurumu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSeferDurumu.Location = new Point(0, 550);
+            btnSeferDurumu.Location = new Point(0, 474);
             btnSeferDurumu.Margin = new Padding(4, 3, 4, 3);
             btnSeferDurumu.Name = "btnSeferDurumu";
             btnSeferDurumu.Padding = new Padding(14, 0, 0, 0);
@@ -139,7 +137,7 @@ namespace WinFormsApp1
             btnKampanyalar.Font = new Font("Book Antiqua", 15.75F);
             btnKampanyalar.ForeColor = SystemColors.ButtonFace;
             btnKampanyalar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKampanyalar.Location = new Point(0, 480);
+            btnKampanyalar.Location = new Point(0, 404);
             btnKampanyalar.Margin = new Padding(4, 3, 4, 3);
             btnKampanyalar.Name = "btnKampanyalar";
             btnKampanyalar.Padding = new Padding(14, 0, 0, 0);
@@ -148,23 +146,6 @@ namespace WinFormsApp1
             btnKampanyalar.Text = "Kampanyalar";
             btnKampanyalar.UseVisualStyleBackColor = true;
             btnKampanyalar.Click += btnKampanyalar_Click;
-            // 
-            // btnSeferAra
-            // 
-            btnSeferAra.FlatAppearance.BorderSize = 0;
-            btnSeferAra.FlatStyle = FlatStyle.Flat;
-            btnSeferAra.Font = new Font("Book Antiqua", 15.75F);
-            btnSeferAra.ForeColor = SystemColors.ButtonFace;
-            btnSeferAra.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSeferAra.Location = new Point(0, 410);
-            btnSeferAra.Margin = new Padding(4, 3, 4, 3);
-            btnSeferAra.Name = "btnSeferAra";
-            btnSeferAra.Padding = new Padding(14, 0, 0, 0);
-            btnSeferAra.Size = new Size(233, 70);
-            btnSeferAra.TabIndex = 4;
-            btnSeferAra.Text = "Sefer Ara";
-            btnSeferAra.UseVisualStyleBackColor = true;
-            btnSeferAra.Click += btnSeferAra_Click;
             // 
             // btnKullanciGirisi
             // 
@@ -300,7 +281,6 @@ namespace WinFormsApp1
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnYeniKullanci;
         private System.Windows.Forms.Button btnKullanciGirisi;
-        private System.Windows.Forms.Button btnSeferAra;
         private System.Windows.Forms.Button btnKampanyalar;
         private System.Windows.Forms.Button btnSeferDurumu;
         private System.Windows.Forms.Panel panelUst;
