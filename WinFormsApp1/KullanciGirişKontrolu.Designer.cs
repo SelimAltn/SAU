@@ -71,6 +71,7 @@
             label7 = new Label();
             cmbKalkisSehirler = new ComboBox();
             dataGridView1 = new DataGridView();
+            btnBilet_degistir = new Button();
             groupBox1.SuspendLayout();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
@@ -314,6 +315,7 @@
             btnBiletDegistir.TabIndex = 4;
             btnBiletDegistir.Text = "Bilet Değiştir";
             btnBiletDegistir.UseVisualStyleBackColor = true;
+            btnBiletDegistir.Click += btnBiletDegistir_Click;
             // 
             // panelUst
             // 
@@ -370,6 +372,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnBilet_degistir);
             groupBox2.Controls.Add(btnBiletİptali);
             groupBox2.Controls.Add(txtUygunSeferId);
             groupBox2.Controls.Add(button3);
@@ -608,6 +611,20 @@
             dataGridView1.TabIndex = 21;
             dataGridView1.Visible = false;
             // 
+            // btnBilet_degistir
+            // 
+            btnBilet_degistir.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnBilet_degistir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBilet_degistir.Location = new Point(341, 40);
+            btnBilet_degistir.Margin = new Padding(4, 3, 4, 3);
+            btnBilet_degistir.Name = "btnBilet_degistir";
+            btnBilet_degistir.Size = new Size(248, 48);
+            btnBilet_degistir.TabIndex = 21;
+            btnBilet_degistir.Text = "Bilet değiştir";
+            btnBilet_degistir.UseVisualStyleBackColor = true;
+            btnBilet_degistir.Visible = false;
+            btnBilet_degistir.Click += btnBilet_degistir_Click;
+            // 
             // KullanciGirişKontrolu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -679,5 +696,6 @@
         private Button button3;
         private TextBox txtUygunSeferId;
         private Button btnBiletİptali;
+        private Button btnBilet_degistir;
     }
 }

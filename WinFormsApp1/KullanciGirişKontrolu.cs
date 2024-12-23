@@ -203,6 +203,9 @@ namespace WinFormsApp1
 
         private void btnSeferAra_Click(object sender, EventArgs e)
         {
+            label5.Text = "Aramak istediniz sefer bilgileri gieeriniz";
+            button1.Visible=true;
+            btnBilet_degistir.Visible=false;
             btnBiletİptali.Visible = false;
             button2.Visible = true;
             button3.Visible = false;
@@ -389,6 +392,7 @@ namespace WinFormsApp1
 
         private void btnBiletAl_Click(object sender, EventArgs e)
         {
+            btnBilet_degistir.Visible = false;
             btnBiletİptali.Visible = false;
             gboxSefer.Visible = false;
             button3.Visible = true;
@@ -474,6 +478,7 @@ namespace WinFormsApp1
             }
             return biletId;
         }
+      
 
         // Bilet ödeme ekleme fonksiyonu
         private void BiletiOdemeyeEkle(int biletId, string odemeTuru)
@@ -543,6 +548,7 @@ namespace WinFormsApp1
 
         private void btnBiletiptalet_Click(object sender, EventArgs e)
         {
+            btnBilet_degistir.Visible = false;
             gboxSefer.Visible = false;
             button3.Visible = false;
             dataGridView1.Visible = true;
@@ -603,7 +609,7 @@ namespace WinFormsApp1
 
                         // Fonksiyonu çalıştır
                         command.ExecuteNonQuery();
-                        btnBiletiptalet_Click(sender,e);
+                        btnBiletiptalet_Click(sender, e);
                         MessageBox.Show("Bilet ve ödeme başarıyla iptal edildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -613,6 +619,134 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBiletDegistir_Click(object sender, EventArgs e)
+        {
+            btnBilet_degistir.Visible = true;
+            label5.Text = "yeni sefer bilgileriniz giriniz";
+            gboxSefer.Visible = true;
+            button3.Visible = false;
+            dataGridView1.Visible = true;
+            groupBox2.Visible = true;
+            button2.Visible = false;
+            label8.Text = "Bilet id :";
+            txtUygunSeferId.Text = "";
+            btnBiletİptali.Visible = false;
+            button1.Visible = false;
+            try
+            {
+                using (var connection = new NpgsqlConnection(baglanti))
+                {
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand("SELECT * FROM kullaniciya_ait_biletler(@kullanici_id)", connection))
+                    {
+                        command.Parameters.AddWithValue("@kullanici_id", aktifKullaniciId);
+
+                        // Sorguyu çalıştır ve sonucu al
+                        using (var reader = command.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+
+                            // DataGridView'e veri kaynağı olarak ata
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnBilet_degistir_Click(object sender, EventArgs e)
+        {
+            int rezervasyonId;
+            // Kalkış şehri seçildi mi?
+            if (cmbKalkisSehirler.SelectedIndex == -1)
+            {
+                MessageBox.Show("Lütfen kalkış şehrini seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Varış şehri seçildi mi?
+            if (cmbVarisSehirler.SelectedIndex == -1)
+            {
+                MessageBox.Show("Lütfen varış şehrini seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kalkış ve varış şehirleri aynı mı?
+            if (cmbKalkisSehirler.SelectedIndex == cmbVarisSehirler.SelectedIndex)
+            {
+                MessageBox.Show("Kalkış şehri ile varış şehri aynı olamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Tarih bugünden veya daha sonraki bir tarihte mi?
+            if (dateTimePicker1.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Lütfen bugünün veya daha sonraki bir tarihi seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Seyahat türü seçildi mi?
+            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked)
+            {
+                MessageBox.Show("Lütfen bir seyahat türü seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Rezervasyon ID'nin geçerli olup olmadığını kontrol et
+            if (!int.TryParse(txtUygunSeferId.Text, out rezervasyonId))
+            {
+                MessageBox.Show("Lütfen geçerli bir rezervasyon ID giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int kullaniciId = aktifKullaniciId; // Aktif kullanıcı ID'si
+            int biletId = rezervasyonId; // Kullanıcının değiştirmek istediği bilet ID'si
+            int yeniKalkisSehirId = cmbKalkisSehirler.SelectedIndex + 1; // Yeni kalkış şehir ID'si
+            int yeniVarisSehirId = cmbVarisSehirler.SelectedIndex + 1; // Yeni varış şehir ID'si
+            DateTime yeniSeferTarihi = dateTimePicker1.Value.Date; // Yeni sefer tarihi
+
+
+            try
+            {
+                // PostgreSQL bağlantısını aç
+                using (var connection = new NpgsqlConnection(baglanti))
+                {
+                    connection.Open();
+
+                    // Fonksiyon çağrısı için SQL komutu
+                    string query = "SELECT bilet_degistir(@kullanici_id, @bilet_id, @yeni_kalkis_sehir_id, @yeni_varis_sehir_id, @yeni_sefer_tarihi)";
+
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        // Parametreleri ekle
+                        command.Parameters.AddWithValue("@kullanici_id", NpgsqlTypes.NpgsqlDbType.Integer, kullaniciId);
+                        command.Parameters.AddWithValue("@bilet_id", NpgsqlTypes.NpgsqlDbType.Integer, biletId);
+                        command.Parameters.AddWithValue("@yeni_kalkis_sehir_id", NpgsqlTypes.NpgsqlDbType.Integer, yeniKalkisSehirId);
+                        command.Parameters.AddWithValue("@yeni_varis_sehir_id", NpgsqlTypes.NpgsqlDbType.Integer, yeniVarisSehirId);
+                        command.Parameters.AddWithValue("@yeni_sefer_tarihi", NpgsqlTypes.NpgsqlDbType.Date, yeniSeferTarihi);
+
+                        // Fonksiyonu çalıştır ve sonucu al
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Bilet başarıyla değiştirildi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnBiletDegistir_Click(sender,e);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
