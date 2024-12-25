@@ -1,12 +1,12 @@
 #include "TreeNode.hpp"
-#include <cstddef> // NULL için
+#include <iostream>
 
-TreeNode::TreeNode(char data) : data(data), left(NULL), right(NULL) {}
+using namespace std;
 
-BinaryTree::BinaryTree() : root(NULL) {}
+BinaryTree::BinaryTree() : root(nullptr) {}
 
 BinaryTree::~BinaryTree() {
-    destroyTree();
+    destroyTree(root);
 }
 
 void BinaryTree::insert(char data) {
@@ -21,16 +21,23 @@ void BinaryTree::insert(TreeNode*& node, char data) {
     } else if (data > node->data) {
         insert(node->right, data);
     }
-    // Eşit olduğunda hiçbir işlem yapma (tekrarlı eleman yok)
 }
 
-void BinaryTree::destroyTree() {
-    destroyTree(root);
-    root = NULL;
+void BinaryTree::printInOrder() {
+    printInOrder(root);
+    cout << endl; // Her ağacı yeni satırda bitir
+}
+
+void BinaryTree::printInOrder(TreeNode* node) {
+    if (node != nullptr) {
+        printInOrder(node->left);           // Sol alt düğümü gez
+        cout << node->data << " ";          // Kök düğümü yazdır
+        printInOrder(node->right);          // Sağ alt düğümü gez
+    }
 }
 
 void BinaryTree::destroyTree(TreeNode* node) {
-    if (node != NULL) {
+    if (node != nullptr) {
         destroyTree(node->left);
         destroyTree(node->right);
         delete node;
