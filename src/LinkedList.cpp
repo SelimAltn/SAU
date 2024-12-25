@@ -1,6 +1,7 @@
 #include "LinkedList.hpp"
 #include "Processor.hpp" // Processor sınıfını dahil et
 #include <iostream>
+#include <iomanip> // setw için gerekli
 
 using namespace std;
 
@@ -156,6 +157,21 @@ void LinkedList::removeCurrentNode(ListNode*& current) {
 ListNode* LinkedList::getHead() const {
     return head; // head üyesini döndürür
 }
+
+ListNode* LinkedList::getNodeAt(int index) {
+    ListNode* current = head;
+    int count = 0;
+
+    while (current != nullptr) {
+        if (count == index) {
+            return current;
+        }
+        current = current->next;
+        count++;
+    }
+
+    return nullptr; // İndeks geçerli değilse
+}
 void LinkedList::calculateAndPrintTotals() {
     ListNode* current = head;
     int index = 0;
@@ -179,4 +195,81 @@ void LinkedList::printAllTrees() {
         current = current->next;
         index++;
     }
+}
+
+ListNode* LinkedList::getCurrentNode() {
+    return current; // Şu anda seçili olan düğümü döndür
+}void LinkedList::printListWithArrows(ListNode* selected, int startIndex, int endIndex) {
+    ListNode* current = head;
+    int index = 0;
+
+    // Doğru aralıktaki düğümleri seç
+    while (current != nullptr && index < startIndex) {
+        current = current->next;
+        index++;
+    }
+
+    // Adresleri yazdır
+    for (int i = startIndex; current != nullptr && i < endIndex; i++) {
+        cout << setw(12) << current; // Düğümlerin adresleri
+        current = current->next;
+    }
+    cout << endl;
+
+    // Başlangıçtan itibaren düğümleri tekrar kontrol et
+    current = head;
+    index = 0;
+    while (current != nullptr && index < startIndex) {
+        current = current->next;
+        index++;
+    }
+
+    // Ağacın toplam değerlerini yazdır
+    for (int i = startIndex; current != nullptr && i < endIndex; i++) {
+        cout << setw(12) << current->tree->calculateTotalValue(); // Ağacın toplam değeri
+        current = current->next;
+    }
+    cout << endl;
+
+    // Başlangıçtan itibaren düğümleri tekrar kontrol et
+    current = head;
+    index = 0;
+    while (current != nullptr && index < startIndex) {
+        current = current->next;
+        index++;
+    }
+
+    // Sonraki düğüm adreslerini yazdır
+    for (int i = startIndex; current != nullptr && i < endIndex; i++) {
+        cout << setw(12) << current->next; // Sonraki düğümün adresi
+        current = current->next;
+    }
+    cout << endl;
+
+    // Okları yazdır
+    current = head;
+    index = 0;
+    while (current != nullptr && index < startIndex) {
+        current = current->next;
+        index++;
+    }
+
+    for (int i = startIndex; current != nullptr && i < endIndex; i++) {
+        if (current == selected) {
+            cout << setw(12) << "^^^^^"; // Seçili düğüm işaretçisi
+        } else {
+            cout << setw(12) << " ";    // Diğer düğümler için boşluk bırak
+        }
+        current = current->next;
+    }
+    cout << endl;
+}
+
+void LinkedList::drawSelectedTree(ListNode* selected) {
+    if (selected == nullptr || selected->tree == nullptr) {
+        cout << "No tree selected to draw." << endl;
+        return;
+    }
+
+    selected->tree->printTree(); // Seçili ağacı çiz
 }

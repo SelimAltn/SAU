@@ -64,23 +64,27 @@ void BinaryTree::mirrorTree(TreeNode*& node) {
     node->left = node->right;
     node->right = temp;
 }
-
-// Toplam değer hesaplama
 int BinaryTree::calculateTotalValue() {
-    return calculateTotalValue(root);
+    return calculateTotalValue(root); // Kök düğümden başla
 }
-
+// Toplam değer hesaplama
 int BinaryTree::calculateTotalValue(TreeNode* node) {
     if (node == nullptr) {
-        return 0;
+        return 0; // Eğer düğüm boşsa katkısı yok
     }
 
+    // Mevcut düğümün ASCII değerini hesapla
+    int currentValue = node->data - 'A' + 1; 
+
+    // Sol düğümün değeri 2 ile çarpılıyor
     int leftValue = 2 * calculateTotalValue(node->left);
+
+    // Sağ düğümün değeri direkt alınıyor
     int rightValue = calculateTotalValue(node->right);
 
-    return (node->data - 'A' + 1) + leftValue + rightValue;
+    // Toplam değeri döndür
+    return currentValue + leftValue + rightValue;
 }
-
 void BinaryTree::printTree() {
     if (root == nullptr) {
         std::cout << "Tree is empty!" << std::endl;

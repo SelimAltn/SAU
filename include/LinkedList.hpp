@@ -24,12 +24,22 @@ public:
     ListNode* getHead() const; // head üyesine erişim sağlamak için bir getter
     void calculateAndPrintTotals(); // Her ağacın toplam değerini hesapla ve yazdır
     void printAllTrees();
+    ListNode* getCurrentNode();          // Şu anda seçili olan düğümü getir
+    void printListWithArrows(ListNode* selected, int startIndex, int endIndex) ;
+    void drawSelectedTree(ListNode* selected);
+    ListNode* getNodeAt(int index);
+    
+
 
 
 
 private:
     ListNode* head; // Listenin başlangıç düğümü
     int size;       // Listedeki düğüm sayısı
+    ListNode* tail;                      // Listenin sonu
+    ListNode* current;                   // Şu anda seçili olan düğüm
+    
+
 };
 
 #endif
