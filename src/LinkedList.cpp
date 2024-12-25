@@ -197,66 +197,84 @@ void LinkedList::printAllTrees() {
     }
 }
 
-ListNode* LinkedList::getCurrentNode() {
+ListNode* LinkedList::getCurrentNode() const{
     return current; // Şu anda seçili olan düğümü döndür
+
+
 }void LinkedList::printListWithArrows(ListNode* selected, int startIndex, int endIndex) {
     ListNode* current = head;
-    int index = 0;
+    
 
-    // Doğru aralıktaki düğümleri seç
+    // 1. Adresleri yazdır
+    current = head; // current değişkenini başlat
+    int index = 0;  // index değişkenini başlat
     while (current != nullptr && index < startIndex) {
         current = current->next;
         index++;
     }
-
-    // Adresleri yazdır
     for (int i = startIndex; current != nullptr && i < endIndex; i++) {
-        cout << setw(12) << current; // Düğümlerin adresleri
+        cout << setw(12) << current; // Düğüm adreslerini yazdır
         current = current->next;
     }
     cout << endl;
 
-    // Başlangıçtan itibaren düğümleri tekrar kontrol et
-    current = head;
-    index = 0;
+    // 2. Ağacın toplam değerlerini yazdır
+    current = head; // current yeniden başlat
+    index = 0;      // index yeniden başlat
     while (current != nullptr && index < startIndex) {
         current = current->next;
         index++;
     }
-
-    // Ağacın toplam değerlerini yazdır
     for (int i = startIndex; current != nullptr && i < endIndex; i++) {
-        cout << setw(12) << current->tree->calculateTotalValue(); // Ağacın toplam değeri
+        cout << setw(12) << current->tree->calculateTotalValue(); // Ağacın toplam değerini yazdır
         current = current->next;
     }
     cout << endl;
 
-    // Başlangıçtan itibaren düğümleri tekrar kontrol et
-    current = head;
-    index = 0;
+    // 3. Sonraki düğüm adreslerini yazdır
+    current = head; // current yeniden başlat
+    index = 0;      // index yeniden başlat
     while (current != nullptr && index < startIndex) {
         current = current->next;
         index++;
     }
-
-    // Sonraki düğüm adreslerini yazdır
     for (int i = startIndex; current != nullptr && i < endIndex; i++) {
-        cout << setw(12) << current->next; // Sonraki düğümün adresi
+        if (current->next) {
+            cout << setw(12) << current->next; // Sonraki düğüm adresini yazdır
+        } else {
+            cout << setw(12) << "NULL"; // Eğer sonraki düğüm yoksa NULL yazdır
+        }
         current = current->next;
     }
     cout << endl;
 
-    // Okları yazdır
-    current = head;
-    index = 0;
+    // 4. Okları yazdır (^^^^^)
+    current = head; // current yeniden başlat
+    index = 0;      // index yeniden başlat
     while (current != nullptr && index < startIndex) {
         current = current->next;
         index++;
     }
-
     for (int i = startIndex; current != nullptr && i < endIndex; i++) {
         if (current == selected) {
-            cout << setw(12) << "^^^^^"; // Seçili düğüm işaretçisi
+            cout << setw(12) << "^^^^^"; // Seçili düğüm için okları yaz
+        } else {
+            cout << setw(12) << " ";    // Diğer düğümler için boşluk bırak
+        }
+        current = current->next;
+    }
+    cout << endl;
+
+    // 5. Çizgileri yazdır (||||)
+    current = head; // current yeniden başlat
+    index = 0;      // index yeniden başlat
+    while (current != nullptr && index < startIndex) {
+        current = current->next;
+        index++;
+    }
+    for (int i = startIndex; current != nullptr && i < endIndex; i++) {
+        if (current == selected) {
+            cout << setw(12) << "||||"; // Seçili düğüm için çizgi yaz
         } else {
             cout << setw(12) << " ";    // Diğer düğümler için boşluk bırak
         }
@@ -265,6 +283,7 @@ ListNode* LinkedList::getCurrentNode() {
     cout << endl;
 }
 
+
 void LinkedList::drawSelectedTree(ListNode* selected) {
     if (selected == nullptr || selected->tree == nullptr) {
         cout << "No tree selected to draw." << endl;
@@ -272,4 +291,45 @@ void LinkedList::drawSelectedTree(ListNode* selected) {
     }
 
     selected->tree->printTree(); // Seçili ağacı çiz
+}
+void LinkedList::removeAndShiftNodes(ListNode*& current, int& startIndex, int& endIndex) {
+    if (current == nullptr) {
+        cout << "No trees to delete!" << endl;
+        return;
+    }
+
+    // Düğümü sil
+    ListNode* toDelete = current;
+
+    if (current == head) {
+        head = head->next;
+        if (head != nullptr) {
+            head->prev = nullptr;
+        }
+        current = head;
+    } else {
+        if (current->prev) {
+            current->prev->next = current->next;
+        }
+        if (current->next) {
+            current->next->prev = current->prev;
+            current = current->next;
+        } else {
+            current = current->prev;
+        }
+    }
+
+    delete toDelete->tree;
+    delete toDelete;
+    size--;
+
+    // Görünen aralığı güncelle
+    if (head == nullptr) {
+        cout << "All trees have been deleted!" << endl;
+        startIndex = 0;
+        endIndex = 0;
+    } else if (current == nullptr || size < endIndex) {
+        endIndex = size;
+        startIndex = max(0, endIndex - 10);
+    }
 }
