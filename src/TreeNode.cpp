@@ -23,17 +23,23 @@ void BinaryTree::insert(TreeNode*& node, char data) {
     }
 }
 
-void BinaryTree::printInOrder() {
-    printInOrder(root);
-    cout << endl; // Her ağacı yeni satırda bitir
+void BinaryTree::printInOrder(std::ostream& out) {
+    printInOrder(root, out);
+    out << std::endl;
 }
 
-void BinaryTree::printInOrder(TreeNode* node) {
+
+void BinaryTree::printInOrder(TreeNode* node, std::ostream& out) {
     if (node != nullptr) {
-        printInOrder(node->left);           // Sol alt düğümü gez
-        cout << node->data << " ";          // Kök düğümü yazdır
-        printInOrder(node->right);          // Sağ alt düğümü gez
+        printInOrder(node->left, out);      // Sol alt düğüm
+        out << node->data << " ";          // Mevcut düğüm
+        printInOrder(node->right, out);    // Sağ alt düğüm
     }
+}
+
+void BinaryTree::destroyTree() {
+    destroyTree(root);
+    root = nullptr;
 }
 
 void BinaryTree::destroyTree(TreeNode* node) {
@@ -42,4 +48,20 @@ void BinaryTree::destroyTree(TreeNode* node) {
         destroyTree(node->right);
         delete node;
     }
+}
+void BinaryTree::mirrorTree() {
+    mirrorTree(root);
+}
+
+void BinaryTree::mirrorTree(TreeNode*& node) {
+    if (node == nullptr) return;
+
+    // Alt düğümleri aynala
+    mirrorTree(node->left);
+    mirrorTree(node->right);
+
+    // Sol ve sağ düğümleri değiştir
+    TreeNode* temp = node->left;
+    node->left = node->right;
+    node->right = temp;
 }

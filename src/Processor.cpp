@@ -1,5 +1,7 @@
 #include "Processor.hpp"
 #include "FileManager.hpp"
+#include "LinkedList.hpp"
+#include "TreeNode.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -40,4 +42,21 @@ void Processor::BuildTreeFromLine(const std::string& line, LinkedList& list) {
     // Ağacı listeye ekle
     list.addNode(tree);
     cout << "Tree created and added to list from line: " << line << endl;
+}
+void Processor::RewriteFile(const std::string& fileName, LinkedList& list) {
+    ofstream outFile(fileName);
+    if (!outFile.is_open()) {
+        cerr << "Failed to open file for writing: " << fileName << endl;
+        return;
+    }
+
+    ListNode* current = list.getHead(); // head yerine getter kullanıldı
+    while (current != nullptr) {
+        current->tree->printInOrder(outFile); // Ağacı sıralı yazdır
+        outFile << endl; // Satır sonu
+        current = current->next;
+    }
+
+    outFile.close();
+    cout << "File updated successfully." << endl;
 }

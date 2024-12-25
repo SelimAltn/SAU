@@ -1,4 +1,5 @@
 #include "LinkedList.hpp"
+#include "Processor.hpp" // Processor sınıfını dahil et
 #include <iostream>
 
 using namespace std;
@@ -63,22 +64,29 @@ void LinkedList::printList() {
         current = current->next;
     }
 }
+
 void LinkedList::navigateList() {
     if (head == nullptr) {
         cout << "The list is empty. Nothing to navigate!" << endl;
         return;
     }
 
+    Processor processor; // Döngünün dışında bir kez tanımlandı
     ListNode* current = head;
     char command;
-    cout << "Navigating the list. Use 'a' to go left, 'd' to go right, and 'q' to quit." << endl;
+    cout << "Navigating the list. Use 'a' to go left, 'd' to go right, 's' to delete, 'w' to mirror, and 'q' to quit." << endl;
 
     while (true) {
+        if (current == nullptr || current->tree == nullptr) {
+            cout << "Current node or tree is null!" << endl;
+            break;
+        }
+
         cout << "\nCurrently at node: ";
         current->tree->printInOrder(); // Mevcut düğümün ağacını yazdır
         cout << endl;
 
-        cout << "Enter command (a: left, d: right, q: quit): ";
+        cout << "Enter command (a: left, d: right, s: delete, w: mirror, q: quit): ";
         cin >> command;
 
         if (command == 'a') {
@@ -93,11 +101,58 @@ void LinkedList::navigateList() {
             } else {
                 cout << "Already at the last node. Can't go right!" << endl;
             }
+        } else if (command == 's') {
+            ListNode* toDelete = current;
+            if (current->next != nullptr) {
+                current = current->next;
+            } else if (current->prev != nullptr) {
+                current = current->prev;
+            } else {
+                current = nullptr;
+            }
+
+            removeCurrentNode(toDelete);
+
+            if (current == nullptr) {
+                processor.RewriteFile("data.txt", *this);
+                cout << "The list is now empty. Exiting navigation." << endl;
+                break;
+            }
+
+            processor.RewriteFile("data.txt", *this); // Dosyayı güncelle
+        } else if (command == 'w') {
+            if (current->tree) {
+                current->tree->mirrorTree(); // Ağacı aynala
+                cout << "Tree mirrored." << endl;
+            }
         } else if (command == 'q') {
             cout << "Exiting navigation." << endl;
             break;
         } else {
-            cout << "Invalid command. Please use 'a', 'd', or 'q'." << endl;
+            cout << "Invalid command. Please use 'a', 'd', 's', 'w', or 'q'." << endl;
         }
     }
+}
+
+
+void LinkedList::removeCurrentNode(ListNode*& current) {
+    if (current == nullptr) return;
+
+    // Düğüm baştaysa
+    if (current == head) {
+        head = head->next;
+        if (head) head->prev = nullptr;
+    } else {
+        // Aradaki veya sondaki düğüm
+        if (current->prev) current->prev->next = current->next;
+        if (current->next) current->next->prev = current->prev;
+    }
+
+    delete current->tree; // Ağacı sil
+    delete current;       // Düğümü sil
+    current = nullptr;    // İşaretçiyi sıfırla
+    size--;
+}
+ListNode* LinkedList::getHead() const {
+    return head; // head üyesini döndürür
 }

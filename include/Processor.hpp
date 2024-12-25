@@ -12,6 +12,8 @@ public:
     Processor();                              // Yapıcı
     ~Processor();                             // Yıkıcı
        void ProcessFile(const std::string& fileName, LinkedList& list);// Dosyayı işle ve ağaç oluştur
+       void RewriteFile(const std::string& fileName, LinkedList& list); // Dosyayı güncelle
+
 
 private:
      void BuildTreeFromLine(const std::string& line, LinkedList& list); // Her satırdan ağaç oluştur

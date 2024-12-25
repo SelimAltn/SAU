@@ -20,6 +20,10 @@ public:
     void removeNode(int index);        // Belirli bir indeksteki düğümü silme
     void printList();                  // Listeyi yazdırma
     void navigateList(); // Kullanıcı ile liste gezintisi
+    void removeCurrentNode(ListNode*& current); // Mevcut düğümü ve ağacını sil
+    ListNode* getHead() const; // head üyesine erişim sağlamak için bir getter
+
+
 
 private:
     ListNode* head; // Listenin başlangıç düğümü

@@ -15,11 +15,9 @@ int main() {
     LinkedList list;
     Processor processor;
 
-    // TXT dosyasından ağaç oluştur ve listeye ekle
     string fileName = "data.txt";
     processor.ProcessFile(fileName, list);
 
-    // Listeyi gezmek için
-    list.navigateList();
+    list.navigateList(); // Listeyi gezin ve işlemleri uygula
     return 0;
 }
