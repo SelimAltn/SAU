@@ -1,4 +1,5 @@
 #include "Processor.hpp"
+#include "FileManager.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -11,30 +12,32 @@ Processor::~Processor() {
     // Gerekirse bellek temizliği
 }
 
-void Processor::ProcessFile(const string& fileName) {
-    ifstream file(fileName);
-    if (!file.is_open()) {
-        cerr << "File could not be opened: " << fileName <<endl;
+void Processor::ProcessFile(const std::string& fileName, LinkedList& list) {
+    FileManager fileManager;
+
+    if (!fileManager.openFile(fileName.c_str())) {
+        cerr << "Failed to open file: " << fileName << endl;
         return;
     }
 
     string line;
-    int lineNumber = 1;
-    while (getline(file, line)) {
-        cout << "Processing line " << lineNumber << ": " << line << endl;
-        BuildTreeFromLine(line);
-        lineNumber++;
+    while (fileManager.readLine(line)) {
+        BuildTreeFromLine(line, list); // Satırdan ağaç oluştur ve listeye ekle
     }
 
-    file.close();
+    fileManager.closeFile();
 }
 
-void Processor::BuildTreeFromLine(const string& line) {
-    BinaryTree tree; // Yeni bir ikili arama ağacı oluştur
-    for (char character : line) {
-        if (character != ' ' && character != '\t') { // Boşlukları atla
-            tree.insert(character);
+void Processor::BuildTreeFromLine(const std::string& line, LinkedList& list) {
+    BinaryTree* tree = new BinaryTree();
+
+    for (char ch : line) {
+        if (ch != ' ' && ch != '\t') { // Boşluk ve tab karakterlerini atla
+            tree->insert(ch);
         }
     }
-    cout << "Binary tree created from line: " << line << "\n";
+
+    // Ağacı listeye ekle
+    list.addNode(tree);
+    cout << "Tree created and added to list from line: " << line << endl;
 }

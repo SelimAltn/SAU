@@ -6,8 +6,10 @@
 struct ListNode {
     BinaryTree* tree; // Her düğüm bir ağacı temsil eder
     ListNode* next;   // Sonraki düğüm
+    ListNode* prev; // Çift yönlü gezinme için ekledik
 
-    ListNode(BinaryTree* t) : tree(t), next(nullptr) {}
+
+    ListNode(BinaryTree* t) : tree(t), next(nullptr), prev(nullptr) {}
 };
 
 class LinkedList {
@@ -17,6 +19,7 @@ public:
     void addNode(BinaryTree* tree);    // Düğüm ekleme
     void removeNode(int index);        // Belirli bir indeksteki düğümü silme
     void printList();                  // Listeyi yazdırma
+    void navigateList(); // Kullanıcı ile liste gezintisi
 
 private:
     ListNode* head; // Listenin başlangıç düğümü

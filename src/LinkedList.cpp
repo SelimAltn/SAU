@@ -25,6 +25,8 @@ void LinkedList::addNode(BinaryTree* tree) {
             temp = temp->next;
         }
         temp->next = newNode; // Liste sonunda yeni düğüm eklenir
+        newNode->prev = temp; // Çift yönlü bağlantı
+
     }
     size++;
 }
@@ -59,5 +61,43 @@ void LinkedList::printList() {
         cout << "Tree at index " << index++ << ":" << endl;
         current->tree->printInOrder(); // Ağacı yazdır
         current = current->next;
+    }
+}
+void LinkedList::navigateList() {
+    if (head == nullptr) {
+        cout << "The list is empty. Nothing to navigate!" << endl;
+        return;
+    }
+
+    ListNode* current = head;
+    char command;
+    cout << "Navigating the list. Use 'a' to go left, 'd' to go right, and 'q' to quit." << endl;
+
+    while (true) {
+        cout << "\nCurrently at node: ";
+        current->tree->printInOrder(); // Mevcut düğümün ağacını yazdır
+        cout << endl;
+
+        cout << "Enter command (a: left, d: right, q: quit): ";
+        cin >> command;
+
+        if (command == 'a') {
+            if (current->prev != nullptr) {
+                current = current->prev;
+            } else {
+                cout << "Already at the first node. Can't go left!" << endl;
+            }
+        } else if (command == 'd') {
+            if (current->next != nullptr) {
+                current = current->next;
+            } else {
+                cout << "Already at the last node. Can't go right!" << endl;
+            }
+        } else if (command == 'q') {
+            cout << "Exiting navigation." << endl;
+            break;
+        } else {
+            cout << "Invalid command. Please use 'a', 'd', or 'q'." << endl;
+        }
     }
 }

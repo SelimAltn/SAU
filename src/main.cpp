@@ -12,33 +12,14 @@ int main() {
     cout<<"--------------------------------------------------\n";
     cout << "Program is starting...\n";
     cout<<"--------------------------------------------------\n";
-   LinkedList list;
+    LinkedList list;
+    Processor processor;
 
-    // İlk ağaç
-    BinaryTree* tree1 = new BinaryTree();
-    tree1->insert('C');
-    tree1->insert('A');
-    tree1->insert('B');
-    list.addNode(tree1);
+    // TXT dosyasından ağaç oluştur ve listeye ekle
+    string fileName = "data.txt";
+    processor.ProcessFile(fileName, list);
 
-    // İkinci ağaç
-    BinaryTree* tree2 = new BinaryTree();
-    tree2->insert('D');
-    tree2->insert('E');
-    tree2->insert('F');
-    list.addNode(tree2);
-
-    // Listeyi yazdır
-    cout << "Initial list:" << endl;
-    list.printList();
-
-    // Bir düğümü sil
-    list.removeNode(0);
-
-    // Listeyi tekrar yazdır
-    cout << "After removing the first node:" << endl;
-    list.printList();
-
-    
+    // Listeyi gezmek için
+    list.navigateList();
     return 0;
 }
