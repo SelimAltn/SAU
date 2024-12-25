@@ -21,6 +21,11 @@ public:
     void printInOrder(std::ostream& out = std::cout); // Varsayılan std::cout
     void mirrorTree(); // Ağaç düğümlerini aynala
     void destroyTree();
+    int calculateTotalValue(); // Ağacın toplam değerini hesaplar
+    void printTree(); // Ağacı çizmek için fonksiyon
+    void printHorizontalLine();
+
+
 
 
 
@@ -30,6 +35,13 @@ private:
     void destroyTree(TreeNode* node);        // Ağacı bellekten temizle
     void mirrorTree(TreeNode*& node); // Yardımcı aynalama fonksiyonu
     void printInOrder(TreeNode* node, std::ostream& out); // Varsayılan std::cout
+    int calculateTotalValue(TreeNode* node); // Rekürsif toplam değer hesaplama
+    void printSpaces(int count);                      // Belirtilen miktarda boşluk yazdırma
+    int calculateDepth(TreeNode* node);               // Ağacın derinliğini hesaplama
+    void printTree(TreeNode* node, int level, int maxDepth, int space); // Ağacı rekürsif çiz
+    void printHorizontalLine(int space, int size);
+
+
 
 
 

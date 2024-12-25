@@ -22,6 +22,8 @@ public:
     void navigateList(); // Kullanıcı ile liste gezintisi
     void removeCurrentNode(ListNode*& current); // Mevcut düğümü ve ağacını sil
     ListNode* getHead() const; // head üyesine erişim sağlamak için bir getter
+    void calculateAndPrintTotals(); // Her ağacın toplam değerini hesapla ve yazdır
+    void printAllTrees();
 
 
 

@@ -12,12 +12,15 @@ int main() {
     cout<<"--------------------------------------------------\n";
     cout << "Program is starting...\n";
     cout<<"--------------------------------------------------\n";
-    LinkedList list;
+   LinkedList list;
     Processor processor;
 
+    // Dosyayı işle ve ağaçları oluştur
     string fileName = "data.txt";
     processor.ProcessFile(fileName, list);
 
-    list.navigateList(); // Listeyi gezin ve işlemleri uygula
+    // Ağaçları çiz
+    cout << "Drawing all trees:" << endl;
+    list.printAllTrees();
     return 0;
 }

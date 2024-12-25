@@ -156,3 +156,27 @@ void LinkedList::removeCurrentNode(ListNode*& current) {
 ListNode* LinkedList::getHead() const {
     return head; // head üyesini döndürür
 }
+void LinkedList::calculateAndPrintTotals() {
+    ListNode* current = head;
+    int index = 0;
+
+    while (current != nullptr) {
+        int totalValue = current->tree->calculateTotalValue(); // Ağacın toplam değerini hesapla
+        cout << "Tree at index " << index << " has a total value of: " << totalValue << endl;
+        current = current->next;
+        index++;
+    }
+}
+
+void LinkedList::printAllTrees() {
+    ListNode* current = head;
+    int index = 0;
+
+    while (current != nullptr) {
+        std::cout << "Tree " << index << ":" << std::endl;
+        current->tree->printTree(); // Ağacı çizdir
+        std::cout << std::endl;
+        current = current->next;
+        index++;
+    }
+}
