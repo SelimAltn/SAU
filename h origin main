@@ -1,0 +1,20 @@
+*   [33mbcaae66[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Add 'Data-Structures-2nd-Assignment/' from commit '53a1ef8b076e6719d03b61e77ff0b73047aaed5b'
+[31m|[m[32m\[m  
+[31m|[m * [33m53a1ef8[m[33m ([m[1;31mds2/main[m[33m)[m silme işlemi tamamlandı
+[31m|[m * [33m8cbdf0e[m Added Tree Visualization with Levels and Lines - Implemented a tree visualization function that includes hierarchical lines and spacing - Adjusted node alignment and spacing for better readability - Prepared for further improvement in visualization details
+[31m|[m * [33maf92b1c[m Added Tree Visualization with Levels and Lines - Implemented a tree visualization function that includes hierarchical lines and spacing - Adjusted node alignment and spacing for better readability - Prepared for further improvement in visualization details
+[31m|[m * [33m1d43368[m Added node deletion and tree mirroring functionality in navigation - Implemented 's' command to delete selected node and update file - Enhanced 'w' command to mirror selected tree structure - Added RewriteFile to update file after list modifications - Introduced getHead function for encapsulated access to LinkedList head - Resolved compatibility issues between Processor and LinkedList
+[31m|[m * [33mb730fdb[m Added navigation functionality for linked list of trees - Implemented 'a' and 'd' commands to move between nodes - Enhanced error handling for navigation boundaries - Combined dynamic tree creation with interactive list traversal
+[31m|[m * [33m12bb324[m linkid list ekleme
+[31m|[m * [33m9bd4206[m first commit
+*   [33m95deee1[m Add 'data-structure-1.proje/' from commit 'b5ae0a0e700e12f92cc2b1f345e138e47a79b9c4'
+[33m|[m[34m\[m  
+[33m|[m * [33mb5ae0a0[m[33m ([m[1;31mds1/main[m[33m)[m first commit
+* [33m63ac4f9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Removed incorrect subtree additions
+*   [33mba36009[m Merge commit 'd9fa8334351afdc0252fffa3c48aaca312742a7a' as 'Data-Structures-2nd-Assignment'
+[35m|[m[36m\[m  
+[35m|[m * [33md9fa833[m Squashed 'Data-Structures-2nd-Assignment/' content from commit 53a1ef8
+*   [33m1a98732[m Merge commit 'a7327512e5214f7051171323cdeea094c00a4974' as 'data-structure-1.proje'
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33ma732751[m Squashed 'data-structure-1.proje/' content from commit b5ae0a0
+* [33m5755447[m Initial commit
