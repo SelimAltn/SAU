@@ -34,8 +34,6 @@ namespace WinFormsApp1
             panelMenu = new Panel();
             pictureBox1 = new PictureBox();
             btnKapat = new Button();
-            btnBiletDurumu = new Button();
-            btnSeferDurumu = new Button();
             btnKampanyalar = new Button();
             btnKullanciGirisi = new Button();
             btnYeniKullanci = new Button();
@@ -56,8 +54,6 @@ namespace WinFormsApp1
             panelMenu.BackColor = Color.FromArgb(39, 49, 65);
             panelMenu.Controls.Add(pictureBox1);
             panelMenu.Controls.Add(btnKapat);
-            panelMenu.Controls.Add(btnBiletDurumu);
-            panelMenu.Controls.Add(btnSeferDurumu);
             panelMenu.Controls.Add(btnKampanyalar);
             panelMenu.Controls.Add(btnKullanciGirisi);
             panelMenu.Controls.Add(btnYeniKullanci);
@@ -88,7 +84,7 @@ namespace WinFormsApp1
             btnKapat.Font = new Font("Book Antiqua", 15.75F);
             btnKapat.ForeColor = SystemColors.ButtonFace;
             btnKapat.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKapat.Location = new Point(0, 604);
+            btnKapat.Location = new Point(0, 471);
             btnKapat.Margin = new Padding(4, 3, 4, 3);
             btnKapat.Name = "btnKapat";
             btnKapat.Padding = new Padding(14, 0, 0, 0);
@@ -97,38 +93,6 @@ namespace WinFormsApp1
             btnKapat.Text = "Kapat";
             btnKapat.UseVisualStyleBackColor = true;
             btnKapat.Click += btnKapat_Click;
-            // 
-            // btnBiletDurumu
-            // 
-            btnBiletDurumu.FlatAppearance.BorderSize = 0;
-            btnBiletDurumu.FlatStyle = FlatStyle.Flat;
-            btnBiletDurumu.Font = new Font("Book Antiqua", 15.75F);
-            btnBiletDurumu.ForeColor = SystemColors.ButtonFace;
-            btnBiletDurumu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBiletDurumu.Location = new Point(0, 544);
-            btnBiletDurumu.Margin = new Padding(4, 3, 4, 3);
-            btnBiletDurumu.Name = "btnBiletDurumu";
-            btnBiletDurumu.Padding = new Padding(14, 0, 0, 0);
-            btnBiletDurumu.Size = new Size(233, 70);
-            btnBiletDurumu.TabIndex = 9;
-            btnBiletDurumu.Text = "Bilet Durumu";
-            btnBiletDurumu.UseVisualStyleBackColor = true;
-            // 
-            // btnSeferDurumu
-            // 
-            btnSeferDurumu.FlatAppearance.BorderSize = 0;
-            btnSeferDurumu.FlatStyle = FlatStyle.Flat;
-            btnSeferDurumu.Font = new Font("Book Antiqua", 15.75F);
-            btnSeferDurumu.ForeColor = SystemColors.ButtonFace;
-            btnSeferDurumu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSeferDurumu.Location = new Point(0, 474);
-            btnSeferDurumu.Margin = new Padding(4, 3, 4, 3);
-            btnSeferDurumu.Name = "btnSeferDurumu";
-            btnSeferDurumu.Padding = new Padding(14, 0, 0, 0);
-            btnSeferDurumu.Size = new Size(233, 70);
-            btnSeferDurumu.TabIndex = 6;
-            btnSeferDurumu.Text = "Sefer Durumu";
-            btnSeferDurumu.UseVisualStyleBackColor = true;
             // 
             // btnKampanyalar
             // 
@@ -282,12 +246,10 @@ namespace WinFormsApp1
         private System.Windows.Forms.Button btnYeniKullanci;
         private System.Windows.Forms.Button btnKullanciGirisi;
         private System.Windows.Forms.Button btnKampanyalar;
-        private System.Windows.Forms.Button btnSeferDurumu;
         private System.Windows.Forms.Panel panelUst;
         private System.Windows.Forms.Label LBBulunduSayfaAdi;
         private System.Windows.Forms.Panel panelFormlar;
         private System.Windows.Forms.Button btnBackhizmet;
-        private System.Windows.Forms.Button btnBiletDurumu;
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnBackSatisİcin;
         private PictureBox pictureBox1;

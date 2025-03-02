@@ -50,7 +50,12 @@
             btnBackSatisİcin = new Button();
             btnBackhizmet = new Button();
             panel1 = new Panel();
+            groupBox3 = new GroupBox();
+            button4 = new Button();
+            richTextBox1 = new RichTextBox();
+            label10 = new Label();
             groupBox2 = new GroupBox();
+            btnBilet_degistir = new Button();
             btnBiletİptali = new Button();
             txtUygunSeferId = new TextBox();
             button3 = new Button();
@@ -71,12 +76,12 @@
             label7 = new Label();
             cmbKalkisSehirler = new ComboBox();
             dataGridView1 = new DataGridView();
-            btnBilet_degistir = new Button();
             groupBox1.SuspendLayout();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelUst.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             gboxSefer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -174,10 +179,10 @@
             panelMenu.Controls.Add(btnBiletiptalet);
             panelMenu.Controls.Add(btnBiletDegistir);
             panelMenu.Dock = DockStyle.Right;
-            panelMenu.Location = new Point(1888, 48);
+            panelMenu.Location = new Point(1684, 48);
             panelMenu.Margin = new Padding(4, 3, 4, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(256, 1091);
+            panelMenu.Size = new Size(256, 1052);
             panelMenu.TabIndex = 15;
             panelMenu.Visible = false;
             // 
@@ -282,6 +287,7 @@
             btnSeferinizDegerlendiriniz.TabIndex = 5;
             btnSeferinizDegerlendiriniz.Text = "Seferiniz Değerlendiriniz";
             btnSeferinizDegerlendiriniz.UseVisualStyleBackColor = true;
+            btnSeferinizDegerlendiriniz.Click += btnSeferinizDegerlendiriniz_Click;
             // 
             // btnBiletiptalet
             // 
@@ -326,7 +332,7 @@
             panelUst.Location = new Point(0, 0);
             panelUst.Margin = new Padding(4, 3, 4, 3);
             panelUst.Name = "panelUst";
-            panelUst.Size = new Size(2144, 48);
+            panelUst.Size = new Size(1940, 48);
             panelUst.TabIndex = 16;
             // 
             // btnBackSatisİcin
@@ -357,6 +363,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(panelMenu);
             panel1.Controls.Add(gboxSefer);
@@ -367,8 +374,52 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(2144, 1139);
+            panel1.Size = new Size(1940, 1100);
             panel1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(button4);
+            groupBox3.Controls.Add(richTextBox1);
+            groupBox3.Controls.Add(label10);
+            groupBox3.Location = new Point(813, 772);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(543, 276);
+            groupBox3.TabIndex = 23;
+            groupBox3.TabStop = false;
+            groupBox3.Visible = false;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(9, 87);
+            button4.Margin = new Padding(4, 3, 4, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(248, 48);
+            button4.TabIndex = 22;
+            button4.Text = "Gönder";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(264, 19);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(206, 125);
+            richTextBox1.TabIndex = 23;
+            richTextBox1.Text = "";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label10.Location = new Point(7, 19);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(234, 28);
+            label10.TabIndex = 22;
+            label10.Text = "Şikayetinizi ekleyeniz";
             // 
             // groupBox2
             // 
@@ -384,6 +435,20 @@
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Visible = false;
+            // 
+            // btnBilet_degistir
+            // 
+            btnBilet_degistir.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnBilet_degistir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBilet_degistir.Location = new Point(341, 39);
+            btnBilet_degistir.Margin = new Padding(4, 3, 4, 3);
+            btnBilet_degistir.Name = "btnBilet_degistir";
+            btnBilet_degistir.Size = new Size(248, 48);
+            btnBilet_degistir.TabIndex = 21;
+            btnBilet_degistir.Text = "Bilet değiştir";
+            btnBilet_degistir.UseVisualStyleBackColor = true;
+            btnBilet_degistir.Visible = false;
+            btnBilet_degistir.Click += btnBilet_degistir_Click;
             // 
             // btnBiletİptali
             // 
@@ -611,25 +676,11 @@
             dataGridView1.TabIndex = 21;
             dataGridView1.Visible = false;
             // 
-            // btnBilet_degistir
-            // 
-            btnBilet_degistir.Font = new Font("Palatino Linotype", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btnBilet_degistir.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBilet_degistir.Location = new Point(341, 40);
-            btnBilet_degistir.Margin = new Padding(4, 3, 4, 3);
-            btnBilet_degistir.Name = "btnBilet_degistir";
-            btnBilet_degistir.Size = new Size(248, 48);
-            btnBilet_degistir.TabIndex = 21;
-            btnBilet_degistir.Text = "Bilet değiştir";
-            btnBilet_degistir.UseVisualStyleBackColor = true;
-            btnBilet_degistir.Visible = false;
-            btnBilet_degistir.Click += btnBilet_degistir_Click;
-            // 
             // KullanciGirişKontrolu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2144, 1139);
+            ClientSize = new Size(1940, 1100);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
@@ -643,6 +694,8 @@
             panelLogo.PerformLayout();
             panelUst.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             gboxSefer.ResumeLayout(false);
@@ -697,5 +750,9 @@
         private TextBox txtUygunSeferId;
         private Button btnBiletİptali;
         private Button btnBilet_degistir;
+        private GroupBox groupBox3;
+        private RichTextBox richTextBox1;
+        private Label label10;
+        private Button button4;
     }
 }

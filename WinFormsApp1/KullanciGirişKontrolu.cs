@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -203,9 +204,10 @@ namespace WinFormsApp1
 
         private void btnSeferAra_Click(object sender, EventArgs e)
         {
+            groupBox3.Visible = false;
             label5.Text = "Aramak istediniz sefer bilgileri gieeriniz";
-            button1.Visible=true;
-            btnBilet_degistir.Visible=false;
+            button1.Visible = true;
+            btnBilet_degistir.Visible = false;
             btnBiletİptali.Visible = false;
             button2.Visible = true;
             button3.Visible = false;
@@ -249,7 +251,43 @@ namespace WinFormsApp1
 
         private void btnSeferlerimGoruntule_Click(object sender, EventArgs e)
         {
+            groupBox3.Visible = false;
+            groupBox3.Visible = false;
+            btnBilet_degistir.Visible = false;
+            gboxSefer.Visible = false;
+            button3.Visible = false;
+            dataGridView1.Visible = true;
+            groupBox2.Visible = false;
+            button2.Visible = false;
+            btnBiletİptali.Visible = false;
+            button1.Visible = false;
+            // Kullanıcı ID ve Şikayet Metni alınır
+            try
+            {
+                using (var connection = new NpgsqlConnection(baglanti))
+                {
+                    connection.Open();
 
+                    using (var command = new NpgsqlCommand("SELECT * FROM kullaniciya_ait_biletler(@kullanici_id)", connection))
+                    {
+                        command.Parameters.AddWithValue("@kullanici_id", aktifKullaniciId);
+
+                        // Sorguyu çalıştır ve sonucu al
+                        using (var reader = command.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+
+                            // DataGridView'e veri kaynağı olarak ata
+                            dataGridView1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -392,6 +430,7 @@ namespace WinFormsApp1
 
         private void btnBiletAl_Click(object sender, EventArgs e)
         {
+            groupBox3.Visible = false;
             btnBilet_degistir.Visible = false;
             btnBiletİptali.Visible = false;
             gboxSefer.Visible = false;
@@ -478,7 +517,7 @@ namespace WinFormsApp1
             }
             return biletId;
         }
-      
+
 
         // Bilet ödeme ekleme fonksiyonu
         private void BiletiOdemeyeEkle(int biletId, string odemeTuru)
@@ -548,6 +587,7 @@ namespace WinFormsApp1
 
         private void btnBiletiptalet_Click(object sender, EventArgs e)
         {
+            groupBox3.Visible = false;
             btnBilet_degistir.Visible = false;
             gboxSefer.Visible = false;
             button3.Visible = false;
@@ -624,6 +664,7 @@ namespace WinFormsApp1
 
         private void btnBiletDegistir_Click(object sender, EventArgs e)
         {
+            groupBox3.Visible = false;
             btnBilet_degistir.Visible = true;
             label5.Text = "yeni sefer bilgileriniz giriniz";
             gboxSefer.Visible = true;
@@ -740,7 +781,7 @@ namespace WinFormsApp1
                 }
 
                 MessageBox.Show("Bilet başarıyla değiştirildi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnBiletDegistir_Click(sender,e);
+                btnBiletDegistir_Click(sender, e);
 
 
             }
@@ -749,5 +790,67 @@ namespace WinFormsApp1
                 MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSeferinizDegerlendiriniz_Click(object sender, EventArgs e)
+        {
+            groupBox3.Visible = true;
+            btnBilet_degistir.Visible = false;
+            gboxSefer.Visible = false;
+            button3.Visible = false;
+            dataGridView1.Visible = false;
+            groupBox2.Visible = false;
+            button2.Visible = false;
+            btnBiletİptali.Visible = false;
+            button1.Visible = false;
+            // Kullanıcı ID ve Şikayet Metni alınır
+
+
+
+
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string sikayetMetni = richTextBox1.Text;
+            if (string.IsNullOrWhiteSpace(sikayetMetni))
+            {
+                MessageBox.Show("Şikayet metni boş olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            try
+            {
+                using (var connection = new NpgsqlConnection(baglanti))
+                {
+                    connection.Open();
+
+                    // Fonksiyon çağrısı
+                    using (var cmd = new NpgsqlCommand("SELECT SikayetEkle(@kullanici_id, @sikayet_metni);", connection))
+                    {
+                        cmd.Parameters.AddWithValue("kullanici_id", aktifKullaniciId);
+                        cmd.Parameters.AddWithValue("sikayet_metni", sikayetMetni);
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Şikayet başarıyla eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        richTextBox1.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+     
+    
+        
     }
 }
