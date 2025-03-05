@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\c#\\yeni\\Simple Word\\",
+  "WorkspaceRootPath": "D:\\\u00D6devlerim\\Simple Word NDP1.\u00D6DEV\\Simple-Word-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{289FF4A8-64CC-4716-88FB-318D11EBC9FE}|Simple Word\\Simple Word.csproj|d:\\c#\\yeni\\simple word\\simple word\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{289FF4A8-64CC-4716-88FB-318D11EBC9FE}|Simple Word\\Simple Word.csproj|d:\\\u00F6devlerim\\simple word ndp1.\u00F6dev\\simple-word-app\\simple word\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{289FF4A8-64CC-4716-88FB-318D11EBC9FE}|Simple Word\\Simple Word.csproj|solutionrelative:simple word\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{289FF4A8-64CC-4716-88FB-318D11EBC9FE}|Simple Word\\Simple Word.csproj|D:\\c#\\yeni\\Simple Word\\simple word\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{289FF4A8-64CC-4716-88FB-318D11EBC9FE}|Simple Word\\Simple Word.csproj|D:\\\u00D6devlerim\\Simple Word NDP1.\u00D6DEV\\Simple-Word-app\\simple word\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{289FF4A8-64CC-4716-88FB-318D11EBC9FE}|Simple Word\\Simple Word.csproj|solutionrelative:simple word\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -28,9 +28,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\c#\\yeni\\Simple Word\\Simple Word\\Form1.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\Simple Word NDP1.\u00D6DEV\\Simple-Word-app\\Simple Word\\Form1.cs",
               "RelativeDocumentMoniker": "Simple Word\\Form1.cs",
-              "ToolTip": "D:\\c#\\yeni\\Simple Word\\Simple Word\\Form1.cs [Design]",
+              "ToolTip": "D:\\\u00D6devlerim\\Simple Word NDP1.\u00D6DEV\\Simple-Word-app\\Simple Word\\Form1.cs [Design]",
               "RelativeToolTip": "Simple Word\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-21T23:20:10.996Z",
@@ -57,9 +57,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\c#\\yeni\\Simple Word\\Simple Word\\Form1.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\Simple Word NDP1.\u00D6DEV\\Simple-Word-app\\Simple Word\\Form1.cs",
               "RelativeDocumentMoniker": "Simple Word\\Form1.cs",
-              "ToolTip": "D:\\c#\\yeni\\Simple Word\\Simple Word\\Form1.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\Simple Word NDP1.\u00D6DEV\\Simple-Word-app\\Simple Word\\Form1.cs",
               "RelativeToolTip": "Simple Word\\Form1.cs",
               "ViewState": "AgIAAOwAAAAAAAAAAAAUwPAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
