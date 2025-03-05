@@ -15,7 +15,12 @@ This project demonstrates the use of **C# (Windows Forms)** for creating a basic
 
 ## Technologies Used  
 - **C# (Windows Forms)** for GUI and functionality  
-- **OpenFileDialog, SaveFileDialog, FontDialog, ColorDialog** for user interactions  
+- **OpenFileDialog, SaveFileDialog, FontDialog, ColorDialog** for user interactions
+  
+![image](https://github.com/user-attachments/assets/d680f269-be71-4291-85ad-09179e3239b5)
+
+
+
 
 ## Installation & Usage  
 1. Clone the repository.  
