@@ -4,7 +4,12 @@
 Biletim is a ticket booking application designed to facilitate the purchasing process for different travel types, including bus, airplane, and train tickets. The system allows users to search for available trips, make reservations, and manage their tickets efficiently.
 
 ## Project Details
-This project is developed as an assignment for the **Database Management Systems (VTYS)** course at **Sakarya University**. It showcases database design principles and CRUD operations for an interactive ticket booking system.
+This project is developed as an assignment for the **Database Management Systems (VTYS)** course at **Sakarya University**. It showcases database design principles and CRUD operations for an interactive ticket booking system. <br>
+![image](https://github.com/user-attachments/assets/5363af08-7fd3-471c-9c24-fe8ff3867b38)
+![image](https://github.com/user-attachments/assets/0afcfb52-33d6-48c9-8947-d0744cf0a09c)
+
+
+
 
 ## Features
 - Search for bus, airplane, and train trips.
