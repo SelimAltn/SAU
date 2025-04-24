@@ -95,7 +95,67 @@ public class Simulasyon {
         toplamYolcu = DosyaOkuma.kisileriOku("Kisiler.txt").size();
         kalanYolcu = kisiler.size();
 
-        System.out.println("\n--- Simülasyon Bitti ---\n");
+        System.out.println("--- Simülasyon Bitti ---");
+
+        // === 📋 HOCANIN FORMATINA GÖRE ===
+        System.out.println("Gezegenler:\n");
+
+     // Satır 1: Başlıklar
+     System.out.printf("%-20s", "");  // Boşluk bırak tarih/nüfus için
+     for (Gezegen g : gezegenler) {
+         System.out.printf("%-25s", String.format("--- %-3s ---", g.getAd()));
+     }
+     System.out.println();
+
+     // Satır 2: Tarihler
+     System.out.printf("%-20s", "Tarih:");
+     for (Gezegen g : gezegenler) {
+         String tarih = gezegenZamanlari.get(g.getAd()).getTarihSadece();
+         System.out.printf("%-25s", tarih);
+     }
+     System.out.println();
+
+     // Satır 3: Nüfuslar
+     System.out.printf("%-20s", "Nüfus:");
+     for (Gezegen g : gezegenler) {
+         System.out.printf("%-25s", "--"); // Sabit tutulmuştu
+     }
+     System.out.println();
+
+        
+
+        System.out.println("Uzay Araçları:");
+       
+        System.out.printf("%-10s %-10s %-10s %-10s %-20s %-20s\n",
+                "Araç Adı", "Durum", "Çıkış", "Varış", "Hedefe Kalan Saat", "Hedefe Varacağı Tarih");
+
+        for (UzayAraci a : araclar) {
+            String durum;
+            String kalanSaat;
+            String varisTarih;
+
+            if (a.isImha()) {
+                durum = "IMHA";
+                kalanSaat = "--";
+                varisTarih = "--";
+            } else if (a.hedefeUlasti()) {
+                durum = "Vardı";
+                kalanSaat = "0";
+                varisTarih = a.getVarisTarihi();
+            } else if (a.isAktif()) {
+                durum = "Yolda";
+                kalanSaat = String.valueOf(a.getKalanMesafe());
+                varisTarih = "--";
+            } else {
+                durum = "Bekliyor";
+                kalanSaat = String.valueOf(a.getMesafe());
+                varisTarih = "--";
+            }
+
+           
+            System.out.printf("%-10s %-10s %-10s %-10s %-20s %-20s\n",
+                    a.getAd(), durum, a.getCikis(), a.getVaris(), kalanSaat, varisTarih);
+        }
 
         for (UzayAraci a : araclar) {
             System.out.print(a.getAd() + ": ");
@@ -114,7 +174,6 @@ public class Simulasyon {
             if (a.isImha()) imhaSayisi++;
             if (a.hedefeUlasti()) ulasanSayisi++;
         }
-
         System.out.println("\n=== 📊 Simülasyon Özeti ===\n");
 
         System.out.printf("%-30s %d saat\n", "Toplam geçen süre:", toplamSimulasyonSaati);
@@ -137,5 +196,7 @@ public class Simulasyon {
         for (Map.Entry<String, Zaman> entry : gezegenZamanlari.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue().tarihYaz());
         }
+
+        
     }
 }
