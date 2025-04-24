@@ -28,6 +28,10 @@ public class Kisi {
     public void setKalanOmur(int omur) {
         this.kalanOmur = omur;
     }
+    public boolean birSaatAzalt() {
+        kalanOmur--;
+        return kalanOmur > 0;
+    }
 
     @Override
     public String toString() {

@@ -28,7 +28,14 @@ public class Simulasyon {
             gezegenZamanlari.put(g.getAd(), new Zaman(g.getTarih(), g.getGunSaat()));
         }
 
+        int toplamSimulasyonSaati = 0;
+        int toplamYolcu;
+        int kalanYolcu;
+        int imhaSayisi = 0;
+        int ulasanSayisi = 0;
+
         while (!tumAraclarTamamlandi(araclar)) {
+            toplamSimulasyonSaati++;
             for (Zaman z : gezegenZamanlari.values()) {
                 z.ilerlet(1);
             }
@@ -58,11 +65,9 @@ public class Simulasyon {
                     while (it.hasNext()) {
                         Kisi k = it.next();
                         if (k.getUzayAraci().equals(a.getAd())) {
-                            int omur = k.getKalanOmur() - 1;
-                            if (omur <= 0) {
+                            if (!k.birSaatAzalt()) {
                                 it.remove();
                             } else {
-                                k.setKalanOmur(omur);
                                 yolcuSayisi++;
                             }
                         }
@@ -81,13 +86,17 @@ public class Simulasyon {
             }
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 break;
             }
         }
 
+        toplamYolcu = DosyaOkuma.kisileriOku("Kisiler.txt").size();
+        kalanYolcu = kisiler.size();
+
         System.out.println("\n--- Simülasyon Bitti ---\n");
+
         for (UzayAraci a : araclar) {
             System.out.print(a.getAd() + ": ");
             if (a.isImha()) {
@@ -99,6 +108,34 @@ public class Simulasyon {
             } else {
                 System.out.println("BEKLEMEDE");
             }
+        }
+
+        for (UzayAraci a : araclar) {
+            if (a.isImha()) imhaSayisi++;
+            if (a.hedefeUlasti()) ulasanSayisi++;
+        }
+
+        System.out.println("\n=== 📊 Simülasyon Özeti ===\n");
+
+        System.out.printf("%-30s %d saat\n", "Toplam geçen süre:", toplamSimulasyonSaati);
+        System.out.printf("%-30s %d\n", "Toplam başlangıç yolcusu:", toplamYolcu);
+        System.out.printf("%-30s %d\n", "Hayatta kalan yolcu:", kalanYolcu);
+        System.out.printf("%-30s %d\n", "İmha olan araç sayısı:", imhaSayisi);
+        System.out.printf("%-30s %d\n", "Ulaşan araç sayısı:", ulasanSayisi);
+
+        System.out.println("\n=== 👤 Hayatta Kalan Yolcular ===");
+        if (kalanYolcu == 0) {
+            System.out.println("- Kalan yolcu yok.");
+        } else {
+            for (Kisi k : kisiler) {
+                System.out.printf("- %-10s (%2d yaşında) → %3d saat kaldı | Araç: %s\n",
+                        k.getIsim(), k.getYas(), k.getKalanOmur(), k.getUzayAraci());
+            }
+        }
+
+        System.out.println("\n=== 🪐 Gezegenlerin Son Zamanı ===");
+        for (Map.Entry<String, Zaman> entry : gezegenZamanlari.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().tarihYaz());
         }
     }
 }
