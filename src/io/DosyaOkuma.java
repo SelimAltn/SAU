@@ -17,10 +17,8 @@ public class DosyaOkuma {
 		return new Kisi(isim, yas, kalan, uzayAraci);
 	}
 	
-
 	public static ArrayList<Kisi> kisileriOku(String dosyaAdi) {
 	    ArrayList<Kisi> kisiler = new ArrayList<>();
-
 	    try (BufferedReader br = new BufferedReader(new FileReader(dosyaAdi))) {
 	        String satir = br.readLine(); // başlık varsa atla
 	        while ((satir = br.readLine()) != null) {
@@ -29,36 +27,46 @@ public class DosyaOkuma {
 	    } catch (IOException e) {
 	        System.out.println("Kisiler dosyası okunamadı: " + e.getMessage());
 	    }
-
 	    return kisiler;
 	}
 
 	public static Gezegen parseGezegen(String satir) {
+	    satir = satir.replace("\u00A0", "").trim();
 	    String[] parca = satir.split("#");
+	    if (parca.length < 4) {
+	        System.out.println("Hatalı satır (Eksik parça): " + satir);
+	        return null;
+	    }
 	    String ad = parca[0];
 	    int gunSaat = Integer.parseInt(parca[1]);
 	    String tarih = parca[2];
-	    return new Gezegen(ad, gunSaat, tarih);
+	    int nufus = Integer.parseInt(parca[3]);
+	    return new Gezegen(ad, gunSaat, tarih, nufus);
 	}
 
 	public static ArrayList<Gezegen> gezegenleriOku(String dosyaAdi) {
 	    ArrayList<Gezegen> gezegenler = new ArrayList<>();
-
 	    try (BufferedReader br = new BufferedReader(new FileReader(dosyaAdi))) {
 	        String satir = br.readLine();
 	        while ((satir = br.readLine()) != null) {
-	            gezegenler.add(parseGezegen(satir));
+	            Gezegen g = parseGezegen(satir);
+	            if (g != null) {
+	                gezegenler.add(g);
+	            }
 	        }
 	    } catch (IOException e) {
 	        System.out.println("Gezegenler dosyası okunamadı: " + e.getMessage());
 	    }
-
 	    return gezegenler;
 	}
 
-	
 	public static UzayAraci parseUzayAraci(String satir) {
+	    satir = satir.replace("\u00A0", "").trim();
 	    String[] parca = satir.split("#");
+	    if (parca.length < 5) {
+	        System.out.println("Hatalı satır (Eksik parça): " + satir);
+	        return null;
+	    }
 	    String ad = parca[0];
 	    String cikis = parca[1];
 	    String varis = parca[2];
@@ -69,18 +77,17 @@ public class DosyaOkuma {
 
 	public static ArrayList<UzayAraci> araclariOku(String dosyaAdi) {
 	    ArrayList<UzayAraci> araclar = new ArrayList<>();
-
 	    try (BufferedReader br = new BufferedReader(new FileReader(dosyaAdi))) {
 	        String satir = br.readLine();
 	        while ((satir = br.readLine()) != null) {
-	            araclar.add(parseUzayAraci(satir));
+	            UzayAraci a = parseUzayAraci(satir);
+	            if (a != null) {
+	                araclar.add(a);
+	            }
 	        }
 	    } catch (IOException e) {
 	        System.out.println("Araclar dosyası okunamadı: " + e.getMessage());
 	    }
-
 	    return araclar;
 	}
-
-
-}
+} 

@@ -94,6 +94,20 @@ public class UzayAraci {
 	    public String getVarisTarihi() {
 	        return varisTarihi;
 	    }
+	    public String[] raporSatiri() {
+	        String durum = isImha() ? "IMHA" : hedefeUlasti() ? "Vardı" : isAktif() ? "Yolda" : "Bekliyor";
+	        String kalan = isImha() ? "--" : hedefeUlasti() ? "0" : isAktif() ? String.valueOf(getKalanMesafe()) : String.valueOf(getMesafe());
+	        String varisTarih = isImha() || !hedefeUlasti() ? "--" : getVarisTarihi();
+	        return new String[] { ad, durum, cikis, varis, kalan, varisTarih };
+	    }
+
+	    public String getDurumYazili() {
+	        if (isImha()) return "İMHA";
+	        if (hedefeUlasti()) return "ULAŞTI → " + getVarisTarihi();
+	        if (isAktif()) return "YOLDA → Kalan: " + getKalanMesafe() + " saat";
+	        return "BEKLEMEDE";
+	    }
+
 
 
 }
