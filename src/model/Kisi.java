@@ -25,6 +25,9 @@ public class Kisi {
     public String getUzayAraci() {
         return uzayAraci;
     }
+    public void setKalanOmur(int omur) {
+        this.kalanOmur = omur;
+    }
 
     @Override
     public String toString() {

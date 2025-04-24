@@ -41,7 +41,7 @@ public class Zaman {
     }
 
     public String getTarihSadece() {
-        return gun + "." + ay + "." + yil;
+        return String.format("%02d.%02d.%04d", gun, ay, yil);
     }
 
 }
