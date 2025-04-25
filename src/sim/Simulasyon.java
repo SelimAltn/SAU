@@ -1,4 +1,4 @@
-// Simulasyon.java (modüler hale getirilmiş)
+
 package sim;
 
 import io.DosyaOkuma;
@@ -35,7 +35,7 @@ public class Simulasyon {
         }
     }
 
-    private static void araclariIslet(List<UzayAraci> araclar, List<Kisi> kisiler, Map<String, Zaman> zamanMap) {
+    private static void araclariIslet(List<UzayAraci> araclar, List<Kisi> kisiler, Map<String, Zaman> zamanMap, List<Gezegen> gezegenler) {
         for (UzayAraci a : araclar) {
             if (!a.isAktif()) continue;
 
@@ -46,8 +46,18 @@ public class Simulasyon {
             while (it.hasNext()) {
                 Kisi k = it.next();
                 if (k.getUzayAraci().equals(a.getAd())) {
-                    if (!k.birSaatAzalt()) it.remove();
-                    else yolcuSayisi++;
+                	if (!k.birSaatAzalt()) {
+                	    for (Gezegen g : gezegenler) {
+                	        if (g.getAd().equals(a.getVaris())) {
+                	            g.azaltNufus();
+                	            break;
+                	        }
+                	    }
+                	    it.remove();
+                	} else {
+                	    yolcuSayisi++;
+                	}
+
                 }
             }
 
@@ -95,6 +105,25 @@ public class Simulasyon {
             System.out.println(a.getAd() + ": " + a.getDurumYazili());
         }
     }
+    private static void baslangictaNufusEkle(List<Kisi> kisiler, List<Gezegen> gezegenler, List<UzayAraci> araclar) {
+        Map<String, UzayAraci> aracMap = new HashMap<>();
+        for (UzayAraci a : araclar) {
+            aracMap.put(a.getAd(), a);
+        }
+
+        for (Kisi k : kisiler) {
+            UzayAraci a = aracMap.get(k.getUzayAraci());
+            if (a != null && !a.isAktif() && !a.hedefeUlasti() && !a.isImha()) {
+                for (Gezegen g : gezegenler) {
+                    if (g.getAd().equals(a.getCikis())) {
+                        g.artirNufus(); // Bu metodu Gezegen sınıfına ekleyeceğiz
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
 
    
 
@@ -104,6 +133,7 @@ public class Simulasyon {
         List<UzayAraci> araclar = DosyaOkuma.araclariOku("Araclar.txt");
 
         Map<String, Zaman> zamanMap = zamanlariOlustur(gezegenler);
+        baslangictaNufusEkle(kisiler, gezegenler, araclar);
 
         int toplamSaat = 0;
         while (!tumAraclarTamamlandi(araclar)) {
@@ -117,10 +147,10 @@ public class Simulasyon {
             }
 
             aracAktiflestir(araclar, zamanMap);
-            araclariIslet(araclar, kisiler, zamanMap);
+            araclariIslet(araclar, kisiler, zamanMap,gezegenler);
 
             try {
-                Thread.sleep(10);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 break;
             }

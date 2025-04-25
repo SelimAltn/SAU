@@ -46,6 +46,15 @@ public class Gezegen {
 	public String formatliNufusSatiri() {
 	    return String.format("%-25s", nufus);
 	}
+	public void azaltNufus() {
+	    if (nufus > 0) {
+	        nufus--;
+	    }
+	}
+	public void artirNufus() {
+	    this.nufus++;
+	}
+
 
 	
 
