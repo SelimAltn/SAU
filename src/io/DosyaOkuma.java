@@ -33,15 +33,14 @@ public class DosyaOkuma {
 	public static Gezegen parseGezegen(String satir) {
 	    satir = satir.replace("\u00A0", "").trim();
 	    String[] parca = satir.split("#");
-	    if (parca.length < 4) {
+	    if (parca.length < 3) {
 	        System.out.println("Hatalı satır (Eksik parça): " + satir);
 	        return null;
 	    }
 	    String ad = parca[0];
 	    int gunSaat = Integer.parseInt(parca[1]);
 	    String tarih = parca[2];
-	    int nufus = Integer.parseInt(parca[3]);
-	    return new Gezegen(ad, gunSaat, tarih, nufus);
+	    return new Gezegen(ad, gunSaat, tarih);
 	}
 
 	public static ArrayList<Gezegen> gezegenleriOku(String dosyaAdi) {

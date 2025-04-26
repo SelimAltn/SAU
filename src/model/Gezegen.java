@@ -6,13 +6,12 @@ public class Gezegen {
 	private String ad;
 	private int gunSaat;
 	private String tarih;
-	private int nufus;
+	private int nufus=0;
 
-	public Gezegen(String ad, int gunSaat, String tarih, int nufus) {
+	public Gezegen(String ad, int gunSaat, String tarih) {
 		this.ad = ad;
 		this.gunSaat = gunSaat;
 		this.tarih = tarih;
-		this.nufus = nufus;
 	}
 
 	public String getAd() {

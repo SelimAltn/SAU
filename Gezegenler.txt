@@ -1,5 +1,5 @@
-Gezegen_Adi#Gunun_kac_saat_oldugu#Gezegendeki_tarih#Nufus
-X#24#24.04.2025#100
-Y#30#24.04.2025#45
-Z#36#24.04.2025#70
+Gezegen_Adi#Gunun_kac_saat_oldugu#Gezegendeki_tarih
+X#24#24.04.2025
+Y#30#24.04.2025
+Z#36#24.04.2025
 

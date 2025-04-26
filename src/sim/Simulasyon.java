@@ -150,7 +150,7 @@ public class Simulasyon {
             araclariIslet(araclar, kisiler, zamanMap,gezegenler);
 
             try {
-                Thread.sleep(1);
+                Thread.sleep(0);
             } catch (InterruptedException e) {
                 break;
             }
