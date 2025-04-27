@@ -29,18 +29,26 @@ public class Simulasyon {
 			z.ilerlet(1);
 	}
 
-	private static void aracAktiflestir(List<UzayAraci> araclar, Map<String, Zaman> zamanMap) {
+	private static void aracAktiflestir(List<UzayAraci> araclar, Map<String, Zaman> zamanMap, List<Kisi> kisiler,
+			List<Gezegen> gezegenler) {
 		for (UzayAraci a : araclar) {
 			if (!a.isAktif() && !a.hedefeUlasti() && !a.isImha()) {
 				Zaman zaman = zamanMap.get(a.getCikis());
-
-				if (zaman == null)
-					continue;
-
-				if (zaman.ayniGunMu(a.getTarih())) {
+				if (zaman != null && zaman.ayniGunMu(a.getTarih())) {
 					a.aktivasyonBaslat();
 					System.out.println("✅ Araç " + a.getAd() + " aktifleşti.");
 
+// kalkış anında çıkış gezegeninden yolcuları düş:
+					for (Kisi k : kisiler) {
+						if (k.getUzayAraci().equals(a.getAd())) {
+							for (Gezegen g : gezegenler) {
+								if (g.getAd().equals(a.getCikis())) {
+									g.azaltNufus();
+									break;
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -56,24 +64,19 @@ public class Simulasyon {
 
 			int yolcuSayisi = 0;
 			Iterator<Kisi> it = kisiler.iterator();
+			// Simülasyon.araclariIslet içinden…
 			while (it.hasNext()) {
 				Kisi k = it.next();
 				if (k.getUzayAraci().equals(a.getAd())) {
+					// önce ömrü azalt
 					if (!k.birSaatAzalt()) {
-						for (Gezegen g : gezegenler) {
-							if (g.getAd().equals(a.getVaris())) {
-								g.azaltNufus();
-								break;
-							}
-						}
+						// ölen yolcuyu sadece listeden çıkar
 						it.remove();
 					} else {
 						yolcuSayisi++;
 					}
-
 				}
 			}
-
 			if (yolcuSayisi == 0)
 				a.setImha(true);
 			// Araç hedefe ulaştıysa ve varış tarihi henüz belirlenmediyse
@@ -134,7 +137,6 @@ public class Simulasyon {
 					satir[5]);
 		}
 
-		
 	}
 
 	private static void baslangictaNufusEkle(List<Kisi> kisiler, List<Gezegen> gezegenler, List<UzayAraci> araclar) {
@@ -169,12 +171,7 @@ public class Simulasyon {
 		while (!tumAraclarTamamlandi(araclar)) {
 
 			toplamSaat++;
-			/*
-			 * System.out.println("Saat: " + toplamSaat); for (UzayAraci a : araclar) {
-			 * System.out.println("→ " + a.getAd() + " | aktif: " + a.isAktif() +
-			 * " | ulaştı: " + a.hedefeUlasti() + " | imha: " + a.isImha()); }
-			 * System.out.println("--------");
-			 */
+
 			gezegenTarihiIlerle(zamanMap);
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
@@ -183,7 +180,7 @@ public class Simulasyon {
 				System.out.println(z.getKey() + ": " + z.getValue().tarihYaz());
 			}
 
-			aracAktiflestir(araclar, zamanMap);
+			aracAktiflestir(araclar, zamanMap, kisiler, gezegenler);
 			araclariIslet(araclar, kisiler, zamanMap, gezegenler);
 
 			try {
@@ -201,8 +198,7 @@ public class Simulasyon {
 		int toplamYolcu = DosyaOkuma.kisileriOku("Kisiler.txt").size();
 		int kalanYolcu = kisiler.size();
 		long imha = araclar.stream().filter(UzayAraci::isImha).count();
-		long ulasti = araclar.stream().filter(UzayAraci::hedefeUlasti).count();
-
+		long ulasti = araclar.stream().filter(a -> a.hedefeUlasti() && !a.isImha()).count();
 		System.out.println("\n=== 📊 Simülasyon Özeti ===\n");
 		System.out.printf("%-30s %d saat\n", "Toplam geçen süre:", toplamSaat);
 		System.out.printf("%-30s %d\n", "Toplam başlangıç yolcusu:", toplamYolcu);
@@ -210,14 +206,15 @@ public class Simulasyon {
 		System.out.printf("%-30s %d\n", "İmha olan araç sayısı:", imha);
 		System.out.printf("%-30s %d\n", "Ulaşan araç sayısı:", ulasti);
 
-		
-		 System.out.println("\n=== 👤 Hayatta Kalan Yolcular ==="); if (kalanYolcu ==
-		 0) System.out.println("- Kalan yolcu yok."); else kisiler.forEach(k ->
-		 System.out.printf("- %-10s (%2d yaşında) → %3d saat kaldı | Araç: %s\n",
-		 k.getIsim(), k.getYas(), k.getKalanOmur(), k.getUzayAraci()));
-		 
-		 System.out.println("\n=== 🖠 Gezegenlerin Son Zamanı ===");
-		 zamanMap.forEach((k, v) -> System.out.println(k + ": " + v.tarihYaz()));
-		 
+		System.out.println("\n=== 👤 Hayatta Kalan Yolcular ===");
+		if (kalanYolcu == 0)
+			System.out.println("- Kalan yolcu yok.");
+		else
+			kisiler.forEach(k -> System.out.printf("- %-10s (%2d yaşında) → %3d saat kaldı | Araç: %s\n", k.getIsim(),
+					k.getYas(), k.getKalanOmur(), k.getUzayAraci()));
+
+		System.out.println("\n=== 🖠 Gezegenlerin Son Zamanı ===");
+		zamanMap.forEach((k, v) -> System.out.println(k + ": " + v.tarihYaz()));
+
 	}
 }

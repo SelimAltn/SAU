@@ -1,10 +1,21 @@
 isim#yas#kalan_omur#bulundugu_uzay_aracı_adi
- Ahmet#25#80#A
- Mehmet#30#55#A
- Ayşe#22#30#B
- Zeynep#28#90#C
- Ali#24#25#D
- Hakan#31#10#E
- Merve#29#15#B
- Baran#26#5#C
- Can#21#200#C
+Ali#25#120#A
+Ayşe#30#60#A
+Mehmet#22#90#B
+Fatma#28#50#B
+Cem#35#80#C
+Selin#24#30#C
+Burak#27#140#D
+Merve#31#20#D
+Ege#29#200#E
+Aslı#26#40#E
+Deniz#19#70#F
+Bahar#23#10#F
+Kerem#32#100#G
+Eda#21#25#G
+Tolga#33#120#H
+Pelin#34#45#H
+Onur#29#85#I
+Zeynep#27#60#I
+Can#20#110#J
+Esra#30#35#J

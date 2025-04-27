@@ -62,6 +62,7 @@ public class UzayAraci {
 
 	    public boolean hedefeUlasti() {
 	        return tamamlandi;
+	        
 	    }
 
 	    public boolean isImha() {
