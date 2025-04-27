@@ -43,5 +43,14 @@ public class Zaman {
     public String getTarihSadece() {
         return String.format("%02d.%02d.%04d", gun, ay, yil);
     }
+    public boolean ayniGunMu(String tarih) {
+        String[] parca = tarih.split("\\.");
+        int gun2 = Integer.parseInt(parca[0]);
+        int ay2 = Integer.parseInt(parca[1]);
+        int yil2 = Integer.parseInt(parca[2]);
+
+        return (this.gun == gun2 && this.ay == ay2 && this.yil == yil2);
+    }
+
 
 }

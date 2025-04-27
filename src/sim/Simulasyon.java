@@ -8,14 +8,13 @@ import model.*;
 public class Simulasyon {
 
 	private static boolean tumAraclarTamamlandi(List<UzayAraci> araclar) {
-	    for (UzayAraci a : araclar) {
-	        if (!a.hedefeUlasti() && !a.isImha()) {
-	            return false;
-	        }
-	    }
-	    return true;
+		for (UzayAraci a : araclar) {
+			if (!a.hedefeUlasti() && !a.isImha()) {
+				return false;
+			}
+		}
+		return true;
 	}
-
 
 	private static Map<String, Zaman> zamanlariOlustur(List<Gezegen> gezegenler) {
 		Map<String, Zaman> zamanMap = new HashMap<>();
@@ -31,21 +30,21 @@ public class Simulasyon {
 	}
 
 	private static void aracAktiflestir(List<UzayAraci> araclar, Map<String, Zaman> zamanMap) {
-	    for (UzayAraci a : araclar) {
-	        if (!a.isAktif() && !a.hedefeUlasti() && !a.isImha()) {
-	            Zaman zaman = zamanMap.get(a.getCikis());
+		for (UzayAraci a : araclar) {
+			if (!a.isAktif() && !a.hedefeUlasti() && !a.isImha()) {
+				Zaman zaman = zamanMap.get(a.getCikis());
 
-	            if (zaman == null) continue;
+				if (zaman == null)
+					continue;
 
-	            // artık sadece zaman geldi mi diye bakıyoruz
-	            if (zaman.getTarihSadece().compareTo(a.getTarih()) >= 0) {
-	                a.aktivasyonBaslat();
-	                System.out.println("✅ Araç " + a.getAd() + " aktifleşti.");
-	            }
-	        }
-	    }
+				if (zaman.ayniGunMu(a.getTarih())) {
+					a.aktivasyonBaslat();
+					System.out.println("✅ Araç " + a.getAd() + " aktifleşti.");
+
+				}
+			}
+		}
 	}
-
 
 	private static void araclariIslet(List<UzayAraci> araclar, List<Kisi> kisiler, Map<String, Zaman> zamanMap,
 			List<Gezegen> gezegenler) {
@@ -77,25 +76,28 @@ public class Simulasyon {
 
 			if (yolcuSayisi == 0)
 				a.setImha(true);
-
-			if (!a.isImha() && a.hedefeUlasti() && a.getVarisTarihi() == null) {
-				for (Kisi k : kisiler) {
-				    if (k.getUzayAraci().equals(a.getAd())) {
-				        for (Gezegen g : gezegenler) {
-				            if (g.getAd().equals(a.getVaris())) {
-				                g.artirNufus();
-				                break;
-				            }
-				        }
-				    }
-				}
+			// Araç hedefe ulaştıysa ve varış tarihi henüz belirlenmediyse
+			if (a.getKalanMesafe() <= 0 && !a.isImha() && a.getVarisTarihi() == null) {
 				Zaman varisZamani = zamanMap.get(a.getVaris());
-				
+
 				if (varisZamani != null) {
 					a.setVarisTarihi(varisZamani.tarihYaz());
+
+					// Yolcuları yalnızca bir kez varış gezegenine ekle
+					for (Kisi k : kisiler) {
+						if (k.getUzayAraci().equals(a.getAd())) {
+							for (Gezegen g : gezegenler) {
+								if (g.getAd().equals(a.getVaris())) {
+									g.artirNufus();
+									break;
+								}
+							}
+						}
+					}
 				} else {
 					System.out.println("HATA: Varış gezegeni zamanMap'te yok → " + a.getVaris());
 				}
+
 			}
 		}
 	}
@@ -132,9 +134,7 @@ public class Simulasyon {
 					satir[5]);
 		}
 
-		for (UzayAraci a : araclar) {
-			System.out.println(a.getAd() + ": " + a.getDurumYazili());
-		}
+		
 	}
 
 	private static void baslangictaNufusEkle(List<Kisi> kisiler, List<Gezegen> gezegenler, List<UzayAraci> araclar) {
@@ -166,14 +166,15 @@ public class Simulasyon {
 
 		int toplamSaat = 0;
 		int maxSaat = 10000;
-		while (!tumAraclarTamamlandi(araclar)  ) {
-			
+		while (!tumAraclarTamamlandi(araclar)) {
+
 			toplamSaat++;
-			/*System.out.println("Saat: " + toplamSaat);
-			for (UzayAraci a : araclar) {
-			    System.out.println("→ " + a.getAd() + " | aktif: " + a.isAktif() + " | ulaştı: " + a.hedefeUlasti() + " | imha: " + a.isImha());
-			}
-			System.out.println("--------");*/
+			/*
+			 * System.out.println("Saat: " + toplamSaat); for (UzayAraci a : araclar) {
+			 * System.out.println("→ " + a.getAd() + " | aktif: " + a.isAktif() +
+			 * " | ulaştı: " + a.hedefeUlasti() + " | imha: " + a.isImha()); }
+			 * System.out.println("--------");
+			 */
 			gezegenTarihiIlerle(zamanMap);
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
@@ -193,7 +194,7 @@ public class Simulasyon {
 		}
 
 		System.out.println("--- Simülasyon Bitti ---");
-		
+
 		yazdirGezegenDurum(gezegenler, zamanMap);
 		yazdirAracDurum(araclar);
 
@@ -209,14 +210,14 @@ public class Simulasyon {
 		System.out.printf("%-30s %d\n", "İmha olan araç sayısı:", imha);
 		System.out.printf("%-30s %d\n", "Ulaşan araç sayısı:", ulasti);
 
-		/*System.out.println("\n=== 👤 Hayatta Kalan Yolcular ===");
-		if (kalanYolcu == 0)
-			System.out.println("- Kalan yolcu yok.");
-		else
-			kisiler.forEach(k -> System.out.printf("- %-10s (%2d yaşında) → %3d saat kaldı | Araç: %s\n", k.getIsim(),
-					k.getYas(), k.getKalanOmur(), k.getUzayAraci()));
-
-		System.out.println("\n=== 🖠 Gezegenlerin Son Zamanı ===");
-		zamanMap.forEach((k, v) -> System.out.println(k + ": " + v.tarihYaz()));*/
+		
+		 System.out.println("\n=== 👤 Hayatta Kalan Yolcular ==="); if (kalanYolcu ==
+		 0) System.out.println("- Kalan yolcu yok."); else kisiler.forEach(k ->
+		 System.out.printf("- %-10s (%2d yaşında) → %3d saat kaldı | Araç: %s\n",
+		 k.getIsim(), k.getYas(), k.getKalanOmur(), k.getUzayAraci()));
+		 
+		 System.out.println("\n=== 🖠 Gezegenlerin Son Zamanı ===");
+		 zamanMap.forEach((k, v) -> System.out.println(k + ": " + v.tarihYaz()));
+		 
 	}
 }
