@@ -55,7 +55,7 @@ This Java console application simulates interplanetary travel of multiple spacec
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/yourusername/interplanetary-simulation.git
+   git clone [https://github.com/SelimAltn/interplanetary-simulation.git](https://github.com/SelimAltn/SpaceSim.git)
    cd interplanetary-simulation
    ```
 2. **Build in Eclipse**  
