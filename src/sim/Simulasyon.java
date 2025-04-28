@@ -1,3 +1,13 @@
+/**
+ * 
+ * @author  Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since   20.04.2025
+ * <p>
+ *  Simulasyon sınıfı, gezegen zamanlarının ilerletilmesi, uzay araçlarının
+ *  aktivasyonu, yolcu ömürlerinin yönetimi ve simülasyonun ana döngüsünü
+ *  koordine ederek sonuçların ekrana raporlanmasından sorumludur.
+ * </p>
+ */
 
 package sim;
 
@@ -33,20 +43,14 @@ public class Simulasyon {
 			List<Gezegen> gezegenler) {
 		for (UzayAraci a : araclar) {
 			if (!a.isAktif() && !a.hedefeUlasti() && !a.isImha()) {
-				Zaman zaman = zamanMap.get(a.getCikis());
-				if (zaman != null && zaman.ayniGunMu(a.getTarih())) {
+				Zaman z = zamanMap.get(a.getCikis());
+				if (z != null && !z.ondanOnceMi(a.getTarih())) {
 					a.aktivasyonBaslat();
-					System.out.println("✅ Araç " + a.getAd() + " aktifleşti.");
-
-// kalkış anında çıkış gezegeninden yolcuları düş:
+// yolcuları çıkış gezegeninden düş
 					for (Kisi k : kisiler) {
 						if (k.getUzayAraci().equals(a.getAd())) {
-							for (Gezegen g : gezegenler) {
-								if (g.getAd().equals(a.getCikis())) {
-									g.azaltNufus();
-									break;
-								}
-							}
+							gezegenler.stream().filter(g -> g.getAd().equals(a.getCikis())).findFirst()
+									.ifPresent(Gezegen::azaltNufus);
 						}
 					}
 				}
@@ -159,9 +163,10 @@ public class Simulasyon {
 	}
 
 	public static void main(String[] args) {
-		List<Kisi> kisiler = DosyaOkuma.kisileriOku("Kisiler.txt");
-		List<Gezegen> gezegenler = DosyaOkuma.gezegenleriOku("Gezegenler.txt");
-		List<UzayAraci> araclar = DosyaOkuma.araclariOku("Araclar.txt");
+	 
+		List<Kisi> kisiler = DosyaOkuma.kisileriOku("dist/Kisiler.txt");
+		List<Gezegen> gezegenler = DosyaOkuma.gezegenleriOku("dist/Gezegenler.txt");
+		List<UzayAraci> araclar = DosyaOkuma.araclariOku("dist/Araclar.txt");
 
 		Map<String, Zaman> zamanMap = zamanlariOlustur(gezegenler);
 		baslangictaNufusEkle(kisiler, gezegenler, araclar);
@@ -176,15 +181,13 @@ public class Simulasyon {
 			System.out.print("\033[H\033[2J");
 			System.out.flush();
 
-			for (Map.Entry<String, Zaman> z : zamanMap.entrySet()) {
-				System.out.println(z.getKey() + ": " + z.getValue().tarihYaz());
-			}
+			
 
 			aracAktiflestir(araclar, zamanMap, kisiler, gezegenler);
 			araclariIslet(araclar, kisiler, zamanMap, gezegenler);
 
 			try {
-				Thread.sleep(0);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				break;
 			}
@@ -205,13 +208,6 @@ public class Simulasyon {
 		System.out.printf("%-30s %d\n", "Hayatta kalan yolcu:", kalanYolcu);
 		System.out.printf("%-30s %d\n", "İmha olan araç sayısı:", imha);
 		System.out.printf("%-30s %d\n", "Ulaşan araç sayısı:", ulasti);
-
-		System.out.println("\n=== 👤 Hayatta Kalan Yolcular ===");
-		if (kalanYolcu == 0)
-			System.out.println("- Kalan yolcu yok.");
-		else
-			kisiler.forEach(k -> System.out.printf("- %-10s (%2d yaşında) → %3d saat kaldı | Araç: %s\n", k.getIsim(),
-					k.getYas(), k.getKalanOmur(), k.getUzayAraci()));
 
 		System.out.println("\n=== 🖠 Gezegenlerin Son Zamanı ===");
 		zamanMap.forEach((k, v) -> System.out.println(k + ": " + v.tarihYaz()));

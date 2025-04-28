@@ -1,3 +1,13 @@
+/**
+ * 
+ * @author Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since   20.04.2025
+ * <p>
+ *  Bir gezegenin adını, bir günün kaç saatten oluştuğunu, o gezegendeki geçerli tarihi
+ *  ve nüfus bilgisini tutan model sınıfı. Ayrıca, simülasyon çıktıları için hizalı
+ *  tablo formatlama metodları içerir.
+ * </p>
+ */
 package model;
 import java.util.Map;
 
