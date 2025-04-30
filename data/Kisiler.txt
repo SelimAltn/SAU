@@ -1,0 +1,6 @@
+isim#yas#kalan_omur#bulundugu_uzay_araci_adi
+Ali#30#1000#A1
+Zeynep#25#800#B2
+Mehmet#40#1500#A1
+Fatma#22#1200#C3
+Leyla#35#900#B2

@@ -5,6 +5,7 @@
 #include "uzay_araci.h"
 #include "gezegen.h"
 
+
 // Kisileri dosyadan okur, adet pointer’ında kaç tane döndüğü verilir
 Kisi* kisileriOku(const char* dosyaAdi, int* adet);
 

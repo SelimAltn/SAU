@@ -1,0 +1,5 @@
+Uzay_araci_adi#cikis_gezegeni#varis_gezegeni#cikis_tarihi#mesafe_saat_olarak
+A1#Earth#Jupiter#01.01.2025#500
+B2#Europa#Pluto#20.03.2025#200
+C3#Jupiter#Earth#15.02.2025#600
+D4#Pluto#Europa#05.04.2025#300
