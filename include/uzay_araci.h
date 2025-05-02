@@ -3,24 +3,18 @@
 
 #include "zaman.h"
 
-typedef struct {
-    char isim[20];
-    char cikisGezegen[50];
-    char varisGezegen[50];
-    Zaman cikisTarihi;
-    int mesafeSaat;
-    int kalanSaat;
-    int imha;  // 0 = aktif, 1 = imha
-} UzayAraci;
+struct UZAYARACI;
+typedef struct UZAYARACI* UzayAraci;
 
-// UzayAraci nesnesi oluşturur
-UzayAraci uzayAraciOlustur(const char* isim,
-                           const char* cikisGezegen,
-                           const char* varisGezegen,
-                           Zaman cikisTarihi,
-                           int mesafeSaat);
+// Constructor & Destructor
+UzayAraci newUzayAraci(const char* isim,
+                       const char* cikisGezegen,
+                       const char* varisGezegen,
+                       Zaman cikisTarihi,
+                       int mesafeSaat);
+void      deleteUzayAraci(UzayAraci this);
 
-// Uzay aracını ekrana yazdırır
-void uzayAraciYazdir(const UzayAraci* a);
+// Metot pointer’ları
+void      yazUzayAraci(UzayAraci this);
 
 #endif // UZAY_ARACI_H

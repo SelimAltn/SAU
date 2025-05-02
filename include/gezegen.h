@@ -3,24 +3,24 @@
 
 #include "zaman.h"
 
-typedef enum {
-    KAYAC = 0,
-    GAZ_DEVI,
-    BUZ_DEVI,
-    CUCE
-} Gezegentur;
+// Soyut Gezegen tipinin kendisi
+struct GEZEGEN;
+typedef struct GEZEGEN* Gezegen;
 
-typedef struct {
-    char isim[50];
-    Gezegentur tur;
-    int gunSaat;   // o gezegende bir gün kaç saat
+struct GEZEGEN {
+    char* isim;
     Zaman tarih;
-} Gezegen;
+    int   gunSaat;
 
-// Gezegen nesnesi oluşturur
-Gezegen gezegenOlustur(const char* isim, Gezegentur tur, int gunSaat, Zaman tarih);
+    // Alt türlerin override edeceği metotlar
+    double (*yaslanmaKatSayi)(Gezegen self);
+    void   (*deleteGezegen)(Gezegen self);
+};
 
-// Gezegen bilgisini ekrana yazdırır
-void gezegenYazdir(const Gezegen* g);
+// “Constructor”lar
+Gezegen newKayacGezegen(const char* isim, Zaman tarih, int gunSaat);
+Gezegen newGazDeviGezegen(const char* isim, Zaman tarih, int gunSaat);
+Gezegen newBuzDeviGezegen(const char* isim, Zaman tarih, int gunSaat);
+Gezegen newCuceGezegen   (const char* isim, Zaman tarih, int gunSaat);
 
 #endif // GEZEGEN_H
