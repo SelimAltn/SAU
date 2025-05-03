@@ -1,14 +1,18 @@
 #ifndef KISI_H
 #define KISI_H
 
-struct KISI;
-typedef struct KISI* Kisi;
+typedef struct KISI {
+    char* isim;
+    int   yas;
+    int   kalanOmur;
+    char* aracAdi;
 
-// Constructor & Destructor
-Kisi   newKisi(const char* isim, int yas, int kalanOmur, const char* aracAdi);
-void   deleteKisi(Kisi this);
+    void (*yaz)(struct KISI*);
+    void (*deleteKisi)(struct KISI*);
+} *Kisi;
 
-// Metot pointer’ları
-void   yazKisi(Kisi this);
+Kisi newKisi(const char* isim, int yas, int kalanOmur, const char* aracAdi);
+void  kisiYazdir(Kisi this);
+void  deleteKisi(Kisi this);
 
 #endif // KISI_H

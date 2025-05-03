@@ -3,36 +3,36 @@
 #include <stdio.h>
 #include <string.h>
 
-struct KISI {
-    char* isim;
-    int   yas;
-    int   kalanOmur;
-    char* aracAdi;
-    // Metot pointer’ları
-    void (*yaz)(struct KISI*);
-    void (*deleteKisi)(struct KISI*);
-};
-
-// forward deklarasyonlar
+// private helpers (static)
 static void _yazKisi(Kisi this);
 static void _deleteKisi(Kisi this);
 
 static char* _strdup(const char* s) {
-    size_t n = strlen(s)+1;
+    size_t n = strlen(s) + 1;
     char* p = malloc(n);
     if (p) memcpy(p, s, n);
     return p;
 }
 
 Kisi newKisi(const char* isim, int yas, int kalanOmur, const char* aracAdi) {
-    Kisi k = malloc(sizeof(*k));
+    Kisi k = malloc(sizeof *k);
     k->isim       = _strdup(isim);
     k->yas        = yas;
     k->kalanOmur  = kalanOmur;
     k->aracAdi    = _strdup(aracAdi);
-    k->yaz        = &_yazKisi;
-    k->deleteKisi = &_deleteKisi;
+    k->yaz        = _yazKisi;
+    k->deleteKisi = _deleteKisi;
     return k;
+}
+
+// public wrapper for printing
+void kisiYazdir(Kisi this) {
+    if (this) this->yaz(this);
+}
+
+// public wrapper for deletion
+void deleteKisi(Kisi this) {
+    if (this) this->deleteKisi(this);
 }
 
 static void _yazKisi(Kisi this) {
@@ -41,7 +41,6 @@ static void _yazKisi(Kisi this) {
 }
 
 static void _deleteKisi(Kisi this) {
-    if (!this) return;
     free(this->isim);
     free(this->aracAdi);
     free(this);

@@ -3,25 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 
-struct UZAYARACI {
-    char*  isim;
-    char*  cikisGezegen;
-    char*  varisGezegen;
-    Zaman  cikisTarihi;
-    int    mesafeSaat;
-    int    kalanSaat;
-    int    imha;
-    // Metot pointer’ları
-    void (*yaz)(struct UZAYARACI*);
-    void (*deleteUzayAraci)(struct UZAYARACI*);
-};
-
-// forward deklarasyonlar
+// Private helpers
 static void _yazUzayAraci(UzayAraci this);
-static void _deleteUzayAraci(UzayAraci this);
+static void _deleteUzayAraciImpl(UzayAraci this);
 
 static char* _strdup(const char* s) {
-    size_t n = strlen(s)+1;
+    size_t n = strlen(s) + 1;
     char* p = malloc(n);
     if (p) memcpy(p, s, n);
     return p;
@@ -33,18 +20,32 @@ UzayAraci newUzayAraci(const char* isim,
                        Zaman cikisTarihi,
                        int mesafeSaat)
 {
-    UzayAraci a = malloc(sizeof(*a));
-    a->isim         = _strdup(isim);
-    a->cikisGezegen = _strdup(cikisGezegen);
-    a->varisGezegen = _strdup(varisGezegen);
-    a->cikisTarihi  = cikisTarihi;
-    a->mesafeSaat   = mesafeSaat;
-    a->kalanSaat    = mesafeSaat;
-    a->imha         = 0;
-    a->yaz          = &_yazUzayAraci;
-    a->deleteUzayAraci = &_deleteUzayAraci;
+    UzayAraci a = malloc(sizeof *a);
+    a->isim            = _strdup(isim);
+    a->cikisGezegen    = _strdup(cikisGezegen);
+    a->varisGezegen    = _strdup(varisGezegen);
+    a->cikisTarihi     = cikisTarihi;
+    a->mesafeSaat      = mesafeSaat;
+    a->kalanSaat       = mesafeSaat;
+    a->imha            = 0;
+
+    // Metot pointer’larını ata
+    a->yaz             = _yazUzayAraci;
+    a->deleteUzayAraci = _deleteUzayAraciImpl;
     return a;
 }
+
+// Global wrappers
+
+void uzayAraciYazdir(UzayAraci this) {
+    if (this) this->yaz(this);
+}
+
+void deleteUzayAraci(UzayAraci this) {
+    if (this) this->deleteUzayAraci(this);
+}
+
+// Private implementations
 
 static void _yazUzayAraci(UzayAraci this) {
     char* s = this->cikisTarihi->toString(this->cikisTarihi);
@@ -59,10 +60,10 @@ static void _yazUzayAraci(UzayAraci this) {
     free(s);
 }
 
-static void _deleteUzayAraci(UzayAraci this) {
-    if (!this) return;
-    // Zaman nesnesinin deleteZaman metodunu kullan
+static void _deleteUzayAraciImpl(UzayAraci this) {
+    // önce zamanı sil
     this->cikisTarihi->deleteZaman(this->cikisTarihi);
+    // ardından diğer dinamik alanlar
     free(this->isim);
     free(this->cikisGezegen);
     free(this->varisGezegen);

@@ -1,8 +1,11 @@
+
+// src/gezegen.c
 #include "gezegen.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
-// Helper: ism için strdup muadili
+// Helper: strdup muadili
 static char* _strdup(const char* s) {
     size_t n = strlen(s) + 1;
     char* p = malloc(n);
@@ -10,56 +13,57 @@ static char* _strdup(const char* s) {
     return p;
 }
 
-// Her tür için farklı yaşlanma katsayısı
-static double _yaslanmaKayac(Gezegen self) {
-    return 1.0;
-}
-static double _yaslanmaGazDevi(Gezegen self) {
-    return 0.1;
-}
-static double _yaslanmaBuzDevi(Gezegen self) {
-    return 0.5;
-}
-static double _yaslanmaCuce(Gezegen self) {
-    return 0.01;
-}
+// Yaşlanma katsayıları
+static double _yasKayac(struct GEZEGEN* self)   { return 1.0; }
+static double _yasGazDevi(struct GEZEGEN* self) { return 0.1; }
+static double _yasBuzDevi(struct GEZEGEN* self) { return 0.5; }
+static double _yasCuce(struct GEZEGEN* self)    { return 0.01; }
 
-// Tüm Gezegen tipleri için ortak yıkıcı
-static void _deleteGezegen(Gezegen self) {
+// Ortak delete metodu
+static void _deleteGezegen(struct GEZEGEN* self) {
     if (!self) return;
     free(self->isim);
+    self->tarih->deleteZaman(self->tarih);
     free(self);
 }
 
-// Ortak initialization
-static Gezegen _create(
-    const char* isim,
-    Zaman tarih,
-    int gunSaat,
-    double (*yaslanma)(Gezegen)
-) {
-    Gezegen g = malloc(sizeof(*g));
-    g->isim             = _strdup(isim);
-    g->tarih            = tarih;
-    g->gunSaat          = gunSaat;
-    g->yaslanmaKatSayi  = yaslanma;
-    g->deleteGezegen    = _deleteGezegen;
+// Ortak oluşturucu
+static Gezegen _createGezegen(const char* isim, Zaman tarih, int gunSaat,
+                              int tur, double (*yaslanma)(struct GEZEGEN*)) {
+    Gezegen g = malloc(sizeof *g);
+    g->isim            = _strdup(isim);
+    g->tarih           = tarih;
+    g->gunSaat         = gunSaat;
+    g->tur             = tur;
+    g->yaslanmaKatSayi = yaslanma;
+    g->deleteGezegen   = _deleteGezegen;
     return g;
 }
 
-// Public constructor’lar
+// Public constructorlar
 Gezegen newKayacGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _create(isim, tarih, gunSaat, _yaslanmaKayac);
+    return _createGezegen(isim, tarih, gunSaat, 0, _yasKayac);
 }
 
 Gezegen newGazDeviGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _create(isim, tarih, gunSaat, _yaslanmaGazDevi);
+    return _createGezegen(isim, tarih, gunSaat, 1, _yasGazDevi);
 }
 
 Gezegen newBuzDeviGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _create(isim, tarih, gunSaat, _yaslanmaBuzDevi);
+    return _createGezegen(isim, tarih, gunSaat, 2, _yasBuzDevi);
 }
 
 Gezegen newCuceGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _create(isim, tarih, gunSaat, _yaslanmaCuce);
+    return _createGezegen(isim, tarih, gunSaat, 3, _yasCuce);
+}
+
+// Wrapper fonksiyonu: gezegen bilgisini ekrana basar
+void gezegenYazdir(Gezegen this) {
+    char* tarihStr = this->tarih->toString(this->tarih);
+    printf("Gezegen: %s | Tür: %d | Gün/Saat: %d | Tarih: %s\n",
+           this->isim,
+           this->tur,
+           this->gunSaat,
+           tarihStr);
+    free(tarihStr);
 }
