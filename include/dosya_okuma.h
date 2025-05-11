@@ -1,18 +1,25 @@
 #ifndef DOSYA_OKUMA_H
 #define DOSYA_OKUMA_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <setjmp.h>         // jmp_buf ve setjmp/longjmp için
 #include "kisi.h"
 #include "uzay_araci.h"
 #include "gezegen.h"
 
+// ———— Hata Yönetimi Makroları —————————————————————————————
+extern jmp_buf jumper;      // hata atlamaları için tek bir ortak buffer
 
-// Kisileri dosyadan okur, adet pointer’ında kaç tane döndüğü verilir
-Kisi* kisileriOku(const char* dosyaAdi, int* adet);
+#define throw   longjmp(jumper, -1)
+#define try     do { if (!setjmp(jumper)) {
+#define catch   } else {
+#define tryEnd  } } while (0)
 
-// Uzay araçlarını dosyadan okur
+// ———— Fonksiyon Prototipleri ——————————————————————————————
+Kisi*      kisileriOku(const char* dosyaAdi, int* adet);
 UzayAraci* araclariOku(const char* dosyaAdi, int* adet);
-
-// Gezegenleri dosyadan okur
-Gezegen* gezegenleriOku(const char* dosyaAdi, int* adet);
+Gezegen*   gezegenleriOku(const char* dosyaAdi, int* adet);
 
 #endif // DOSYA_OKUMA_H
