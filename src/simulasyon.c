@@ -65,15 +65,21 @@ static int _findPlanet(Simulasyon this, const char* ad) {
 }
 
 // Main simulation loop
+// simulasyon.c
 static void _baslatSimulasyon(Simulasyon this) {
     int saat = 0;
     int tamamlanan = 0;
 
+    // 1) Ana döngü: tüm araçlar hedefe ulaşana kadar
     while (tamamlanan < this->aracSayisi) {
+        // Konsolu temizle
+        printf("\033[H\033[J");      // ANSI/Unix
+        // system("cls");            // Windows için açabilirsin
+
         tamamlanan = 0;
         printf("===== Saat %d =====\n", saat);
 
-        // 1) Check departure dates
+        // Çıkış tarihlerini kontrol et
         for (int i = 0; i < this->aracSayisi; ++i) {
             UzayAraci a = this->araclar[i];
             if (a->kalanSaat == a->mesafeSaat) {
@@ -85,7 +91,7 @@ static void _baslatSimulasyon(Simulasyon this) {
             }
         }
 
-        // 2) Move ships and reduce lifespan
+        // Araçları hareket ettir ve yolcuların ömrünü azalt
         for (int i = 0; i < this->aracSayisi; ++i) {
             UzayAraci a = this->araclar[i];
             if (a->kalanSaat <= 0) {
@@ -94,33 +100,98 @@ static void _baslatSimulasyon(Simulasyon this) {
             }
             a->kalanSaat--;
             for (int k = 0; k < this->kisiSayisi; ++k) {
-                if (strcmp(this->kisiler[k]->aracAdi, a->isim) == 0)
+                if (strcmp(this->kisiler[k]->aracAdi, a->isim) == 0) {
                     this->kisiler[k]->kalanOmur--;
+                }
             }
             printf("  [HAREKET] %s aracı, kalan süre: %d saat\n",
                    a->isim, a->kalanSaat);
+
+            // Varış anı
             if (a->kalanSaat == 0) {
                 int q = _findPlanet(this, a->varisGezegen);
-                char* vt = this->gezegenler[q]->tarih->toString(
-                              this->gezegenler[q]->tarih);
-                printf("  [VARIŞ] %s hedefe ulaştı: %s tarihinde\n",
+                char* vt = this->gezegenler[q]->tarih->toString(this->gezegenler[q]->tarih);
+                printf("  [VARIŞ]   %s hedefe ulaştı: %s tarihinde\n",
                        a->isim, vt);
                 free(vt);
             }
         }
 
-        // 3) Advance planet times
+        // Gezegen zamanlarını ilerlet
         for (int i = 0; i < this->gezegenSayisi; ++i) {
-            this->gezegenler[i]->tarih->ilerle(
-                this->gezegenler[i]->tarih);
+            this->gezegenler[i]->tarih->ilerle(this->gezegenler[i]->tarih);
         }
 
         printf("------------------------\n\n");
         saat++;
+        // İstersen sleep(1) ekleyebilirsin
     }
 
-    printf("Tüm araçlar hedefe ulaştı. Simülasyon tamamlandı.\n");
+    // 2) Simülasyon bitti, nüfusları dinamik hesapla
+    int* pop = malloc(this->gezegenSayisi * sizeof(int));
+    for (int i = 0; i < this->gezegenSayisi; ++i) pop[i] = 0;
+
+    for (int i = 0; i < this->kisiSayisi; ++i) {
+        // Sağ kalan yolcu
+        if (this->kisiler[i]->kalanOmur > 0) {
+            // Yolcunun indiği gezegeni bul
+            const char* aracAd = this->kisiler[i]->aracAdi;
+            for (int j = 0; j < this->aracSayisi; ++j) {
+                UzayAraci a = this->araclar[j];
+                if (strcmp(a->isim, aracAd) == 0) {
+                    int p = _findPlanet(this, a->varisGezegen);
+                    if (p >= 0) pop[p]++;
+                    break;
+                }
+            }
+        }
+    }
+
+    // 3) Gezegenler tablosu
+    printf("\nGezegenler:\n\n");
+    printf("%-15s", "Gezegen");
+    for (int i = 0; i < this->gezegenSayisi; ++i)
+        printf("%-15s", this->gezegenler[i]->isim);
+    printf("\n");
+
+    printf("%-15s", "Tarih");
+    for (int i = 0; i < this->gezegenSayisi; ++i) {
+        char* t = this->gezegenler[i]->tarih->toString(this->gezegenler[i]->tarih);
+        printf("%-15s", t);
+        free(t);
+    }
+    printf("\n");
+
+    printf("%-15s", "Nüfus");
+    for (int i = 0; i < this->gezegenSayisi; ++i)
+        printf("%-15d", pop[i]);
+    printf("\n\n");
+
+    free(pop);
+
+    // 4) Uzay araçları tablosu
+    printf("Uzay Araçları:\n\n");
+    printf("%-10s %-10s %-6s %-6s %-12s %s\n",
+           "Araç Adı","Durum","Çıkış","Varış","Kalan Saat","Varış Tarihi");
+    for (int i = 0; i < this->aracSayisi; ++i) {
+        UzayAraci a = this->araclar[i];
+        const char* durum = (a->kalanSaat == a->mesafeSaat) ? "Bekliyor"
+                             : (a->kalanSaat > 0) ? "Yolda" : "Vardı";
+        int idx = _findPlanet(this, a->varisGezegen);
+        char* vt = this->gezegenler[idx]->tarih->toString(this->gezegenler[idx]->tarih);
+
+        printf("%-10s %-10s %-6s %-6s %-12d %s\n",
+               a->isim, durum,
+               a->cikisGezegen, a->varisGezegen,
+               a->kalanSaat, vt);
+
+        free(vt);
+    }
+
+    printf("\nTüm araçlar hedefe ulaştı. Simülasyon tamamlandı.\n");
 }
+
+
 
 // Static destructor
 static void _deleteSimulasyon(Simulasyon this) {

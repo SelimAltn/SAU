@@ -4,18 +4,15 @@
 #include "kisi.h"
 #include "uzay_araci.h"
 #include "gezegen.h"
-#include "zaman.h"
 
-struct SIMULASYON;
+// Opak yapı
 typedef struct SIMULASYON* Simulasyon;
 
-// Constructor & Destructor
-Simulasyon newSimulasyon(Kisi* kisiler, int kisiSayisi,
-                         UzayAraci* araclar, int aracSayisi,
-                         Gezegen* gezegenler, int gezegenSayisi);
-void       deleteSimulasyon(Simulasyon this);
-
-// Metot pointer’ları
-void       baslatSimulasyon(Simulasyon this);
+// Oluşturucu / Çalıştırıcı / Yıkıcı
+Simulasyon     newSimulasyon(Kisi* kisiler, int kisiSayisi,
+                             UzayAraci* araclar, int aracSayisi,
+                             Gezegen* gezegenler, int gezegenSayisi);
+void           baslatSimulasyon(Simulasyon this);
+void           deleteSimulasyon(Simulasyon this);
 
 #endif // SIMULASYON_H
