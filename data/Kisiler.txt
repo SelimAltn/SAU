@@ -1,6 +1,6 @@
 isim#yas#kalan_omur#bulundugu_uzay_araci_adi
-Ali#30#1000#A1
-Zeynep#25#800#B2
-Mehmet#40#1500#A1
-Fatma#22#1200#C3
-Leyla#35#900#B2
+Alice#30#10#A1
+Bob#25#8#B2
+Charlie#40#5#A1
+Diana#22#12#C3
+Eve#35#7#D4
