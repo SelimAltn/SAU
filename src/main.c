@@ -59,6 +59,7 @@ int main(void) {
         gezegenler,   gezegenSayisi
     );
     baslatSimulasyon(sim);
+    
 
     // 3) Belleği komple temizle
     deleteSimulasyon(sim);

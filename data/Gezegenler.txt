@@ -1,5 +1,6 @@
 Gezegen_Adi#Gezegen_Turu#Gunun_kac_saat_oldugu#Gezegendeki_tarih
-Earth#0#24#01.01.2025
-Jupiter#1#24#01.01.2025
-Europa#2#24#05.01.2025
-Pluto#3#24#10.01.2025
+A#0#24#01.04.2025
+B#1#28#01.04.2025
+C#2#20#01.04.2025
+D#3#30#01.04.2025
+E#0#24#01.04.2025

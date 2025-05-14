@@ -24,12 +24,13 @@ struct SIMULASYON {
 /* ---------- Önden Bildirimler (private helpers) ---------- */
 static int  _tarihEsit(Zaman, Zaman);
 static int  _findPlanet(Simulasyon, const char*);
+static int  _tumAraclarTamamlandi(Simulasyon); // 🔸 EKLENDİ
 
 /* --- yeni küçük görev fonksiyonları --- */
 static void _clearConsole(void);
 static void _printSaatBaslik(int saat);
 static void _handleDepartures(Simulasyon);
-static void _moveShipsAndPassengers(Simulasyon, int* tamamlanan);
+static void _moveShipsAndPassengers(Simulasyon); // 🔸 Güncellendi
 static void _advancePlanetTimes(Simulasyon);
 static void _yazdirGezegenDurum(Simulasyon);
 static void _yazdirAracDurum(Simulasyon);
@@ -65,7 +66,7 @@ static int _findPlanet(Simulasyon this, const char* ad) {
         if (strcmp(this->gezegenler[i]->isim, ad) == 0) return i;
     return -1;
 }
-static void _clearConsole(void) { printf("\033[H\033[J"); }   /* Unix; Win için system("cls") */
+static void _clearConsole(void) { printf("\033[H\033[J"); }
 static void _printSaatBaslik(int saat) {
     printf("===== Saat %d =====\n", saat);
 }
@@ -83,20 +84,36 @@ static void _handleDepartures(Simulasyon this) {
     }
 }
 
-/* --- 2) Hareket & yolcu ömrü & varış olayları --- */
-static void _moveShipsAndPassengers(Simulasyon this, int* tamamlanan) {
+/* --- 2) Hareket & yolcu ömrü & varış & imha --- */
+static void _moveShipsAndPassengers(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
-        if (a->kalanSaat <= 0) { (*tamamlanan)++; continue; }
+        if (a->kalanSaat <= 0 || a->imha) continue;
 
-        a->kalanSaat--;
-        for (int k = 0; k < this->kisiSayisi; ++k)
-            if (strcmp(this->kisiler[k]->aracAdi, a->isim) == 0)
+        // 1) Yolcuların ömrünü azalt ve hayatta kalan var mı say
+        int survivors = 0;
+        for (int k = 0; k < this->kisiSayisi; ++k) {
+            if (strcmp(this->kisiler[k]->aracAdi, a->isim) == 0) {
                 this->kisiler[k]->kalanOmur--;
+                if (this->kisiler[k]->kalanOmur > 0)
+                    survivors++;
+            }
+        }
 
+        // 2) Eğer hiçbir kişi hayatta kalmadıysa, araç imha olsun
+        if (survivors == 0) {
+            a->imha = 1;
+            a->kalanSaat = 0;
+            printf("  [IMHA]   %s araci imha oldu: tum yolcular öldü.\n", a->isim);
+            continue;
+        }
+
+        // 3) Normal hareket
+        a->kalanSaat--;
         printf("  [HAREKET] %s araci, kalan sure: %d saat\n",
                a->isim, a->kalanSaat);
 
+        // 4) Varış kontrolü
         if (a->kalanSaat == 0) {
             int q = _findPlanet(this, a->varisGezegen);
             char* vt = this->gezegenler[q]->tarih
@@ -107,28 +124,44 @@ static void _moveShipsAndPassengers(Simulasyon this, int* tamamlanan) {
     }
 }
 
+
 /* --- 3) Gezegen zamanlarını ilerletme --- */
 static void _advancePlanetTimes(Simulasyon this) {
     for (int i = 0; i < this->gezegenSayisi; ++i)
         this->gezegenler[i]->tarih->ilerle(this->gezegenler[i]->tarih);
 }
 
+/* --- 4) Tüm araçlar tamamlandı mı? --- */
+
+static int _tumAraclarTamamlandi(Simulasyon this) {
+    // Eğer kalanSaat > 0 olan en az bir araç varsa, simülasyon devam etsin
+    for (int i = 0; i < this->aracSayisi; ++i) {
+        if (this->araclar[i]->kalanSaat > 0)
+            return 0;  
+    }
+    // Hiçbiri >0 değilse (yani hepsi ≤0 olmuşsa) bitiş sinyali ver
+    return 1;
+}
+
 /* -------------------- Ana Döngü -------------------- */
 static void _baslatSimulasyon(Simulasyon this) {
-    int saat = 0, tamamlanan = 0;
+    int saat = 0;
 
-    while (tamamlanan < this->aracSayisi) {
+    while (!_tumAraclarTamamlandi(this)) {
+        // ———— DEBUG BAŞLANGICI ————
+        int bitti = _tumAraclarTamamlandi(this);
+        printf("[DEBUG] Bitis testi = %d, Saat = %d\n", bitti, saat);
+        // ———— DEBUG BİTİŞİ ————
+
         _clearConsole();
         _printSaatBaslik(saat);
 
         _handleDepartures(this);
-        tamamlanan = 0;                            /* her saatte yeniden say */
-        _moveShipsAndPassengers(this, &tamamlanan);
+        _moveShipsAndPassengers(this);
         _advancePlanetTimes(this);
 
         printf("------------------------\n\n");
         ++saat;
-        /* sleep(1);  // isterseniz */
     }
 
     _yazdirGezegenDurum(this);
@@ -137,7 +170,7 @@ static void _baslatSimulasyon(Simulasyon this) {
 }
 
 
-// Print planet status table
+/* -------------------- Durum Raporları -------------------- */
 static void _yazdirGezegenDurum(Simulasyon this) {
     int G = this->gezegenSayisi;
     int* pop = malloc(G * sizeof(int));
@@ -157,13 +190,11 @@ static void _yazdirGezegenDurum(Simulasyon this) {
     }
 
     printf("Gezegenler:\n\n");
-    // Header row
     printf("%-20s", "");
     for (int i = 0; i < G; ++i)
         printf("%-20s", this->gezegenler[i]->isim);
     printf("\n");
 
-    // Date row
     printf("%-20s", "Tarih:");
     for (int i = 0; i < G; ++i) {
         char* t = this->gezegenler[i]->tarih
@@ -173,7 +204,6 @@ static void _yazdirGezegenDurum(Simulasyon this) {
     }
     printf("\n");
 
-    // Population row
     printf("%-20s", "Nüfus:");
     for (int i = 0; i < G; ++i)
         printf("%-20d", pop[i]);
@@ -182,16 +212,26 @@ static void _yazdirGezegenDurum(Simulasyon this) {
     free(pop);
 }
 
-// Print ship status table
+/* --- Durum Raporu: araçlar --- */
 static void _yazdirAracDurum(Simulasyon this) {
-    int A = this->aracSayisi;
     printf("Uzay Araclari:\n");
     printf("%-10s %-10s %-10s %-10s %-20s %-20s\n",
            "Arac Adi", "Durum", "cikis", "varis",
            "Hedefe Kalan Saat", "Hedef Tarih");
 
-    for (int i = 0; i < A; ++i) {
+    for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
+
+        // IMHA olduysa özel satır
+        if (a->imha) {
+            printf("%-10s %-10s %-10s %-10s %-20s %-20s\n",
+                   a->isim, "IMHA",
+                   a->cikisGezegen, a->varisGezegen,
+                   "--", "--");
+            continue;
+        }
+
+        // Aksi halde normal durum
         const char* durum = (a->kalanSaat == a->mesafeSaat) ? "Bekliyor"
                              : (a->kalanSaat > 0)         ? "Yolda"
                                                            : "Vardi";
@@ -207,8 +247,7 @@ static void _yazdirAracDurum(Simulasyon this) {
     }
     printf("\n");
 }
-
-// Static destructor
+/* -------------------- Destructor -------------------- */
 static void _deleteSimulasyon(Simulasyon this) {
     if (!this) return;
     for (int i = 0; i < this->kisiSayisi; ++i)
