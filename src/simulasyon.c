@@ -9,6 +9,41 @@
 #include <stdlib.h>
 #include <string.h>
 
+// simulasyon.c’in en başında includes’lerden hemen sonra:
+static int _isLeapYear(int yil) {
+    if (yil % 400 == 0) return 1;
+    if (yil % 100 == 0) return 0;
+    return (yil % 4) == 0;
+}
+
+static int _daysInMonth(int ay, int yil) {
+    switch (ay) {
+        case 2: return _isLeapYear(yil) ? 29 : 28;
+        case 4: case 6: case 9: case 11: return 30;
+        default: return 31;
+    }
+}
+// simülasyon.c’in en başında includes’lerden sonra:
+Zaman _hesaplaVarisTarihi(Zaman departure,
+                                 int travelHours,
+                                 int targetDayLength)
+{
+    // departure günü/saatSayısı bilgisini kullanma, yeni zaman objesini
+    // hedef gezegenin gün uzunluğuyla yarat
+    Zaman arrival = newZaman(
+        departure->gun,
+        departure->ay,
+        departure->yil,
+        targetDayLength
+    );
+    // her saat için ilerlet
+    for (int h = 0; h < travelHours; ++h) {
+        arrival->ilerle(arrival);
+    }
+    return arrival;
+}
+
+
 /* -------------------- Yapı Tanımı -------------------- */
 struct SIMULASYON {
     Kisi*      kisiler;
@@ -26,6 +61,7 @@ static int  _tarihEsit(Zaman, Zaman);
 static int  _findPlanet(Simulasyon, const char*);
 static int  _tumAraclarTamamlandi(Simulasyon); // 🔸 EKLENDİ
 
+
 /* --- yeni küçük görev fonksiyonları --- */
 static void _clearConsole(void);
 static void _printSaatBaslik(int saat);
@@ -37,6 +73,7 @@ static void _yazdirAracDurum(Simulasyon);
 
 static void _baslatSimulasyon(Simulasyon);
 static void _deleteSimulasyon(Simulasyon);
+
 
 /* -------------------- Public API -------------------- */
 Simulasyon newSimulasyon(Kisi* kisiler, int kisiSayisi,
@@ -54,6 +91,8 @@ Simulasyon newSimulasyon(Kisi* kisiler, int kisiSayisi,
     s->deleteSimulasyon = _deleteSimulasyon;
     return s;
 }
+
+
 void baslatSimulasyon(Simulasyon this)  { this->baslat(this); }
 void deleteSimulasyon(Simulasyon this) { this->deleteSimulasyon(this); }
 
@@ -70,27 +109,35 @@ static void _clearConsole(void) { printf("\033[H\033[J"); }
 static void _printSaatBaslik(int saat) {
     printf("===== Saat %d =====\n", saat);
 }
-
-/* --- 1) Çıkış kontrolü ve olay mesajı --- */
+/* --- 1) Çıkış kontrolü ve gerçek ayrılış tarihini yakalama --- */
 static void _handleDepartures(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
         if (a->kalanSaat == a->mesafeSaat) {
             int p = _findPlanet(this, a->cikisGezegen);
-            if (p >= 0 && _tarihEsit(a->cikisTarihi, this->gezegenler[p]->tarih))
+            Gezegen src = this->gezegenler[p];
+            if (p >= 0 && _tarihEsit(a->cikisTarihi, src->tarih)) {
                 printf("  [CIKIS] %s araci %s tarihinde yola cikti.\n",
                        a->isim, a->cikisGezegen);
+                /* gerçek depart tarihini gün uzunluğuna göre kopyala */
+                a->cikisTarihi->deleteZaman(a->cikisTarihi);
+                a->cikisTarihi = newZaman(
+                    src->tarih->gun,
+                    src->tarih->ay,
+                    src->tarih->yil,
+                    src->gunSaat
+                );
+            }
         }
     }
 }
-
 /* --- 2) Hareket & yolcu ömrü & varış & imha --- */
 static void _moveShipsAndPassengers(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
         if (a->kalanSaat <= 0 || a->imha) continue;
 
-        // 1) Yolcuların ömrünü azalt ve hayatta kalan var mı say
+        // 1) Yolcuların ömrünü azalt ve survivors say
         int survivors = 0;
         for (int k = 0; k < this->kisiSayisi; ++k) {
             if (strcmp(this->kisiler[k]->aracAdi, a->isim) == 0) {
@@ -99,30 +146,44 @@ static void _moveShipsAndPassengers(Simulasyon this) {
                     survivors++;
             }
         }
-
-        // 2) Eğer hiçbir kişi hayatta kalmadıysa, araç imha olsun
+        // 2) Eğer hiçbiri kalmadıysa, IMHA et ve atla
         if (survivors == 0) {
             a->imha = 1;
             a->kalanSaat = 0;
-            printf("  [IMHA]   %s araci imha oldu: tum yolcular öldü.\n", a->isim);
+            printf("  [IMHA]   %s araci imha oldu: tum yolcular öldü.\n",
+                   a->isim);
             continue;
         }
 
-        // 3) Normal hareket
+        // 3) Normal hareket: kalan saati azalt
         a->kalanSaat--;
         printf("  [HAREKET] %s araci, kalan sure: %d saat\n",
                a->isim, a->kalanSaat);
 
         // 4) Varış kontrolü
         if (a->kalanSaat == 0) {
-            int q = _findPlanet(this, a->varisGezegen);
-            char* vt = this->gezegenler[q]->tarih
-                           ->toString(this->gezegenler[q]->tarih);
-            printf("  [VARIS]   %s hedefe ulasti: %s tarihinde\n", a->isim, vt);
+            int idx = _findPlanet(this, a->varisGezegen);
+            Gezegen dest = this->gezegenler[idx];
+            // gerçek varış tarihini hesapla
+            Zaman arrival = _hesaplaVarisTarihi(
+                a->cikisTarihi,
+                a->mesafeSaat,
+                dest->gunSaat
+            );
+            // varsa eski varisTarihi sil
+            if (a->varisTarihi)
+                a->varisTarihi->deleteZaman(a->varisTarihi);
+            // yeni varis tarihini sakla
+            a->varisTarihi = arrival;
+
+            char* vt = arrival->toString(arrival);
+            printf("  [VARIS]   %s hedefe ulasti: %s tarihinde\n",
+                   a->isim, vt);
             free(vt);
         }
     }
 }
+
 
 
 /* --- 3) Gezegen zamanlarını ilerletme --- */
@@ -130,6 +191,7 @@ static void _advancePlanetTimes(Simulasyon this) {
     for (int i = 0; i < this->gezegenSayisi; ++i)
         this->gezegenler[i]->tarih->ilerle(this->gezegenler[i]->tarih);
 }
+
 
 /* --- 4) Tüm araçlar tamamlandı mı? --- */
 
@@ -145,14 +207,9 @@ static int _tumAraclarTamamlandi(Simulasyon this) {
 
 /* -------------------- Ana Döngü -------------------- */
 static void _baslatSimulasyon(Simulasyon this) {
-    int saat = 0;
-
+      int saat = 0;
     while (!_tumAraclarTamamlandi(this)) {
-        // ———— DEBUG BAŞLANGICI ————
-        int bitti = _tumAraclarTamamlandi(this);
-        printf("[DEBUG] Bitis testi = %d, Saat = %d\n", bitti, saat);
-        // ———— DEBUG BİTİŞİ ————
-
+        printf("[DEBUG] Saat = %d\n", saat);
         _clearConsole();
         _printSaatBaslik(saat);
 
@@ -163,11 +220,11 @@ static void _baslatSimulasyon(Simulasyon this) {
         printf("------------------------\n\n");
         ++saat;
     }
-
     _yazdirGezegenDurum(this);
     _yazdirAracDurum(this);
     printf("Tum araclar hedefe ulasti. Simulasyon tamamlandi.\n");
 }
+
 
 
 /* -------------------- Durum Raporları -------------------- */
@@ -222,31 +279,29 @@ static void _yazdirAracDurum(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
 
-        // IMHA olduysa özel satır
         if (a->imha) {
             printf("%-10s %-10s %-10s %-10s %-20s %-20s\n",
                    a->isim, "IMHA",
                    a->cikisGezegen, a->varisGezegen,
                    "--", "--");
-            continue;
+        } else {
+            const char* durum = (a->kalanSaat == a->mesafeSaat) ? "Bekliyor"
+                                 : (a->kalanSaat > 0)         ? "Yolda"
+                                                               : "Vardi";
+            char* vt = a->varisTarihi
+                       ? a->varisTarihi->toString(a->varisTarihi)
+                       : strdup("--");
+            printf("%-10s %-10s %-10s %-10s %-20d %-20s\n",
+                   a->isim, durum,
+                   a->cikisGezegen, a->varisGezegen,
+                   a->kalanSaat, vt);
+            free(vt);
         }
-
-        // Aksi halde normal durum
-        const char* durum = (a->kalanSaat == a->mesafeSaat) ? "Bekliyor"
-                             : (a->kalanSaat > 0)         ? "Yolda"
-                                                           : "Vardi";
-        int idx = _findPlanet(this, a->varisGezegen);
-        char* vt = this->gezegenler[idx]->tarih
-                       ->toString(this->gezegenler[idx]->tarih);
-
-        printf("%-10s %-10s %-10s %-10s %-20d %-20s\n",
-               a->isim, durum,
-               a->cikisGezegen, a->varisGezegen,
-               a->kalanSaat, vt);
-        free(vt);
     }
     printf("\n");
 }
+
+
 /* -------------------- Destructor -------------------- */
 static void _deleteSimulasyon(Simulasyon this) {
     if (!this) return;

@@ -14,5 +14,8 @@ Simulasyon     newSimulasyon(Kisi* kisiler, int kisiSayisi,
                              Gezegen* gezegenler, int gezegenSayisi);
 void           baslatSimulasyon(Simulasyon this);
 void           deleteSimulasyon(Simulasyon this);
+Zaman _hesaplaVarisTarihi(Zaman departure,
+                                 int travelHours,
+                                 int targetDayLength);
 
 #endif // SIMULASYON_H

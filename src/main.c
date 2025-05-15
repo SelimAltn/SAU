@@ -8,6 +8,20 @@
 #include "dosya_okuma.h"
 #include "simulasyon.h"
 
+// *** testDate fonksiyonu buraya ekleniyor ***
+void testDate() {
+    Zaman dep = newZaman(1, 5, 2025, 24);
+    Zaman arr = _hesaplaVarisTarihi(dep, 300, 24);  // 300 saati 24’e bölsün, artanı tam gün yapsın
+
+    char* s = arr->toString(arr);
+    printf("Computed arrival: %s\n", s);            // artık 14.05.2025 çıkacak
+
+    free(s);
+    dep->deleteZaman(dep);
+    arr->deleteZaman(arr);
+}
+// *** testDate sonu ***
+
 
 int main(void) {
     
@@ -16,6 +30,7 @@ int main(void) {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
   #endif
+      testDate();
 
     // 2) C kütüphanesinin locale’ini ayarla (printf vb. fonksiyonlar için)
     setlocale(LC_ALL, "");

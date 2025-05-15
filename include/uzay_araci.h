@@ -1,20 +1,24 @@
+// include/uzay_araci.h
 #ifndef UZAY_ARACI_H
 #define UZAY_ARACI_H
 
 #include "zaman.h"
 
-// Tek satırda struct tanımı ve typedef
+// UzayAraci yapı tanımı
 typedef struct UZAYARACI {
     char*  isim;
     char*  cikisGezegen;
     char*  varisGezegen;
-    Zaman  cikisTarihi;
+    Zaman  cikisTarihi;     // gerçek depart saatiyle oluşturulmuş
+    Zaman  varisTarihi;     // hesaplanmış varış tarihi
     int    mesafeSaat;
     int    kalanSaat;
     int    imha;
+    
 
     // Metot pointer’ları
     void (*yaz)(struct UZAYARACI*);
+    void (*setVarisTarihi)(struct UZAYARACI*, Zaman);
     void (*deleteUzayAraci)(struct UZAYARACI*);
 } *UzayAraci;
 
@@ -25,7 +29,7 @@ UzayAraci newUzayAraci(const char* isim,
                        Zaman cikisTarihi,
                        int mesafeSaat);
 
-// Global wrapper’lar
+void uzayAraciSetVarisTarihi(UzayAraci this, Zaman varis);
 void uzayAraciYazdir(UzayAraci this);
 void deleteUzayAraci(UzayAraci this);
 
