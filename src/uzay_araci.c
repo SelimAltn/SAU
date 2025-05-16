@@ -31,6 +31,7 @@ UzayAraci newUzayAraci(const char* isim,
     a->mesafeSaat      = mesafeSaat;
     a->kalanSaat       = mesafeSaat;
     a->imha            = 0;
+    a->hasDeparted     = 0;    
 
 
     // Metot pointer’larını ata

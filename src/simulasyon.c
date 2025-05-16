@@ -113,13 +113,13 @@ static void _printSaatBaslik(int saat) {
 static void _handleDepartures(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
-        if (a->kalanSaat == a->mesafeSaat) {
+        if (a->kalanSaat == a->mesafeSaat && !a->hasDeparted) {
             int p = _findPlanet(this, a->cikisGezegen);
             Gezegen src = this->gezegenler[p];
             if (p >= 0 && _tarihEsit(a->cikisTarihi, src->tarih)) {
                 printf("  [CIKIS] %s araci %s tarihinde yola cikti.\n",
                        a->isim, a->cikisGezegen);
-                /* gerçek depart tarihini gün uzunluğuna göre kopyala */
+                a->hasDeparted = 1;    // << işaretle
                 a->cikisTarihi->deleteZaman(a->cikisTarihi);
                 a->cikisTarihi = newZaman(
                     src->tarih->gun,
@@ -131,54 +131,77 @@ static void _handleDepartures(Simulasyon this) {
         }
     }
 }
+
 /* --- 2) Hareket & yolcu ömrü & varış & imha --- */
 static void _moveShipsAndPassengers(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
-        if (a->kalanSaat <= 0 || a->imha) continue;
 
-        // 1) Yolcuların ömrünü azalt ve survivors say
+        // Henüz yola çıkmamış veya zaten imha olmuşsa atla
+        if (!a->hasDeparted || a->imha)
+            continue;
+
+        // Yolcuların ömrünü azaltacak yaşlanma faktörünü belirle
+        int idxSrc = _findPlanet(this, a->cikisGezegen);
+        int idxDst = _findPlanet(this, a->varisGezegen);
+        double factor;
+        if (a->kalanSaat == a->mesafeSaat) {
+            // tam yola çıkış anı: çıkış gezegeni katsayısı
+            factor = (idxSrc >= 0)
+                   ? this->gezegenler[idxSrc]->yaslanmaKatSayi(this->gezegenler[idxSrc])
+                   : 1.0;
+        } else if (a->kalanSaat == 1) {
+            // varışın hemen öncesi: varış gezegeni katsayısı
+            factor = (idxDst >= 0)
+                   ? this->gezegenler[idxDst]->yaslanmaKatSayi(this->gezegenler[idxDst])
+                   : 1.0;
+        } else {
+            // ara adımlar: varsayılan (ya da çıkış gezegeni)
+            factor = (idxSrc >= 0)
+                   ? this->gezegenler[idxSrc]->yaslanmaKatSayi(this->gezegenler[idxSrc])
+                   : 1.0;
+        }
+
+        // Tüm yolcuların kalan ömrünü düş ve hayatta kalan sayısını hesapla
         int survivors = 0;
         for (int k = 0; k < this->kisiSayisi; ++k) {
             if (strcmp(this->kisiler[k]->aracAdi, a->isim) == 0) {
-                this->kisiler[k]->kalanOmur--;
+                this->kisiler[k]->kalanOmur -= factor;
+                if (this->kisiler[k]->kalanOmur < 0)
+                    this->kisiler[k]->kalanOmur = 0;
                 if (this->kisiler[k]->kalanOmur > 0)
                     survivors++;
             }
         }
-        // 2) Eğer hiçbiri kalmadıysa, IMHA et ve atla
+
+        // Eğer kimse kalmadıysa imha et ve atla
         if (survivors == 0) {
             a->imha = 1;
             a->kalanSaat = 0;
-            printf("  [IMHA]   %s araci imha oldu: tum yolcular öldü.\n",
-                   a->isim);
+            printf("  [IMHA]   %s araci imha oldu: tum yolcular öldü.\n", a->isim);
             continue;
         }
 
-        // 3) Normal hareket: kalan saati azalt
+        // 1 saat yol kat et
         a->kalanSaat--;
-        printf("  [HAREKET] %s araci, kalan sure: %d saat\n",
-               a->isim, a->kalanSaat);
-
-        // 4) Varış kontrolü
-        if (a->kalanSaat == 0) {
-            int idx = _findPlanet(this, a->varisGezegen);
-            Gezegen dest = this->gezegenler[idx];
-            // gerçek varış tarihini hesapla
+        if (a->kalanSaat > 0) {
+            // hâlâ yolculukta
+            printf("  [HAREKET] %s araci, kalan sure: %d saat\n",
+                   a->isim, a->kalanSaat);
+        } else {
+            // varış anı: tarih hesapla ve raporla
+            Gezegen hedef = this->gezegenler[idxDst];
             Zaman arrival = _hesaplaVarisTarihi(
                 a->cikisTarihi,
                 a->mesafeSaat,
-                dest->gunSaat
+                hedef->gunSaat
             );
-            // varsa eski varisTarihi sil
             if (a->varisTarihi)
                 a->varisTarihi->deleteZaman(a->varisTarihi);
-            // yeni varis tarihini sakla
             a->varisTarihi = arrival;
 
             char* vt = arrival->toString(arrival);
-            printf("  [VARIS]   %s hedefe ulasti: %s tarihinde\n",
-                   a->isim, vt);
+            printf("  [VARIS]   %s hedefe ulasti: %s\n", a->isim, vt);
             free(vt);
         }
     }
@@ -210,7 +233,7 @@ static void _baslatSimulasyon(Simulasyon this) {
       int saat = 0;
     while (!_tumAraclarTamamlandi(this)) {
         printf("[DEBUG] Saat = %d\n", saat);
-        _clearConsole();
+        //_clearConsole();
         _printSaatBaslik(saat);
 
         _handleDepartures(this);

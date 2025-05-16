@@ -25,7 +25,7 @@ static void _ilerle(struct ZAMAN* this) {
     if (this->saatCounter >= this->saatSayisi) {
         this->saatCounter = 0;
         this->gun++;
-        int dim = _daysInMonth(this->ay, this->yil);
+        int dim = _daysInMonth(this->ay, this->yil); // Ayın gün sayısı
         if (this->gun > dim) {
             this->gun = 1;
             this->ay++;

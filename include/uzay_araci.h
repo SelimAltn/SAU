@@ -14,6 +14,7 @@ typedef struct UZAYARACI {
     int    mesafeSaat;
     int    kalanSaat;
     int    imha;
+    int    hasDeparted; 
     
 
     // Metot pointer’ları
