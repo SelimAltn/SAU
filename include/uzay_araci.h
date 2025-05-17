@@ -33,5 +33,12 @@ UzayAraci newUzayAraci(const char* isim,
 void uzayAraciSetVarisTarihi(UzayAraci this, Zaman varis);
 void uzayAraciYazdir(UzayAraci this);
 void deleteUzayAraci(UzayAraci this);
+void uzayAraciDepart(UzayAraci this, Zaman departureTime);
+
+/// Her saat çağrıldığında kalan süreyi azalt, 0’a ulaştığında varisTarihi’ni targetPlanetTime’dan set et
+void uzayAraciAdvanceHour(UzayAraci this,
+                          double ageFactorSrc,
+                          double ageFactorDst,
+                          Zaman targetPlanetTime);
 
 #endif // UZAY_ARACI_H
