@@ -7,6 +7,8 @@
 #include "zaman.h"
 #include "dosya_okuma.h"
 #include "simulasyon.h"
+#include "uzay_araci.h"
+#include <string.h>
 
 // *** testDate fonksiyonu buraya ekleniyor ***
 void testDate() {
@@ -65,6 +67,17 @@ int main(void) {
         for (int i = 0; i < aracSayisi; ++i) deleteUzayAraci(araclar[i]);
         free(araclar);
         return EXIT_FAILURE;
+    }
+    
+    // 1.5) Her kişi için ilgili araca yolcu ekle
+    for (int i = 0; i < kisiSayisi; ++i) {
+        for (int j = 0; j < aracSayisi; ++j) {
+            // kisiler[i]->aracAdi ile araclar[j]->isim eşleşiyorsa
+            if (strcmp(kisiler[i]->aracAdi, araclar[j]->isim) == 0) {
+                uzayAraciAddPassenger(araclar[j], kisiler[i]);
+                break;
+            }
+        }
     }
 
     // 2) Simülasyonu oluştur ve çalıştır

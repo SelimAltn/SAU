@@ -10,19 +10,8 @@
 #include <string.h>
 
 // simulasyon.c’in en başında includes’lerden hemen sonra:
-static int _isLeapYear(int yil) {
-    if (yil % 400 == 0) return 1;
-    if (yil % 100 == 0) return 0;
-    return (yil % 4) == 0;
-}
 
-static int _daysInMonth(int ay, int yil) {
-    switch (ay) {
-        case 2: return _isLeapYear(yil) ? 29 : 28;
-        case 4: case 6: case 9: case 11: return 30;
-        default: return 31;
-    }
-}
+
 // simülasyon.c’in en başında includes’lerden sonra:
 Zaman _hesaplaVarisTarihi(Zaman departure,
                                  int travelHours,
@@ -126,7 +115,6 @@ static void _handleDepartures(Simulasyon this) {
 }
 
 /* --- 2) Hareket & yolcu ömrü & varış & imha --- */
-// 2) Hareket & yolcu ömrü & varış & imha
 static void _moveShipsAndPassengers(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
@@ -138,9 +126,12 @@ static void _moveShipsAndPassengers(Simulasyon this) {
         // Yaşlanma faktörlerini bul
         int idxSrc = _findPlanet(this, a->cikisGezegen);
         int idxDst = _findPlanet(this, a->varisGezegen);
-        double factorSrc = (idxSrc >= 0)
-                         ? this->gezegenler[idxSrc]->yaslanmaKatSayi(this->gezegenler[idxSrc])
-                         : 1.0;
+        // Yolda olan araç için yaşlanma normal (1.0), aksi halde gezegen katsayısı
+        double factorSrc = (a->hasDeparted && a->kalanSaat > 0)
+                         ? 1.0
+                         : ((idxSrc >= 0)
+                            ? this->gezegenler[idxSrc]->yaslanmaKatSayi(this->gezegenler[idxSrc])
+                            : 1.0);
         double factorDst = (idxDst >= 0)
                          ? this->gezegenler[idxDst]->yaslanmaKatSayi(this->gezegenler[idxDst])
                          : 1.0;
@@ -184,8 +175,6 @@ static void _moveShipsAndPassengers(Simulasyon this) {
     }
 }
 
-
-
 /* --- 3) Gezegen zamanlarını ilerletme --- */
 static void _advancePlanetTimes(Simulasyon this) {
     for (int i = 0; i < this->gezegenSayisi; ++i)
@@ -204,6 +193,8 @@ static int _tumAraclarTamamlandi(Simulasyon this) {
     // Hiçbiri >0 değilse (yani hepsi ≤0 olmuşsa) bitiş sinyali ver
     return 1;
 }
+
+
 
 /* -------------------- Ana Döngü -------------------- */
 static void _baslatSimulasyon(Simulasyon this) {

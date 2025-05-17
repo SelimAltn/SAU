@@ -142,17 +142,13 @@ void uzayAraciAdvanceHour(UzayAraci this,
     if (!this->hasDeparted || this->imha || this->kalanSaat == 0)
         return;
 
-    // Yolcu yaşlanması
-    for (int i = 0; i < this->passengerCount; ++i) {
-        Kisi k = this->passengers[i];
-        k->kalanOmur -= (int)ageFactorSrc;  // örnek: sadece çıkış faktörü
-        if (k->kalanOmur < 0) k->kalanOmur = 0;
-    }
 
+    // Araç saati azalt
     this->kalanSaat--;
     if (this->kalanSaat < 0)
         this->kalanSaat = 0;
 
+    // Varış tarihi atama
     if (this->kalanSaat == 0 && !this->varisTarihi) {
         this->varisTarihi = newZaman(
             targetPlanetTime->gun,
@@ -184,6 +180,7 @@ static void _yazUzayAraci(UzayAraci this) {
     free(cstr);
     free(vstr);
 }
+
 
 static void _deleteUzayAraciImpl(UzayAraci this) {
     if (this->cikisTarihi) this->cikisTarihi->deleteZaman(this->cikisTarihi);

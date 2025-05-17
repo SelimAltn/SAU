@@ -4,19 +4,14 @@
 #include <string.h>
 
 // artık yıl kontrolü
-static int _isLeapYear(int yil) {
-    if ((yil % 400) == 0) return 1;
-    if ((yil % 100) == 0) return 0;
-    return (yil % 4) == 0;
+static int IsLeapYear(int yil) {
+       return yil % 400 == 0 || (yil % 4 == 0 && yil % 100 != 0) ;
 }
 
 // ayın gün sayısını döner
-static int _daysInMonth(int ay, int yil) {
-    switch (ay) {
-        case 2: return _isLeapYear(yil) ? 29 : 28;
-        case 4: case 6: case 9: case 11: return 30;
-        default: return 31;
-    }
+static int NumberOfDayesInMonth(int ay, int yil) {
+    short arrDayys31[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+	return (ay == 2) ? (IsLeapYear(yil) ? 29 : 28) : arrDayys31[ay - 1];
 }
 
 // gün/saat ilerletme metodu
@@ -25,7 +20,7 @@ static void _ilerle(struct ZAMAN* this) {
     if (this->saatCounter >= this->saatSayisi) {
         this->saatCounter = 0;
         this->gun++;
-        int dim = _daysInMonth(this->ay, this->yil); // Ayın gün sayısı
+        int dim = NumberOfDayesInMonth(this->ay, this->yil); // Ayın gün sayısı
         if (this->gun > dim) {
             this->gun = 1;
             this->ay++;
