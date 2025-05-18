@@ -1,65 +1,10 @@
-/* include/uzay_araci.h */
-
-#ifndef UZAY_ARACI_H
-#define UZAY_ARACI_H
-
-#include "zaman.h"
-#include "kisi.h"
-
-typedef struct UzayAraci_* UzayAraci;
-
-// Oluşturucu ve yıkıcı
-UzayAraci newUzayAraci(const char* isim,
-                       const char* cikisGezegen,
-                       const char* varisGezegen,
-                       Zaman cikisTarihi,
-                       int mesafeSaat);
-void deleteUzayAraci(UzayAraci this);
-
-// Kalkış ve her saat ilerleme
-void uzayAraciDepart(UzayAraci this, Zaman departureTime);
-void uzayAraciAdvanceHour(UzayAraci this,
-                          double ageFactorSrc,
-                          double ageFactorDst,
-                          Zaman targetPlanetTime);
-
-// Yolcu yönetimi
-void uzayAraciAddPassenger(UzayAraci this, Kisi passenger);
-void uzayAraciRemovePassenger(UzayAraci this, Kisi passenger);
-
-// Varış tarihini set etme (setter)
-void uzayAraciSetVarisTarihi(UzayAraci this, Zaman varisTarihi);
-
-// Yazdırma
-void uzayAraciYazdir(UzayAraci this);
-
-#endif // UZAY_ARACI_H
-
-
 /* src/uzay_araci.c */
 #include "uzay_araci.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-struct UzayAraci_ {
-    char*      isim;
-    char*      cikisGezegen;
-    char*      varisGezegen;
-    Zaman      cikisTarihi;
-    Zaman      varisTarihi;
-    int        mesafeSaat;
-    int        kalanSaat;
-    int        imha;
-    int        hasDeparted;
-    Kisi*      passengers;
-    int        passengerCount;
 
-    // method pointers
-    void     (*yaz)(UzayAraci);
-    void     (*setVarisTarihi)(UzayAraci, Zaman);
-    void     (*deleteUzayAraci)(UzayAraci);
-};
 
 static char* _strdup(const char* s) {
     size_t n = strlen(s) + 1;
@@ -125,13 +70,22 @@ void uzayAraciRemovePassenger(UzayAraci this, Kisi passenger) {
 void uzayAraciDepart(UzayAraci this, Zaman departureTime) {
     if (!this->hasDeparted) {
         this->hasDeparted = 1;
+
+        // Eski çıkış tarihini temizle
         this->cikisTarihi->deleteZaman(this->cikisTarihi);
-        this->cikisTarihi = newZaman(
+
+        // Yeni Zaman objesini yarat: gün uzunluğunu koru
+        Zaman dep = newZaman(
             departureTime->gun,
             departureTime->ay,
             departureTime->yil,
             departureTime->saatSayisi
         );
+        // Depart anındaki saat-of-day bilgisini de koru
+        dep->saatCounter = departureTime->saatCounter;
+
+        // Uzay aracının çıkış tarihini güncelle
+        this->cikisTarihi = dep;
     }
 }
 

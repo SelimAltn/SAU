@@ -96,7 +96,7 @@ static int _findPlanet(Simulasyon this, const char* ad) {
 }
 static void _clearConsole(void) { printf("\033[H\033[J"); }
 static void _printSaatBaslik(int saat) {
-    printf("===== Saat %d =====\n", saat);
+    printf("===== iterasyon  %d =====\n", saat);
 }
 /* --- 1) Çıkış kontrolü ve gerçek ayrılış tarihini yakalama --- */
 static void _handleDepartures(Simulasyon this) {
@@ -194,7 +194,18 @@ static int _tumAraclarTamamlandi(Simulasyon this) {
     return 1;
 }
 
-
+// Gezegenlerin güncel tarih ve saati yazdırır
+static void _printPlanetTimes(Simulasyon this) {
+    for (int i = 0; i < this->gezegenSayisi; ++i) {
+        Gezegen g = this->gezegenler[i];
+        char* tarihStr   = g->tarih->toString(g->tarih);
+        int   saatCounter = g->tarih->saatCounter;
+        printf("Gezegen %-3s: %s %02d:00\n",
+               g->isim, tarihStr, saatCounter);
+        free(tarihStr);
+    }
+    printf("\n");
+}
 
 /* -------------------- Ana Döngü -------------------- */
 static void _baslatSimulasyon(Simulasyon this) {
@@ -203,6 +214,7 @@ static void _baslatSimulasyon(Simulasyon this) {
         printf("[DEBUG] Saat = %d\n", saat);
         _clearConsole();
         _printSaatBaslik(saat);
+        _printPlanetTimes(this); 
 
         _handleDepartures(this);
         _moveShipsAndPassengers(this);
@@ -217,23 +229,58 @@ static void _baslatSimulasyon(Simulasyon this) {
 }
 
 
+// Gezegen adını “--Name--” şeklinde width alanında ortalar
+static void _printCentered(const char* text, int width) {
+    int len = strlen(text);
+    int padL = (width - len) / 2;
+    if (padL < 0) padL = 0;
+    int padR = width - len - padL;
+    if (padR < 0) padR = 0;
+    printf("%*s%s%*s", padL, "", text, padR, "");
+}
 
+// Yardımcı: metni “--text--” olarak süsler ve width içinde ortalar
+static void _printCenteredDecorated(const char* text, int width) {
+    char buf[64];
+    snprintf(buf, sizeof buf, "-- %s --", text);
+    _printCentered(buf, width);
+}
+
+// Tam sayı için ortalama
+static void _printCenteredInt(int val, int width) {
+    char buf[32];
+    snprintf(buf, sizeof buf, "%d", val);
+    _printCentered(buf, width);
+}
 /* -------------------- Durum Raporları -------------------- */
 static void _yazdirGezegenDurum(Simulasyon this) {
     int G = this->gezegenSayisi;
-    int* pop = malloc(G * sizeof(int));
-    for (int i = 0; i < G; ++i) pop[i] = 0;
+    int* pop = calloc(G, sizeof(int));
+
     for (int i = 0; i < this->kisiSayisi; ++i) {
-        if (this->kisiler[i]->kalanOmur > 0) {
-            const char* aracAd = this->kisiler[i]->aracAdi;
-            for (int j = 0; j < this->aracSayisi; ++j) {
-                UzayAraci a = this->araclar[j];
-                if (strcmp(a->isim, aracAd) == 0) {
-                    int p = _findPlanet(this, a->varisGezegen);
-                    if (p >= 0) pop[p]++;
-                    break;
-                }
+        Kisi p = this->kisiler[i];
+        if (p->kalanOmur <= 0) continue;
+
+        // Bu kişi hangi araçta?
+        for (int j = 0; j < this->aracSayisi; ++j) {
+            UzayAraci a = this->araclar[j];
+            if (strcmp(a->isim, p->aracAdi) != 0) 
+                continue;
+
+            int idx = -1;
+            if (!a->hasDeparted) {
+                // Henüz kalkış yapmadıysa, çıkış gezegenine ekle
+                idx = _findPlanet(this, a->cikisGezegen);
             }
+            else if (a->kalanSaat == 0) {
+                // Varışta: hedef gezegene ekle
+                idx = _findPlanet(this, a->varisGezegen);
+            }
+            // Yolda olanları (hasDeparted && kalanSaat>0) sayma
+
+            if (idx >= 0) 
+                pop[idx]++;
+            break;
         }
     }
 
@@ -245,8 +292,7 @@ static void _yazdirGezegenDurum(Simulasyon this) {
 
     printf("%-20s", "Tarih:");
     for (int i = 0; i < G; ++i) {
-        char* t = this->gezegenler[i]->tarih
-                       ->toString(this->gezegenler[i]->tarih);
+        char* t = this->gezegenler[i]->tarih->toString(this->gezegenler[i]->tarih);
         printf("%-20s", t);
         free(t);
     }
@@ -259,6 +305,7 @@ static void _yazdirGezegenDurum(Simulasyon this) {
 
     free(pop);
 }
+
 
 /* --- Durum Raporu: araçlar --- */
 static void _yazdirAracDurum(Simulasyon this) {

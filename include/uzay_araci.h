@@ -3,41 +3,49 @@
 #define UZAY_ARACI_H
 
 #include "zaman.h"
+#include "kisi.h"
 
-// UzayAraci yapı tanımı
-typedef struct UZAYARACI {
-    char*  isim;
-    char*  cikisGezegen;
-    char*  varisGezegen;
-    Zaman  cikisTarihi;     // gerçek depart saatiyle oluşturulmuş
-    Zaman  varisTarihi;     // hesaplanmış varış tarihi
-    int    mesafeSaat;
-    int    kalanSaat;
-    int    imha;
-    int    hasDeparted; 
-    
+// Tam struct tanımı (opaque değil)
+typedef struct UzayAraci_ {
+    char*   isim;
+    char*   cikisGezegen;
+    char*   varisGezegen;
+    Zaman   cikisTarihi;
+    Zaman   varisTarihi;
+    int     mesafeSaat;
+    int     kalanSaat;
+    int     imha;
+    int     hasDeparted;
+    Kisi*   passengers;
+    int     passengerCount;
 
     // Metot pointer’ları
-    void (*yaz)(struct UZAYARACI*);
-    void (*setVarisTarihi)(struct UZAYARACI*, Zaman);
-    void (*deleteUzayAraci)(struct UZAYARACI*);
+    void (*yaz)(struct UzayAraci_* this);
+    void (*setVarisTarihi)(struct UzayAraci_* this, Zaman varis);
+    void (*deleteUzayAraci)(struct UzayAraci_* this);
 } *UzayAraci;
 
-// Public API
+// Oluşturucu / yıkıcı
 UzayAraci newUzayAraci(const char* isim,
                        const char* cikisGezegen,
                        const char* varisGezegen,
                        Zaman cikisTarihi,
                        int mesafeSaat);
-
-void uzayAraciSetVarisTarihi(UzayAraci this, Zaman varis);
-void uzayAraciYazdir(UzayAraci this);
 void deleteUzayAraci(UzayAraci this);
+
+// Yolcu yönetimi
+void uzayAraciAddPassenger(UzayAraci this, Kisi passenger);
+void uzayAraciRemovePassenger(UzayAraci this, Kisi passenger);
+
+// Kalkış / saat ilerletme / varış tarihi set etme
 void uzayAraciDepart(UzayAraci this, Zaman departureTime);
-/// Her saat çağrıldığında kalan süreyi azalt, 0’a ulaştığında varisTarihi’ni targetPlanetTime’dan set et
 void uzayAraciAdvanceHour(UzayAraci this,
                           double ageFactorSrc,
                           double ageFactorDst,
                           Zaman targetPlanetTime);
+void uzayAraciSetVarisTarihi(UzayAraci this, Zaman varis);
+
+// Yazdırma
+void uzayAraciYazdir(UzayAraci this);
 
 #endif // UZAY_ARACI_H
