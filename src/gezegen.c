@@ -1,69 +1,80 @@
-
-// src/gezegen.c
 #include "gezegen.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
-// Helper: strdup muadili
-static char* _strdup(const char* s) {
-    size_t n = strlen(s) + 1;
-    char* p = malloc(n);
-    if (p) memcpy(p, s, n);
-    return p;
+/* — Alt türlerin yaslanma fonksiyonları — */
+static double _yasKayac(Gezegen self)   { return 1.0; }
+static double _yasGazDevi(Gezegen self) { return 0.1; }
+static double _yasBuzDevi(Gezegen self) { return 0.5; }
+static double _yasCuce(Gezegen self)    { return 0.01; }
+
+/* — Alt türlerin delete fonksiyonları — */
+static void _deleteKayac(Gezegen self) {
+    free(self->isim);
+    self->tarih->deleteZaman(self->tarih);
+    free(self);
 }
-
-// Yaşlanma katsayıları
-static double _yasKayac(struct GEZEGEN* self)   { return 1.0; }
-static double _yasGazDevi(struct GEZEGEN* self) { return 0.1; }
-static double _yasBuzDevi(struct GEZEGEN* self) { return 0.5; }
-static double _yasCuce(struct GEZEGEN* self)    { return 0.01; }
-
-// Ortak delete metodu
-static void _deleteGezegen(struct GEZEGEN* self) {
-    if (!self) return;
+static void _deleteGazDevi(Gezegen self) {
+    free(self->isim);
+    self->tarih->deleteZaman(self->tarih);
+    free(self);
+}
+static void _deleteBuzDevi(Gezegen self) {
+    free(self->isim);
+    self->tarih->deleteZaman(self->tarih);
+    free(self);
+}
+static void _deleteCuce(Gezegen self) {
     free(self->isim);
     self->tarih->deleteZaman(self->tarih);
     free(self);
 }
 
-// Ortak oluşturucu
-static Gezegen _createGezegen(const char* isim, Zaman tarih, int gunSaat,
-                              int tur, double (*yaslanma)(struct GEZEGEN*)) {
-    Gezegen g = malloc(sizeof *g);
-    g->isim            = _strdup(isim);
-    g->tarih           = tarih;
-    g->gunSaat         = gunSaat;
-    g->tur             = tur;
-    g->yaslanmaKatSayi = yaslanma;
-    g->deleteGezegen   = _deleteGezegen;
-    return g;
+/* — Basit strdup muadili — */
+static char* _strdup(const char* s) {
+    size_t n = strlen(s) + 1;
+    char* p = malloc(n);
+    memcpy(p, s, n);
+    return p;
 }
 
-// Public constructorlar
+/* — Constructor’lar — */
 Gezegen newKayacGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _createGezegen(isim, tarih, gunSaat, 0, _yasKayac);
+    KayacGezegen* obj = malloc(sizeof *obj);
+    obj->base.isim            = _strdup(isim);
+    obj->base.tarih           = tarih;
+    obj->base.gunSaat         = gunSaat;
+    obj->base.yaslanmaKatSayi = _yasKayac;
+    obj->base.delete          = _deleteKayac;
+    return (Gezegen)obj;
 }
 
 Gezegen newGazDeviGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _createGezegen(isim, tarih, gunSaat, 1, _yasGazDevi);
+    GazDeviGezegen* obj = malloc(sizeof *obj);
+    obj->base.isim            = _strdup(isim);
+    obj->base.tarih           = tarih;
+    obj->base.gunSaat         = gunSaat;
+    obj->base.yaslanmaKatSayi = _yasGazDevi;
+    obj->base.delete          = _deleteGazDevi;
+    return (Gezegen)obj;
 }
 
 Gezegen newBuzDeviGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _createGezegen(isim, tarih, gunSaat, 2, _yasBuzDevi);
+    BuzDeviGezegen* obj = malloc(sizeof *obj);
+    obj->base.isim            = _strdup(isim);
+    obj->base.tarih           = tarih;
+    obj->base.gunSaat         = gunSaat;
+    obj->base.yaslanmaKatSayi = _yasBuzDevi;
+    obj->base.delete          = _deleteBuzDevi;
+    return (Gezegen)obj;
 }
 
 Gezegen newCuceGezegen(const char* isim, Zaman tarih, int gunSaat) {
-    return _createGezegen(isim, tarih, gunSaat, 3, _yasCuce);
-}
-
-// Wrapper fonksiyonu: gezegen bilgisini ekrana basar
-void gezegenYazdir(Gezegen this) {
-    char* tarihStr = this->tarih->toString(this->tarih);
-    printf("Gezegen: %s | Tür: %d | Gün/Saat: %d | Tarih: %s\n",
-           this->isim,
-           this->tur,
-           this->gunSaat,
-           tarihStr);
-    free(tarihStr);
+    CuceGezegen* obj = malloc(sizeof *obj);
+    obj->base.isim            = _strdup(isim);
+    obj->base.tarih           = tarih;
+    obj->base.gunSaat         = gunSaat;
+    obj->base.yaslanmaKatSayi = _yasCuce;
+    obj->base.delete          = _deleteCuce;
+    return (Gezegen)obj;
 }

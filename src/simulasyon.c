@@ -350,7 +350,7 @@ static void _deleteSimulasyon(Simulasyon this) {
         deleteUzayAraci(this->araclar[i]);
     free(this->araclar);
     for (int i = 0; i < this->gezegenSayisi; ++i)
-        this->gezegenler[i]->deleteGezegen(this->gezegenler[i]);
+        this->gezegenler[i]->delete(this->gezegenler[i]);
     free(this->gezegenler);
     free(this);
 }
