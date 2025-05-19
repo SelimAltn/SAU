@@ -1,3 +1,13 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    18.05.2025
+ * <p>
+ *   `GEZEGEN` base struct’unun ve alt türlerinin (kayaç, gaz devi,  
+ *   buz devi, cüce) constructor, yaslanma ve delete fonksiyonlarını  
+ *   uygular. İsim kopyalama için yerel strdup, memory cleanup ve  
+ *   tür bazlı yaşlanma katsayısı sağlar.
+ * </p>
+ */
 #include "gezegen.h"
 #include <stdlib.h>
 #include <string.h>
@@ -30,7 +40,6 @@ static void _deleteCuce(Gezegen self) {
     free(self);
 }
 
-/* — Basit strdup muadili — */
 static char* _strdup(const char* s) {
     size_t n = strlen(s) + 1;
     char* p = malloc(n);

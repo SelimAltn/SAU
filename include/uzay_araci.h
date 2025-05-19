@@ -1,11 +1,20 @@
-// include/uzay_araci.h
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    13.05.2025
+ * <p>
+ *   UzayAraci soyut veri tipini tanımlar.  
+ *   Bir uzay aracının adı, çıkış/varış gezegenleri,  
+ *   çıkış ve varış zamanları, mesafe-saat bilgisi,  
+ *   yolcu listesi ve durum flag’lerini içeren struct  
+ *   ile ilgili public API fonksiyon prototiplerini sağlar.
+ * </p>
+ */
 #ifndef UZAY_ARACI_H
 #define UZAY_ARACI_H
 
 #include "zaman.h"
 #include "kisi.h"
 
-// Tam struct tanımı (opaque değil)
 typedef struct UzayAraci_ {
     char*   isim;
     char*   cikisGezegen;

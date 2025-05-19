@@ -1,4 +1,13 @@
-// src/dosya_okuma.c
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    10.05.2025
+ * <p>
+ *   Dosya okuma işlemlerini gerçekleştirir:
+ *   kişiler, uzay araçları ve gezegen verilerini
+ *   metin dosyalarından okuyup ilgili yapı dizilerine
+ *   dönüştürür. Hata yönetimi için setjmp/longjmp makrolarını kullanır.
+ * </p>
+ */
 #include "dosya_okuma.h"
 #include "kisi.h"
 #include "uzay_araci.h"
@@ -17,7 +26,7 @@ jmp_buf jumper; // tüm dosya işlemlerinde kullanılacak
 #define catch       } else {
 #define tryEnd      } } while (0)
 
-// Satır sonu \r\n temizleme (yalnızca bu dosyada)
+// Satır sonu \r\n temizleme
 static void temizleSatir(char* satir) {
     size_t len = strlen(satir);
     while (len > 0 && (satir[len-1] == '\n' || satir[len-1] == '\r'))

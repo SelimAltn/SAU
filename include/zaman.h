@@ -1,9 +1,20 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    11.05.2025
+ * <p>
+ *   Zaman nesnesinin tanımını içerir.  
+ *   Gün, ay, yıl ve bir gündeki saat uzunluğunu tutar;  
+ *   saat ilerletme, string’e çevirme ve bellek temizleme  
+ *   metod işaretçilerini barındırır.  
+ *   `newZaman` ile yeni Zaman örneği oluşturulur.
+ * </p>
+ */
 #ifndef ZAMAN_H
 #define ZAMAN_H
 
 #include <stdlib.h>
 
-// Zaman nesnesinin tanımı (tam açılım)
+// Zaman nesnesinin tanımı 
 struct ZAMAN {
     int gun;
     int ay;

@@ -1,3 +1,11 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    12.05.2025
+ * <p>
+ *   Kisi nesnelerinin oluşturulması, yazdırılması ve silinmesi işlevlerini uygular.  
+ *   Statik yardımcı fonksiyonlarla strdup, yazdırma ve bellek temizleme işlemlerini gerçekleştirir.
+ * </p>
+ */
 #include "kisi.h"
 #include <stdlib.h>
 #include <stdio.h>

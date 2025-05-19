@@ -1,3 +1,14 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    12.05.2025
+ * <p>
+ *   `newZaman` constructor’ı ile oluşturulan Zaman struct’unun  
+ *   metodlarını uygular. Artık yıl kontrolü ve ay gün sayısı hesaplama  
+ *   yardımcı fonksiyonları, saat ilerletme (`_ilerle`),  
+ *   tarih formatlama (`_toString`) ve yıkıcı (`_deleteZaman`)  
+ *   fonksiyonlarını içerir.
+ * </p>
+ */
 #include "zaman.h"
 #include <stdlib.h>
 #include <stdio.h>

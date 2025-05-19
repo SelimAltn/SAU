@@ -1,3 +1,14 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    15.05.2025
+ * <p>
+ *   Simulasyon modülünün başlık dosyası:
+ *   kişi, uzay aracı ve gezegen dizilerini alarak
+ *   simülasyonu oluşturan, başlatan ve sonlandıran
+ *   public API prototiplerini tanımlar.
+ *   Ayrıca varış tarihi hesaplama yardımcı fonksiyonunu içerir.
+ * </p>
+ */
 #ifndef SIMULASYON_H
 #define SIMULASYON_H
 

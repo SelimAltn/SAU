@@ -1,5 +1,14 @@
-/* --- simulasyon.c (refactor: SOLID-vari alt fonksiyon ayrımı) --- */
-
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    15.05.2025
+ * <p>
+ *   Simulasyon struct’unun tanımı ve tüm
+ *   yürütme adımlarını (kalkış, hareket,
+ *   zaman ilerletme, durum raporları) uygulayan
+ *   kaynak dosyadır. Ayrıca gezegenler arası
+ *   varış zamanı hesaplama fonksiyonunu içerir.
+ * </p>
+ */
 #include "simulasyon.h"
 #include "kisi.h"
 #include "uzay_araci.h"
@@ -9,16 +18,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-// simulasyon.c’in en başında includes’lerden hemen sonra:
 
 
-// simülasyon.c’in en başında includes’lerden sonra:
 Zaman _hesaplaVarisTarihi(Zaman departure,
                                  int travelHours,
                                  int targetDayLength)
 {
-    // departure günü/saatSayısı bilgisini kullanma, yeni zaman objesini
-    // hedef gezegenin gün uzunluğuyla yarat
+  
     Zaman arrival = newZaman(
         departure->gun,
         departure->ay,
@@ -48,14 +54,14 @@ struct SIMULASYON {
 /* ---------- Önden Bildirimler (private helpers) ---------- */
 static int  _tarihEsit(Zaman, Zaman);
 static int  _findPlanet(Simulasyon, const char*);
-static int  _tumAraclarTamamlandi(Simulasyon); // 🔸 EKLENDİ
+static int  _tumAraclarTamamlandi(Simulasyon);
 
 
 /* --- yeni küçük görev fonksiyonları --- */
 static void _clearConsole(void);
 static void _printSaatBaslik(int saat);
 static void _handleDepartures(Simulasyon);
-static void _moveShipsAndPassengers(Simulasyon); // 🔸 Güncellendi
+static void _moveShipsAndPassengers(Simulasyon); 
 static void _advancePlanetTimes(Simulasyon);
 static void _yazdirGezegenDurum(Simulasyon);
 static void _yazdirAracDurum(Simulasyon);
@@ -102,7 +108,7 @@ static void _printSaatBaslik(int saat) {
 static void _handleDepartures(Simulasyon this) {
     for (int i = 0; i < this->aracSayisi; ++i) {
         UzayAraci a = this->araclar[i];
-        // Henüz kalkış yapmadıysa ve gezegenin tarihiyle eşleşiyorsa depart et
+
         if (!a->hasDeparted) {
             int p = _findPlanet(this, a->cikisGezegen);
             if (p >= 0 && _tarihEsit(a->cikisTarihi, this->gezegenler[p]->tarih)) {
@@ -229,7 +235,7 @@ static void _baslatSimulasyon(Simulasyon this) {
 }
 
 
-// Gezegen adını “--Name--” şeklinde width alanında ortalar
+// Gezegen adını “--X--” şeklinde width alanında ortalar
 static void _printCentered(const char* text, int width) {
     int len = strlen(text);
     int padL = (width - len) / 2;
@@ -287,20 +293,20 @@ static void _yazdirGezegenDurum(Simulasyon this) {
     printf("Gezegenler:\n\n");
     printf("%-20s", "");
     for (int i = 0; i < G; ++i)
-        printf("%-20s", this->gezegenler[i]->isim);
+        _printCenteredDecorated(this->gezegenler[i]->isim, 20);
     printf("\n");
 
     printf("%-20s", "Tarih:");
     for (int i = 0; i < G; ++i) {
-        char* t = this->gezegenler[i]->tarih->toString(this->gezegenler[i]->tarih);
-        printf("%-20s", t);
-        free(t);
+        char* ts = this->gezegenler[i]->tarih->toString(this->gezegenler[i]->tarih);
+        _printCentered(ts, 20);
+        free(ts);
     }
     printf("\n");
 
-    printf("%-20s", "Nüfus:");
+    printf("%-20s", "Nufus:");
     for (int i = 0; i < G; ++i)
-        printf("%-20d", pop[i]);
+        _printCenteredInt(pop[i], 20);
     printf("\n\n");
 
     free(pop);

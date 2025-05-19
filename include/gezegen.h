@@ -1,9 +1,18 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    11.05.2025
+ * <p>
+ *   Gezegen soyut veri tipinin tanımını içerir.  
+ *   `GEZEGEN` base struct’ı ile kayaç, gaz devi, buz devi ve cüce  
+ *   alt türlerinin struct’larını, sanal (fonksiyon işaretçisi)  
+ *   metod tanımlarını ve public API constructor prototiplerini sağlar.
+ * </p>
+ */
 #ifndef GEZEGEN_H
 #define GEZEGEN_H
 
 #include "zaman.h"
 
-/* Gezegen artık bir işaretçi (pointer) tipi */
 typedef struct GEZEGEN* Gezegen;
 
 /* Soyut base struct */
@@ -34,7 +43,7 @@ typedef struct {
     struct GEZEGEN base;
 } CuceGezegen;
 
-/* Public API: artık Gezegen* dönen constructor’lar */
+// Public API
 Gezegen newKayacGezegen(const char* isim, Zaman tarih, int gunSaat);
 Gezegen newGazDeviGezegen(const char* isim, Zaman tarih, int gunSaat);
 Gezegen newBuzDeviGezegen(const char* isim, Zaman tarih, int gunSaat);

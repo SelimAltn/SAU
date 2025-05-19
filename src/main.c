@@ -1,3 +1,15 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    16.05.2025
+ * <p>
+ *   Program giriş noktası:
+ *   - Windows konsolunu UTF-8’e geçirir,
+ *   - veri dosyalarından kişiler, uzay araçları ve gezegenleri okur,
+ *   - kişilerle araçları eşleştirip yolcu listelerini oluşturur,
+ *   - simülasyonu çalıştırır ve
+ *   - program sonunda tüm dinamik belleği temizler.
+ * </p>
+ */
 #ifdef _WIN32
   #include <windows.h>
 #endif
@@ -17,15 +29,13 @@
 int main(void) {
    
     
-      // 1) Windows konsolunu UTF-8’e geçir
+    // 1) Windows konsolunu UTF-8’e geçir
   #ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
   #endif
   
-    printf("Zaman birim testleri geçti!\n");
 
-    // 2) C kütüphanesinin locale’ini ayarla (printf vb. fonksiyonlar için)
     setlocale(LC_ALL, "");
     int kisiSayisi    = 0;
     int aracSayisi    = 0;
@@ -60,7 +70,7 @@ int main(void) {
         return EXIT_FAILURE;
     }
     
-    // 1.5) Her kişi için ilgili araca yolcu ekle
+    // 1.1) Her kişi için ilgili araca yolcu ekle
     for (int i = 0; i < kisiSayisi; ++i) {
         for (int j = 0; j < aracSayisi; ++j) {
             // kisiler[i]->aracAdi ile araclar[j]->isim eşleşiyorsa

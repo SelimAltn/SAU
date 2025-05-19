@@ -1,3 +1,13 @@
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    18.05.2025
+ * <p>
+ *   Dosya okuma modülünün başlık dosyası:
+ *   kişiler, uzay araçları ve gezegen verilerini
+ *   okuyacak fonksiyon prototiplerini ve
+ *   hata yönetimi makrolarını tanımlar.
+ * </p>
+ */
 #ifndef DOSYA_OKUMA_H
 #define DOSYA_OKUMA_H
 

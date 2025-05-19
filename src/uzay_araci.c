@@ -1,4 +1,13 @@
-/* src/uzay_araci.c */
+/**
+ * @author   Selim Altın <selim.altin@ogr.sakarya.edu.tr>
+ * @since    13.05.2025
+ * <p>
+ *   UzayAraci struct’u ve metodlarının uygulamalarını sağlar.  
+ *   Constructor, destructor, yolcu yönetimi, kalkış,  
+ *   saat ilerletme, varış tarihi atama ve yazdırma işlemlerini gerçekleştirir.
+ * </p>
+ */
+
 #include "uzay_araci.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -74,7 +83,7 @@ void uzayAraciDepart(UzayAraci this, Zaman departureTime) {
         // Eski çıkış tarihini temizle
         this->cikisTarihi->deleteZaman(this->cikisTarihi);
 
-        // Yeni Zaman objesini yarat: gün uzunluğunu koru
+        // Yeni Zaman objesini yarat ve gün uzunluğunu koru
         Zaman dep = newZaman(
             departureTime->gun,
             departureTime->ay,
