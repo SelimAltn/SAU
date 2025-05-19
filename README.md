@@ -1,4 +1,3 @@
-```markdown
 # Space Migration Simulation
 
 > **Sakarya Üniversitesi**  
@@ -17,19 +16,21 @@ This is a **space migration simulation** written in C, modeling passengers trave
 - **Language:** C (C11)  
 - **Build System:** Makefile + GCC (MinGW on Windows)  
 - **Folder Layout:**
-```
-
+```text
 UzaySimulasyonu/
 ├── Makefile
-├── data/                 # Input files: Kisiler.txt, Araclar.txt, Gezegenler.txt
-├── include/              # Public headers (.h)
-├── src/                  # Source files (.c)
-├── build/                # Compiled object files
-└── README.md             # This document
-
-![alt text](image.png)
-
+├── data/ # Input files: Kisiler.txt, Araclar.txt, Gezegenler.txt
+├── include/ # Public headers (.h)
+├── src/ # Source files (.c)
+├── build/ # Compiled object files
+└── README.md # This document
 ```
+
+
+<br/>
+<br/>
+
+![image](https://github.com/user-attachments/assets/2b1b9e6d-d039-46aa-95ba-6c6c95ceb1c1)
 
 ---
 
@@ -45,6 +46,7 @@ UzaySimulasyonu/
 - Ship movement, arrival date calculation  
 - Planet clocks advance by one hour each iteration  
 - **Formatted console output**: aligned tables of planet dates/populations and ship statuses  
+
 
 ---
 
@@ -121,7 +123,7 @@ make
 
 ## Contributors
 
-* **Author**: \[Selim Altın (Student, Sakarya University)]
+* **Author**: 📌 Selim Altın (Student, Sakarya University)
 * **Course**: Programlama Dillerinin Prensipleri II (2025)
 
 ---
