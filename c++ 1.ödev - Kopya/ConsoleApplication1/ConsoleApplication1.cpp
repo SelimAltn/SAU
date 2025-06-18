@@ -15,7 +15,8 @@
 #include <locale.h>	
 #include <ctime>
 using namespace std;
-
+string const NamesArr[42] = { "Mehmet","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" ,"Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" };
+string const SurnameArr[37] = { "Kaya","Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" };
 struct strağırlık
 {
     float  vize, ödevbir, ödeviki, kısasınavbir, kısasınaviki;
@@ -26,15 +27,51 @@ struct strdeğerlendirilen
     float vize, ödevbir, ödeviki, kısasınavbir, kısasınaviki;
     short puanının_geçme_not;
 };
-struct sClass
+struct sCourse
 {
     strağırlık ağırlık;
     strdeğerlendirilen değerlendirilen;
+    string CourseName;
+    short numberOfStudents;
+    int weightMidterm;
+    int weightHomeWork1, weightHomework2, weightQuiz1, weightQuiz2;
+    double passGradeYearWork;
 
-    double MidtermExamScore;
-    double HomeWork1, Homework2, quiz1, quiz2;
+};
+int randomIndex(int max) {
+    return rand() % max;
+}
+double ReadDoubleNumber(short from, short to, string message, string ErrorMessage) {
+    double number;
+    do {
+        cout << message << endl;
+        cin >> number;
+        if (number < from || number > to)
+            cout << ErrorMessage << endl;
+    } while (number < from || number > to);
+    return number;
+}
+string ReadString(string message) {
+    string Str;
+    cout << message << endl;
+    cin >> Str;
+    return Str;
+}
+int RandomNamber(int from, int to) {
+    return rand() % (to - from + 1) + from;
+}
+struct sStudent {
+    string name, surname;
+    double midtermScore;
+    double homeWork1Score,homework2Score, quiz1Score, quiz2Score;
 };
 
+sStudent CreateStudent() {
+    sStudent student;
+    student.name = NamesArr[randomIndex(sizeof(NamesArr)/sizeof(NamesArr[0]))];
+    student.surname = SurnameArr[randomIndex(sizeof(SurnameArr)/sizeof(SurnameArr[0]))];
+    
+}
 int ReadNumber(short from , short to , string message , string ErrorMessage) {
     int number;
     do {
@@ -46,53 +83,42 @@ int ReadNumber(short from , short to , string message , string ErrorMessage) {
     return number;
 }
 
+
 float koşulbir(int form, int to)
 {
-    int sayı = form;
-    cin >> sayı;
-    //-->kullanıcı tarafından girilen bir sayının belirli bir aralıkta olup olmadığını kontrol etmek için kullanılır. 
-    while (sayı<form || sayı>to)
-    {
-        cout << "yalnış sayı girdiniz.\a gerilcek sayı " << form << " ile " << to << " arasında olucaktır . \n ";
-        cout << "lütfen tekrar giriniz .";
-        cin >> sayı;
-    }
-    return sayı;
+   
 }
 
-void ağırlıklar(sClass& info)
-{
-    float sum;
-    //-->bu döngü ağırlıklar toplamı 100 olmadığı durumunda tekrar tekrar girilncek .
+sCourse  ReadCourseInformations() {
+    sCourse Course;
+    Course.CourseName      = ReadString("Enter the name of the course");
+    
+    short sum;
     do {
-        cout << "lütfen vizenin ağırlığnı giriniz : \n";
-        info.ağırlık.vize = koşulbir(0, 100);
-        cout << "lütfen 1.ödevin ağırlığnı giriniz : \n";
-        info.ağırlık.ödevbir = koşulbir(0, 100);
-        cout << "lütfen 2.ödevin ağırlığnı giriniz : \n";
-        info.ağırlık.ödeviki = koşulbir(0, 100);
-        cout << "lütfen 1.kısa sınav ağırlığnı giriniz : \n";
-        info.ağırlık.kısasınavbir = koşulbir(0, 100);
-        cout << "lütfen 2.kısa saınav ağırlığnı giriniz : \n";
-        info.ağırlık.kısasınaviki = koşulbir(0, 100);
-        sum = info.ağırlık.vize + info.ağırlık.ödevbir + info.ağırlık.ödeviki + info.ağırlık.kısasınavbir + info.ağırlık.kısasınaviki;
-
-        if (sum != 100)
-        {
-            cout << "girilcek ağırlıklar toplamı 100 olucaktır \a lütfen tekrar giriniz " << endl;
-        }
-    } while (sum != 100);
-    cout << endl;
-    cout << "lütfen Yıl içi puanının geçme notuna etkisi giriniz : " << endl;
-    info.değerlendirilen.puanının_geçme_not = koşulbir(0, 100);
+        sum = 0;
+        Course.weightMidterm   = ReadNumber(10, 90, "Please enter the weight of the midterm.", "Only 10 - 90 weight of the midterm");
+        Course.weightHomeWork1 = ReadNumber(1, 90, "Please enter the weight of the first assignment.", "Only 1  - 90 weight of the assignment");
+        Course.weightHomework2 = ReadNumber(1, 90, "Please enter the weight of the second assignment.", "Only 1  - 90 weight of the assignment");
+        Course.weightQuiz1     = ReadNumber(1, 20, "Please enter the weight of the first quiz.", "Only 1  - 20 weight of the quiz");
+        Course.weightQuiz2     = ReadNumber(1, 20, "Please enter the weight of the second quiz.", "Only 1  - 20 weight of the quiz");
+        sum = Course.weightMidterm + Course.weightHomeWork1 + Course.weightHomework2 + Course.weightQuiz1 + Course.weightQuiz2;
+        if (sum > 100)
+            cout << "The total weight cannot exceed 100. Please enter the values again." << endl;
+    } while (sum > 100);
+    Course.passGradeYearWork = ReadDoubleNumber(30, 70, "Enter your passing score during the year", "Only 30,70");
+    return Course;
+}
+void ağırlıklar(sCourse& info)
+{
+   
 }
 
 struct Strisimler
 {
 
-    string admatrisi[42] = { "Mehmet","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" ,"Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" };
-    string soyadmatrisi[37] = { "Kaya","Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" };
+    
 };
+
 
 struct ISIMLER
 {
@@ -102,7 +128,7 @@ struct ISIMLER
 
 Strisimler strisimler;
 
-void  rastgele_puan(sClass& info, int& öğrenci_sayısı)
+void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
 {
     int yüzdeyirmi, yüzdeelli, yuzdeotuz, rastgelepuan;
     yüzdeyirmi = öğrenci_sayısı * 0.20;
@@ -427,7 +453,7 @@ int main()
     srand(time(0));
     setlocale(LC_ALL, "Turkish");
 
-    sClass info;
+    sCourse info;
     int NumberOfStudents;
 
     NumberOfStudents = ReadNumber(1,10000,"Please enter the number of students in your class.","Only 1-10000");
