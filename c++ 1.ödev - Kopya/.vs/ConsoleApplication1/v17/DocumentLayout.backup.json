@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\\u00D6devlerim\\c\u002B\u002B 1.\u00F6dev - Kopya\\",
+  "WorkspaceRootPath": "D:\\\u00D6devlerim\\SAU\\c\u002B\u002B 1.\u00F6dev - Kopya\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB046ED9-9E2A-4AA0-933F-E6318F8F2964}|ConsoleApplication1\\ConsoleApplication1.vcxproj|D:\\\u00D6devlerim\\c\u002B\u002B 1.\u00F6dev - Kopya\\ConsoleApplication1\\ConsoleApplication1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FB046ED9-9E2A-4AA0-933F-E6318F8F2964}|ConsoleApplication1\\ConsoleApplication1.vcxproj|D:\\\u00D6devlerim\\SAU\\c\u002B\u002B 1.\u00F6dev - Kopya\\ConsoleApplication1\\ConsoleApplication1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FB046ED9-9E2A-4AA0-933F-E6318F8F2964}|ConsoleApplication1\\ConsoleApplication1.vcxproj|solutionrelative:ConsoleApplication1\\ConsoleApplication1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -47,18 +47,17 @@
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\__msvc_string_view.hpp",
               "ViewState": "AgIAAGAAAAAAAAAAAAAwwG8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-17T16:08:30.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T16:08:30.563Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ConsoleApplication1.cpp",
-              "DocumentMoniker": "D:\\\u00D6devlerim\\c\u002B\u002B 1.\u00F6dev - Kopya\\ConsoleApplication1\\ConsoleApplication1.cpp",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\SAU\\c\u002B\u002B 1.\u00F6dev - Kopya\\ConsoleApplication1\\ConsoleApplication1.cpp",
               "RelativeDocumentMoniker": "ConsoleApplication1\\ConsoleApplication1.cpp",
-              "ToolTip": "D:\\\u00D6devlerim\\c\u002B\u002B 1.\u00F6dev - Kopya\\ConsoleApplication1\\ConsoleApplication1.cpp",
+              "ToolTip": "D:\\\u00D6devlerim\\SAU\\c\u002B\u002B 1.\u00F6dev - Kopya\\ConsoleApplication1\\ConsoleApplication1.cpp",
               "RelativeToolTip": "ConsoleApplication1\\ConsoleApplication1.cpp",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEcAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-16T19:33:58.872Z",
               "EditorCaption": ""

@@ -14,6 +14,7 @@
 #include <cmath>
 #include <locale.h>	
 #include <ctime>
+#include <vector>
 using namespace std;
 string const NamesArr[42] = { "Mehmet","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" ,"Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" };
 string const SurnameArr[37] = { "Kaya","Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" };
@@ -27,6 +28,12 @@ struct strdeğerlendirilen
     float vize, ödevbir, ödeviki, kısasınavbir, kısasınaviki;
     short puanının_geçme_not;
 };
+struct sStudent {
+    string name, surname;
+    double midtermScore;
+    double homeWork1Score, homework2Score, quiz1Score, quiz2Score;
+};
+
 struct sCourse
 {
     strağırlık ağırlık;
@@ -36,6 +43,8 @@ struct sCourse
     int weightMidterm;
     int weightHomeWork1, weightHomework2, weightQuiz1, weightQuiz2;
     double passGradeYearWork;
+    vector<sStudent> vStudents;
+
 
 };
 int randomIndex(int max) {
@@ -60,17 +69,20 @@ string ReadString(string message) {
 int RandomNamber(int from, int to) {
     return rand() % (to - from + 1) + from;
 }
-struct sStudent {
-    string name, surname;
-    double midtermScore;
-    double homeWork1Score,homework2Score, quiz1Score, quiz2Score;
-};
 
 sStudent CreateStudent() {
     sStudent student;
     student.name = NamesArr[randomIndex(sizeof(NamesArr)/sizeof(NamesArr[0]))];
     student.surname = SurnameArr[randomIndex(sizeof(SurnameArr)/sizeof(SurnameArr[0]))];
     
+}
+vector<sStudent> CreateStudents(short numberOfStudents) {
+    vector <sStudent> vStudents;
+    for (int i = 0; i < numberOfStudents; i++)
+    {
+        vStudents.push_back(CreateStudent());
+    }
+    return vStudents;
 }
 int ReadNumber(short from , short to , string message , string ErrorMessage) {
     int number;
@@ -127,7 +139,25 @@ struct ISIMLER
 };
 
 Strisimler strisimler;
+void generateRandomGrade(sStudent &student,short MinScoreReceived,short MaxScoreReceived) {
+    student.midtermScore   = RandomNamber(MinScoreReceived, MaxScoreReceived);
+    student.homeWork1Score = RandomNamber(MinScoreReceived, MaxScoreReceived);
+    student.homework2Score = RandomNamber(MinScoreReceived, MaxScoreReceived);
+    student.quiz1Score     = RandomNamber(MinScoreReceived, MaxScoreReceived);
+    student.quiz2Score     = RandomNamber(MinScoreReceived, MaxScoreReceived);
+}
+void distributeGradesToStudents(sCourse &coruse) {
+    // 20 % will be randomly determined between 80 and 100, 50 % between 80 and 50, and 30 % between 50 and 0.
+    for (int i = 0; i < coruse.numberOfStudents * 0.20; i++) {
 
+    }
+    for (int i = coruse.numberOfStudents * 0.20; i < coruse.numberOfStudents * 0.50; i++) {
+
+    }
+    for (int i = coruse.numberOfStudents * 0.50; i < coruse.numberOfStudents * 0.30; i++) {
+
+    }
+}
 void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
 {
     int yüzdeyirmi, yüzdeelli, yuzdeotuz, rastgelepuan;
