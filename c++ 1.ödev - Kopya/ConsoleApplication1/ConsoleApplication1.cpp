@@ -32,12 +32,13 @@ struct sStudent {
     string name, surname;
     double midtermScore;
     double homeWork1Score, homework2Score, quiz1Score, quiz2Score;
+    double courseAverage;
+    string letterGrade;
 };
 
 struct sCourse
 {
-    strağırlık ağırlık;
-    strdeğerlendirilen değerlendirilen;
+    
     string CourseName;
     short numberOfStudents;
     int weightMidterm;
@@ -47,6 +48,26 @@ struct sCourse
 
 
 };
+struct GradeMapping
+{
+    double minScore;
+    const char* letter;
+};
+// 90> AA >= 85.00 BA"  >= 80.00 BB  >= 75.00 CB >= 65.00 CC   >= 58.00 DC   >= 50.00 DD
+
+const GradeMapping gradeTable[] = {
+    {90,"AA"},
+    {85,"BA"},
+    {80,"BB"},
+    {75,"CB"},
+    {65,"CC"},
+    {58,"DC"},
+    {50,"DD"},
+    {40,"FD"},
+    {00,"FF"},
+
+};
+
 int randomIndex(int max) {
     return rand() % max;
 }
@@ -66,7 +87,7 @@ string ReadString(string message) {
     cin >> Str;
     return Str;
 }
-int RandomNamber(int from, int to) {
+int RandomNumber(int from, int to) {
     return rand() % (to - from + 1) + from;
 }
 
@@ -74,7 +95,7 @@ sStudent CreateStudent() {
     sStudent student;
     student.name = NamesArr[randomIndex(sizeof(NamesArr)/sizeof(NamesArr[0]))];
     student.surname = SurnameArr[randomIndex(sizeof(SurnameArr)/sizeof(SurnameArr[0]))];
-    
+    return student;
 }
 vector<sStudent> CreateStudents(short numberOfStudents) {
     vector <sStudent> vStudents;
@@ -94,13 +115,28 @@ int ReadNumber(short from , short to , string message , string ErrorMessage) {
     } while (number < from || number > to);
     return number;
 }
-
-
-float koşulbir(int form, int to)
-{
-   
+void calculateStudentCourseAverage(sStudent& student,sCourse corse) {
+    double average;
+    average = (student.midtermScore    * corse.weightMidterm   / 100) +
+              (student.homeWork1Score  * corse.weightHomeWork1 / 100) +
+              (student.homework2Score  * corse.weightHomework2 / 100) +
+              (student.quiz1Score      * corse.weightQuiz1     / 100) +
+              (student.quiz2Score      * corse.weightQuiz2     / 100);
+    student.courseAverage = average;
 }
+void calculateStudentLetterGrade(sStudent &student) {
+    
+    double average = student.courseAverage;
+    
+    for (const auto& grad : gradeTable) {
+        if (average >= grad.minScore) {
+            student.letterGrade = grad.letter;
+            break;
+        }
+       
+   }
 
+}
 sCourse  ReadCourseInformations() {
     sCourse Course;
     Course.CourseName      = ReadString("Enter the name of the course");
@@ -120,42 +156,44 @@ sCourse  ReadCourseInformations() {
     Course.passGradeYearWork = ReadDoubleNumber(30, 70, "Enter your passing score during the year", "Only 30,70");
     return Course;
 }
-void ağırlıklar(sCourse& info)
-{
-   
+
+void generateRandomGrade(sStudent &student,short minScore,short maxScore) {
+
+    double* scores[]{
+        &student.midtermScore,
+        &student.homeWork1Score,
+        &student.homework2Score,
+        &student.quiz1Score,
+        &student.quiz2Score
+    };
+    for (double* score : scores) {
+        *score = RandomNumber(minScore,maxScore);
+    }
 }
-
-struct Strisimler
-{
-
-    
-};
-
-
-struct ISIMLER
-{
-    string ad;
-    string soyad;
-};
-
-Strisimler strisimler;
-void generateRandomGrade(sStudent &student,short MinScoreReceived,short MaxScoreReceived) {
-    student.midtermScore   = RandomNamber(MinScoreReceived, MaxScoreReceived);
-    student.homeWork1Score = RandomNamber(MinScoreReceived, MaxScoreReceived);
-    student.homework2Score = RandomNamber(MinScoreReceived, MaxScoreReceived);
-    student.quiz1Score     = RandomNamber(MinScoreReceived, MaxScoreReceived);
-    student.quiz2Score     = RandomNamber(MinScoreReceived, MaxScoreReceived);
-}
+const short HIGH_MIN = 80, HIGH_MAX = 100;
+const short MID_MIN  = 50, MID_MAX  = 80;
+const short LOW_MIN  = 0,  LOW_MAX  = 50;
 void distributeGradesToStudents(sCourse &coruse) {
     // 20 % will be randomly determined between 80 and 100, 50 % between 80 and 50, and 30 % between 50 and 0.
-    for (int i = 0; i < coruse.numberOfStudents * 0.20; i++) {
-
+    int total = coruse.numberOfStudents;
+    int highCount = total * 0.20;
+    int midCount = total * 0.50;
+    int lowCount = total - highCount - midCount;
+    int index = 0;
+    
+    for (; index < highCount; index++) {
+        generateRandomGrade(coruse.vStudents[index], HIGH_MIN, HIGH_MAX);
     }
-    for (int i = coruse.numberOfStudents * 0.20; i < coruse.numberOfStudents * 0.50; i++) {
-
+    for (; index<highCount+midCount; index++) {
+        generateRandomGrade(coruse.vStudents[index], MID_MIN, MID_MAX);
     }
-    for (int i = coruse.numberOfStudents * 0.50; i < coruse.numberOfStudents * 0.30; i++) {
-
+    for (; index < total; index++) {
+        generateRandomGrade(coruse.vStudents[index], LOW_MIN, LOW_MAX);
+    }
+    for (sStudent &student : coruse.vStudents)
+    {
+        calculateStudentCourseAverage(student, coruse);
+        calculateStudentLetterGrade(student);
     }
 }
 void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
@@ -192,12 +230,7 @@ void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
         cout << "2.ödev puanı =" << info.değerlendirilen.ödeviki << endl;
         cout << "1.kısa sınav puanı = " << info.değerlendirilen.kısasınavbir << endl;
         cout << "2.kısa sınav puanı = " << info.değerlendirilen.kısasınaviki << endl;
-        // Öğrencinin dönem içi ortalamasının hesaplanması
-        öğrencininortalama = ((info.değerlendirilen.vize * info.ağırlık.vize) / 100 +
-            (info.değerlendirilen.ödevbir * info.ağırlık.ödevbir) / 100 +
-            (info.değerlendirilen.ödeviki * info.ağırlık.ödeviki) / 100 +
-            (info.değerlendirilen.kısasınavbir * info.ağırlık.kısasınavbir) / 100 +
-            (info.değerlendirilen.kısasınaviki * info.ağırlık.kısasınaviki) / 100);
+      
         // Ortalama puanın ekrana yazdırılması ve en yüksek/en düşük notların güncellenmesi
         cout << "öğrencini ortalaması = " << öğrencininortalama << endl;
         if (öğrencininortalama > enKucukNot)
@@ -213,44 +246,7 @@ void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
 
         basariNotu[i] = öğrencininortalama;
 
-        // Öğrencinin notuna göre harf notunun belirlenmesi
-
-        if (öğrencininortalama >= 90.00)
-        {
-            cout << "AA" << endl; AAalansayı++;
-        }
-        else if (öğrencininortalama >= 85.00)
-        {
-            cout << "BA" << endl; BAalansayı++;
-        }
-        else if (öğrencininortalama >= 80.00)
-        {
-            cout << "BB" << endl; BBalansayı++;
-        }
-        else if (öğrencininortalama >= 75.00)
-        {
-            cout << "CB" << endl; CBalansayı++;
-        }
-        else if (öğrencininortalama >= 65.00)
-        {
-            cout << "CC" << endl; CCalansayı++;
-        }
-        else if (öğrencininortalama >= 58.00)
-        {
-            cout << "DC" << endl; DCalansayı++;
-        }
-        else if (öğrencininortalama >= 50.00)
-        {
-            cout << "DD" << endl; DDalansayı++;
-        }
-        else if (öğrencininortalama >= 40.00)
-        {
-            cout << "FD" << endl; FDalansayı++;
-        }
-        else
-        {
-            cout << "FF" << endl; FFalansayı++;
-        }
+       
         // Öğrencinin geçme/kalma durumunun kontrolü ve ekrana yazdırılması
         if (öğrencininortalama <= info.değerlendirilen.puanının_geçme_not)
         {
