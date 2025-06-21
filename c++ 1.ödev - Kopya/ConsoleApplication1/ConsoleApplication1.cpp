@@ -18,15 +18,25 @@
 using namespace std;
 string const NamesArr[42] = { "Mehmet","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" ,"Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" };
 string const SurnameArr[37] = { "Kaya","Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" };
-struct strağırlık
-{
-    float  vize, ödevbir, ödeviki, kısasınavbir, kısasınaviki;
-};
 
-struct strdeğerlendirilen
+struct sCourse
 {
-    float vize, ödevbir, ödeviki, kısasınavbir, kısasınaviki;
-    short puanının_geçme_not;
+
+    string CourseName;
+    int weightMidterm;
+    int weightHomeWork1, weightHomework2, weightQuiz1, weightQuiz2;
+    double passGradeYearWork;
+    vector<sStudent> vStudents;
+    sLetterGradeCount letterGradeCount;
+
+
+};
+struct sLetterGradeCount
+{
+    short NumberStudentsReceivingAA, NumberStudentsReceivingBA, NumberStudentsReceivingBB, NumberStudentsReceivingCB, NumberStudentsReceivingCC, NumberStudentsReceivingDC, NumberStudentsReceivingDD, NumberStudentsReceivingFD, NumberStudentsReceivingFF;
+    double ClassAverage;
+    sStudent studentHighestScore, studentLowestScore;
+
 };
 struct sStudent {
     string name, surname;
@@ -34,26 +44,16 @@ struct sStudent {
     double homeWork1Score, homework2Score, quiz1Score, quiz2Score;
     double courseAverage;
     string letterGrade;
+    bool highestAverage = false;
+    bool lowestAverage = false;
 };
 
-struct sCourse
-{
-    
-    string CourseName;
-    short numberOfStudents;
-    int weightMidterm;
-    int weightHomeWork1, weightHomework2, weightQuiz1, weightQuiz2;
-    double passGradeYearWork;
-    vector<sStudent> vStudents;
 
-
-};
 struct GradeMapping
 {
     double minScore;
     const char* letter;
 };
-// 90> AA >= 85.00 BA"  >= 80.00 BB  >= 75.00 CB >= 65.00 CC   >= 58.00 DC   >= 50.00 DD
 
 const GradeMapping gradeTable[] = {
     {90,"AA"},
@@ -137,6 +137,42 @@ void calculateStudentLetterGrade(sStudent &student) {
    }
 
 }
+void calculateCourseGradeStats(sCourse& coruse, sStudent student) {
+    if(student.letterGrade=="AA")
+        coruse.letterGradeCount.NumberStudentsReceivingAA++;
+    else if (student.letterGrade=="BA")
+        coruse.letterGradeCount.NumberStudentsReceivingBA++;
+    else if (student.letterGrade == "BB")
+        coruse.letterGradeCount.NumberStudentsReceivingBB++;
+    else if (student.letterGrade == "CB")
+        coruse.letterGradeCount.NumberStudentsReceivingCB++;
+    else if (student.letterGrade == "CC")
+        coruse.letterGradeCount.NumberStudentsReceivingCC++;
+    else if (student.letterGrade == "DC")
+        coruse.letterGradeCount.NumberStudentsReceivingDC++;
+    else if (student.letterGrade == "DD")
+        coruse.letterGradeCount.NumberStudentsReceivingDD++;
+    else if (student.letterGrade == "FD")
+        coruse.letterGradeCount.NumberStudentsReceivingFD++;
+    else if (student.letterGrade == "FF")
+        coruse.letterGradeCount.NumberStudentsReceivingFF++;
+}
+void CalculateLowestHighestScores(sCourse &course) {
+    if (!course.vStudents.empty()) {
+        double highestAverage = course.vStudents[0].courseAverage;
+        double lowestAverage  = course.vStudents[0].courseAverage;
+        for (sStudent& student : course.vStudents) {
+            if (student.courseAverage > highestAverage)
+                highestAverage = student.courseAverage;
+            if (student.courseAverage < lowestAverage)
+                lowestAverage = student.courseAverage;
+        }
+        for (auto& student : course.vStudents) {
+            student.highestAverage = (student.courseAverage == highestAverage);
+            student.lowestAverage = (student.courseAverage == lowestAverage);
+        }
+    }    
+}
 sCourse  ReadCourseInformations() {
     sCourse Course;
     Course.CourseName      = ReadString("Enter the name of the course");
@@ -170,31 +206,37 @@ void generateRandomGrade(sStudent &student,short minScore,short maxScore) {
         *score = RandomNumber(minScore,maxScore);
     }
 }
+
 const short HIGH_MIN = 80, HIGH_MAX = 100;
 const short MID_MIN  = 50, MID_MAX  = 80;
 const short LOW_MIN  = 0,  LOW_MAX  = 50;
-void distributeGradesToStudents(sCourse &coruse) {
+
+void distributeGradesToStudents(sCourse &course) {
     // 20 % will be randomly determined between 80 and 100, 50 % between 80 and 50, and 30 % between 50 and 0.
-    int total = coruse.numberOfStudents;
-    int highCount = total * 0.20;
-    int midCount = total * 0.50;
-    int lowCount = total - highCount - midCount;
+    int total = course.vStudents.size();
+    int highCount = round(total * 0.20);
+    int midCount  = round(total * 0.50);
+    int lowCount  = total - highCount - midCount;
     int index = 0;
     
     for (; index < highCount; index++) {
-        generateRandomGrade(coruse.vStudents[index], HIGH_MIN, HIGH_MAX);
+        generateRandomGrade(course.vStudents[index], HIGH_MIN, HIGH_MAX);
     }
     for (; index<highCount+midCount; index++) {
-        generateRandomGrade(coruse.vStudents[index], MID_MIN, MID_MAX);
+        generateRandomGrade(course.vStudents[index], MID_MIN, MID_MAX);
     }
     for (; index < total; index++) {
-        generateRandomGrade(coruse.vStudents[index], LOW_MIN, LOW_MAX);
+        generateRandomGrade(course.vStudents[index], LOW_MIN, LOW_MAX);
     }
-    for (sStudent &student : coruse.vStudents)
+    double classAverage = 0.0;
+    for (sStudent &student : course.vStudents)
     {
-        calculateStudentCourseAverage(student, coruse);
+        calculateStudentCourseAverage(student, course);
         calculateStudentLetterGrade(student);
+        calculateCourseGradeStats(course, student);
+        classAverage += student.courseAverage;
     }
+    course.letterGradeCount.ClassAverage = classAverage / course.vStudents.size();
 }
 void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
 {
@@ -213,15 +255,8 @@ void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
     // Döngü: Sınıfın en üst %20'lik dilimindeki öğrenciler için not hesaplaması
     for (int i = 0; i < yüzdeyirmi; i++)
     {
-        // Rastgele ad ve soyad atama işlemi
-        ogrenci[i].ad = strisimler.admatrisi[rand() % 43];
-        ogrenci[i].soyad = strisimler.soyadmatrisi[rand() % 38];
-        // Öğrenciye ait vize, ödev ve kısa sınavlar için rastgele notlar atama işlemi
-        info.değerlendirilen.vize = rand() % 21 + 80;
-        info.değerlendirilen.ödevbir = rand() % 21 + 80;
-        info.değerlendirilen.ödeviki = rand() % 21 + 80;
-        info.değerlendirilen.kısasınavbir = rand() % 21 + 80;
-        info.değerlendirilen.kısasınaviki = rand() % 21 + 80;
+       
+        
         // Öğrencinin adı, soyadı ve atanan notların ekrana yazdırılması
         cout << i + 1 << ".Öğrenci " << endl;
         cout << "Ad Soyad: " << ogrenci[i].ad << " " << ogrenci[i].soyad << endl;
@@ -350,16 +385,7 @@ void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
     // Döngü: Sınıfın %50 ile %100 arasındaki öğrencileri için not hesaplaması
     for (int i = yüzdeelli; i < öğrenci_sayısı; i++)
     {
-        // Öğrencilere düşük seviye notlar atama işlemi
-        info.değerlendirilen.vize = rand() % 51;
-        info.değerlendirilen.ödevbir = rand() % 51;
-        info.değerlendirilen.ödeviki = rand() % 51;
-        info.değerlendirilen.kısasınavbir = rand() % 51;
-        info.değerlendirilen.kısasınaviki = rand() % 51;
-        // Öğrencilere rastgele ad ve soyad atama işlemi
-        ogrenci[i].ad = strisimler.admatrisi[rand() % 43];
-        ogrenci[i].soyad = strisimler.soyadmatrisi[rand() % 38];
-        // Öğrencinin adı, soyadı ve atanan notların ekrana yazdırılması
+      
         cout << i + 1 << ".Öğrenci " << endl;
         cout << "Ad Soyad: " << ogrenci[i].ad << " " << ogrenci[i].soyad << endl;
         cout << "vize puanı = " << info.değerlendirilen.vize << endl;
@@ -367,14 +393,7 @@ void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
         cout << "2.ödev puanı = " << info.değerlendirilen.ödeviki << endl;
         cout << "1.kısa sınav puanı = " << info.değerlendirilen.kısasınavbir << endl;
         cout << "2.kısa sınav puanı = " << info.değerlendirilen.kısasınaviki << endl;
-        // Öğrencinin dönem içi ortalamasının hesaplanması
-        öğrencininortalama = ((info.değerlendirilen.vize * info.ağırlık.vize) / 100 +
-            (info.değerlendirilen.ödevbir * info.ağırlık.ödevbir) / 100 +
-            (info.değerlendirilen.ödeviki * info.ağırlık.ödeviki) / 100 +
-            (info.değerlendirilen.kısasınavbir * info.ağırlık.kısasınavbir) / 100 +
-            (info.değerlendirilen.kısasınaviki * info.ağırlık.kısasınaviki) / 100);
-        // Ortalama puanın ekrana yazdırılması ve en yüksek/en düşük notların güncellenmesi
-        cout << "öğrencini ortalaması = " << öğrencininortalama << endl;
+       
 
         if (öğrencininortalama > enKucukNot)
         {
