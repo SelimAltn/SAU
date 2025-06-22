@@ -27,25 +27,27 @@ struct sCourse
     int weightHomeWork1, weightHomework2, weightQuiz1, weightQuiz2;
     double passGradeYearWork;
     vector<sStudent> vStudents;
-    sLetterGradeCount letterGradeCount;
+    sCourseStatistics courseStatistics;
 
 
 };
-struct sLetterGradeCount
+struct sCourseStatistics
 {
     short NumberStudentsReceivingAA, NumberStudentsReceivingBA, NumberStudentsReceivingBB, NumberStudentsReceivingCB, NumberStudentsReceivingCC, NumberStudentsReceivingDC, NumberStudentsReceivingDD, NumberStudentsReceivingFD, NumberStudentsReceivingFF;
     double ClassAverage;
     sStudent studentHighestScore, studentLowestScore;
+    double standardDeviation;
 
 };
 struct sStudent {
     string name, surname;
     double midtermScore;
-    double homeWork1Score, homework2Score, quiz1Score, quiz2Score;
+    double homeWork1Score, homeWork2Score, quiz1Score, quiz2Score;
     double courseAverage;
     string letterGrade;
     bool highestAverage = false;
     bool lowestAverage = false;
+    bool isSuccessful = true;
 };
 
 
@@ -119,7 +121,7 @@ void calculateStudentCourseAverage(sStudent& student,sCourse corse) {
     double average;
     average = (student.midtermScore    * corse.weightMidterm   / 100) +
               (student.homeWork1Score  * corse.weightHomeWork1 / 100) +
-              (student.homework2Score  * corse.weightHomework2 / 100) +
+              (student.homeWork2Score  * corse.weightHomework2 / 100) +
               (student.quiz1Score      * corse.weightQuiz1     / 100) +
               (student.quiz2Score      * corse.weightQuiz2     / 100);
     student.courseAverage = average;
@@ -131,6 +133,8 @@ void calculateStudentLetterGrade(sStudent &student) {
     for (const auto& grad : gradeTable) {
         if (average >= grad.minScore) {
             student.letterGrade = grad.letter;
+            if (student.letterGrade == "FD" || student.letterGrade == "FF")
+                student.isSuccessful = false;
             break;
         }
        
@@ -139,23 +143,23 @@ void calculateStudentLetterGrade(sStudent &student) {
 }
 void calculateCourseGradeStats(sCourse& coruse, sStudent student) {
     if(student.letterGrade=="AA")
-        coruse.letterGradeCount.NumberStudentsReceivingAA++;
+        coruse.courseStatistics.NumberStudentsReceivingAA++;
     else if (student.letterGrade=="BA")
-        coruse.letterGradeCount.NumberStudentsReceivingBA++;
+        coruse.courseStatistics.NumberStudentsReceivingBA++;
     else if (student.letterGrade == "BB")
-        coruse.letterGradeCount.NumberStudentsReceivingBB++;
+        coruse.courseStatistics.NumberStudentsReceivingBB++;
     else if (student.letterGrade == "CB")
-        coruse.letterGradeCount.NumberStudentsReceivingCB++;
+        coruse.courseStatistics.NumberStudentsReceivingCB++;
     else if (student.letterGrade == "CC")
-        coruse.letterGradeCount.NumberStudentsReceivingCC++;
+        coruse.courseStatistics.NumberStudentsReceivingCC++;
     else if (student.letterGrade == "DC")
-        coruse.letterGradeCount.NumberStudentsReceivingDC++;
+        coruse.courseStatistics.NumberStudentsReceivingDC++;
     else if (student.letterGrade == "DD")
-        coruse.letterGradeCount.NumberStudentsReceivingDD++;
+        coruse.courseStatistics.NumberStudentsReceivingDD++;
     else if (student.letterGrade == "FD")
-        coruse.letterGradeCount.NumberStudentsReceivingFD++;
+        coruse.courseStatistics.NumberStudentsReceivingFD++;
     else if (student.letterGrade == "FF")
-        coruse.letterGradeCount.NumberStudentsReceivingFF++;
+        coruse.courseStatistics.NumberStudentsReceivingFF++;
 }
 void CalculateLowestHighestScores(sCourse &course) {
     if (!course.vStudents.empty()) {
@@ -168,10 +172,24 @@ void CalculateLowestHighestScores(sCourse &course) {
                 lowestAverage = student.courseAverage;
         }
         for (auto& student : course.vStudents) {
-            student.highestAverage = (student.courseAverage == highestAverage);
-            student.lowestAverage = (student.courseAverage == lowestAverage);
+            if ((student.courseAverage == highestAverage)) {
+                student.highestAverage = (student.courseAverage == highestAverage);
+                course.courseStatistics.studentHighestScore = student;
+            }
+            if ((student.courseAverage == lowestAverage)) {
+                student.lowestAverage = (student.courseAverage == lowestAverage);
+                course.courseStatistics.studentLowestScore = student;
+            }
         }
     }    
+}
+void calculateStandardDeviation(sCourse& course) {
+    double classAverage = course.courseStatistics.ClassAverage;
+    double sum =0.0;
+    for (auto student : course.vStudents)
+        sum += pow((student.courseAverage - classAverage), 2);
+    double variance = sum / course.vStudents.size();
+    course.courseStatistics.standardDeviation = sqrt(variance);
 }
 sCourse  ReadCourseInformations() {
     sCourse Course;
@@ -198,12 +216,54 @@ void generateRandomGrade(sStudent &student,short minScore,short maxScore) {
     double* scores[]{
         &student.midtermScore,
         &student.homeWork1Score,
-        &student.homework2Score,
+        &student.homeWork2Score,
         &student.quiz1Score,
         &student.quiz2Score
     };
     for (double* score : scores) {
         *score = RandomNumber(minScore,maxScore);
+    }
+}
+void printStudentInformation(sStudent student,short number) {
+    cout << "---------------------"<<number<<"------------------------------\n";
+    cout << "Name : " << student.name << " " << student.surname << endl;
+    cout << "Midterm exam score : " << student.midtermScore << endl;
+    cout << "1st homework score : " << student.homeWork1Score << endl;
+    cout << "2st homework score : " << student.homeWork2Score << endl;
+    cout << "1st quiz score : "     << student.quiz1Score << endl;
+    cout << "2st quiz score : "     << student.quiz2Score << endl;
+    cout << "student average : " << student.courseAverage << endl;
+    cout << "letter grade the student received : " << student.letterGrade << endl;
+    if (student.isSuccessful)
+        cout << "The student passed the course (succeeded)" << endl;
+    else
+        cout << "student failed the course " << endl;
+    cout << "------------------------------------------------------------\n";
+}
+
+void printCourseStatistics(sCourse course) {
+    cout << "-----------------------Course Statistics--------------------------\n";
+    cout << "Class average : " << course.courseStatistics.ClassAverage << endl;
+    cout << "highest score in class : " << course.courseStatistics.studentHighestScore.courseAverage << endl;
+    cout << "lowest  score in class : " << course.courseStatistics.studentLowestScore.courseAverage << endl;
+    cout << "standard deviation of the class : " << course.courseStatistics.standardDeviation << endl;
+    cout << "Number of students receiving AA : " << course.courseStatistics.NumberStudentsReceivingAA << " AA class percentage = " << course.courseStatistics.NumberStudentsReceivingAA * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving BA : " << course.courseStatistics.NumberStudentsReceivingBA << " BA class percentage = " << course.courseStatistics.NumberStudentsReceivingBA * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving BB : " << course.courseStatistics.NumberStudentsReceivingBB << " BB class percentage = " << course.courseStatistics.NumberStudentsReceivingBB * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving CB : " << course.courseStatistics.NumberStudentsReceivingCB << " CB class percentage = " << course.courseStatistics.NumberStudentsReceivingCB * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving CC : " << course.courseStatistics.NumberStudentsReceivingCC << " CC class percentage = " << course.courseStatistics.NumberStudentsReceivingCC * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving DC : " << course.courseStatistics.NumberStudentsReceivingDC << " DC class percentage = " << course.courseStatistics.NumberStudentsReceivingDC * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving DD : " << course.courseStatistics.NumberStudentsReceivingDD << " DD class percentage = " << course.courseStatistics.NumberStudentsReceivingDD * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving FD : " << course.courseStatistics.NumberStudentsReceivingFD << " FD class percentage = " << course.courseStatistics.NumberStudentsReceivingFD * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "Number of students receiving FF : " << course.courseStatistics.NumberStudentsReceivingFF << " FF class percentage = " << course.courseStatistics.NumberStudentsReceivingFF * 100 / course.vStudents.size()<<"%" << endl;
+    cout << "-------------------------------------------------------------------\n";
+
+}
+void printStudentsInformation(sCourse course) {
+    int i = 1;
+    for (sStudent& student : course.vStudents) {
+        printStudentInformation(student, i);
+        i++;
     }
 }
 
@@ -236,17 +296,12 @@ void distributeGradesToStudents(sCourse &course) {
         calculateCourseGradeStats(course, student);
         classAverage += student.courseAverage;
     }
-    course.letterGradeCount.ClassAverage = classAverage / course.vStudents.size();
+    course.courseStatistics.ClassAverage = classAverage / course.vStudents.size();
 }
 void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
 {
-    int yüzdeyirmi, yüzdeelli, yuzdeotuz, rastgelepuan;
-    yüzdeyirmi = öğrenci_sayısı * 0.20;
-    rastgelepuan = öğrenci_sayısı;
-    yüzdeelli = öğrenci_sayısı * 0.50;
-    yuzdeotuz = öğrenci_sayısı * 0.30;
-    float enBuyukNot = 100.0, enKucukNot = 0.0;
-    float öğrencininortalama = 0.0, sınıf_ortalaması = 0.0;
+   
+   
     float* basariNotu = new float[öğrenci_sayısı];
 
     int AAalansayı = 0, BAalansayı = 0, BBalansayı = 0, CBalansayı = 0, CCalansayı = 0, DCalansayı = 0, DDalansayı = 0, FDalansayı = 0, FFalansayı = 0;
