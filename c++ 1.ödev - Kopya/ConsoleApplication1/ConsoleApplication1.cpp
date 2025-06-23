@@ -15,9 +15,30 @@
 #include <locale.h>	
 #include <ctime>
 #include <vector>
+#include <iomanip>
 using namespace std;
 string const NamesArr[42] = { "Mehmet","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat","Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" ,"Fatih","Ali","Aras","Can","Esra","Sena","Selin","Tuba","Abdulselam","Doğan","Elif","Mellisa","Serhat" };
 string const SurnameArr[37] = { "Kaya","Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" ,"Dağlar","Yılmaz","Aslan","Kaya","Özdemir","Yüksel","Acar","Akkoç","Aytaç","Bozoğlu","Kaplan","Demir" };
+
+struct sStudent {
+    string name, surname;
+    double midtermScore;
+    double homeWork1Score, homeWork2Score, quiz1Score, quiz2Score;
+    double courseAverage;
+    string letterGrade;
+    bool highestAverage = false;
+    bool lowestAverage = false;
+    bool isSuccessful = true;
+};
+
+struct sCourseStatistics
+{
+    short NumberStudentsReceivingAA=0, NumberStudentsReceivingBA=0, NumberStudentsReceivingBB=0, NumberStudentsReceivingCB=0, NumberStudentsReceivingCC=0, NumberStudentsReceivingDC=0, NumberStudentsReceivingDD=0, NumberStudentsReceivingFD=0, NumberStudentsReceivingFF=0;
+    double ClassAverage;
+    sStudent studentHighestScore, studentLowestScore;
+    double standardDeviation;
+
+};
 
 struct sCourse
 {
@@ -31,24 +52,7 @@ struct sCourse
 
 
 };
-struct sCourseStatistics
-{
-    short NumberStudentsReceivingAA, NumberStudentsReceivingBA, NumberStudentsReceivingBB, NumberStudentsReceivingCB, NumberStudentsReceivingCC, NumberStudentsReceivingDC, NumberStudentsReceivingDD, NumberStudentsReceivingFD, NumberStudentsReceivingFF;
-    double ClassAverage;
-    sStudent studentHighestScore, studentLowestScore;
-    double standardDeviation;
 
-};
-struct sStudent {
-    string name, surname;
-    double midtermScore;
-    double homeWork1Score, homeWork2Score, quiz1Score, quiz2Score;
-    double courseAverage;
-    string letterGrade;
-    bool highestAverage = false;
-    bool lowestAverage = false;
-    bool isSuccessful = true;
-};
 
 
 struct GradeMapping
@@ -99,6 +103,7 @@ sStudent CreateStudent() {
     student.surname = SurnameArr[randomIndex(sizeof(SurnameArr)/sizeof(SurnameArr[0]))];
     return student;
 }
+
 vector<sStudent> CreateStudents(short numberOfStudents) {
     vector <sStudent> vStudents;
     for (int i = 0; i < numberOfStudents; i++)
@@ -107,6 +112,7 @@ vector<sStudent> CreateStudents(short numberOfStudents) {
     }
     return vStudents;
 }
+
 int ReadNumber(short from , short to , string message , string ErrorMessage) {
     int number;
     do {
@@ -240,22 +246,26 @@ void printStudentInformation(sStudent student,short number) {
         cout << "student failed the course " << endl;
     cout << "------------------------------------------------------------\n";
 }
-
+void printGradeStat(string gradeName, short count, short total) {
+    double percentage = (double)count * 100.0 / total;
+    cout << left << setw(30) << "Number of students receiving " << gradeName << " : " << count << " " << setw(5) << gradeName << " class percentage = " << percentage << "%" << endl;
+}
 void printCourseStatistics(sCourse course) {
     cout << "-----------------------Course Statistics--------------------------\n";
     cout << "Class average : " << course.courseStatistics.ClassAverage << endl;
     cout << "highest score in class : " << course.courseStatistics.studentHighestScore.courseAverage << endl;
     cout << "lowest  score in class : " << course.courseStatistics.studentLowestScore.courseAverage << endl;
     cout << "standard deviation of the class : " << course.courseStatistics.standardDeviation << endl;
-    cout << "Number of students receiving AA : " << course.courseStatistics.NumberStudentsReceivingAA << " AA class percentage = " << course.courseStatistics.NumberStudentsReceivingAA * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving BA : " << course.courseStatistics.NumberStudentsReceivingBA << " BA class percentage = " << course.courseStatistics.NumberStudentsReceivingBA * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving BB : " << course.courseStatistics.NumberStudentsReceivingBB << " BB class percentage = " << course.courseStatistics.NumberStudentsReceivingBB * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving CB : " << course.courseStatistics.NumberStudentsReceivingCB << " CB class percentage = " << course.courseStatistics.NumberStudentsReceivingCB * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving CC : " << course.courseStatistics.NumberStudentsReceivingCC << " CC class percentage = " << course.courseStatistics.NumberStudentsReceivingCC * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving DC : " << course.courseStatistics.NumberStudentsReceivingDC << " DC class percentage = " << course.courseStatistics.NumberStudentsReceivingDC * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving DD : " << course.courseStatistics.NumberStudentsReceivingDD << " DD class percentage = " << course.courseStatistics.NumberStudentsReceivingDD * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving FD : " << course.courseStatistics.NumberStudentsReceivingFD << " FD class percentage = " << course.courseStatistics.NumberStudentsReceivingFD * 100 / course.vStudents.size()<<"%" << endl;
-    cout << "Number of students receiving FF : " << course.courseStatistics.NumberStudentsReceivingFF << " FF class percentage = " << course.courseStatistics.NumberStudentsReceivingFF * 100 / course.vStudents.size()<<"%" << endl;
+    printGradeStat("AA", course.courseStatistics.NumberStudentsReceivingAA, course.vStudents.size());
+    printGradeStat("BA", course.courseStatistics.NumberStudentsReceivingBA, course.vStudents.size());
+    printGradeStat("BB", course.courseStatistics.NumberStudentsReceivingBB, course.vStudents.size());
+    printGradeStat("CB", course.courseStatistics.NumberStudentsReceivingCB, course.vStudents.size());
+    printGradeStat("CC", course.courseStatistics.NumberStudentsReceivingCC, course.vStudents.size());
+    printGradeStat("DC", course.courseStatistics.NumberStudentsReceivingDC, course.vStudents.size());
+    printGradeStat("DD", course.courseStatistics.NumberStudentsReceivingDD, course.vStudents.size());
+    printGradeStat("FD", course.courseStatistics.NumberStudentsReceivingFD, course.vStudents.size());
+    printGradeStat("FF", course.courseStatistics.NumberStudentsReceivingFF, course.vStudents.size());
+   
     cout << "-------------------------------------------------------------------\n";
 
 }
@@ -297,270 +307,24 @@ void distributeGradesToStudents(sCourse &course) {
         classAverage += student.courseAverage;
     }
     course.courseStatistics.ClassAverage = classAverage / course.vStudents.size();
+    CalculateLowestHighestScores(course);
+    calculateStandardDeviation(course);
 }
-void  rastgele_puan(sCourse& info, int& öğrenci_sayısı)
-{
-   
-   
-    float* basariNotu = new float[öğrenci_sayısı];
 
-    int AAalansayı = 0, BAalansayı = 0, BBalansayı = 0, CBalansayı = 0, CCalansayı = 0, DCalansayı = 0, DDalansayı = 0, FDalansayı = 0, FFalansayı = 0;
-    ISIMLER ogrenci[1000];
-
-    // Döngü: Sınıfın en üst %20'lik dilimindeki öğrenciler için not hesaplaması
-    for (int i = 0; i < yüzdeyirmi; i++)
-    {
-       
-        
-        // Öğrencinin adı, soyadı ve atanan notların ekrana yazdırılması
-        cout << i + 1 << ".Öğrenci " << endl;
-        cout << "Ad Soyad: " << ogrenci[i].ad << " " << ogrenci[i].soyad << endl;
-        cout << "vize puanı = " << info.değerlendirilen.vize << endl;
-        cout << "1.ödevin puanı = " << info.değerlendirilen.ödevbir << endl;
-        cout << "2.ödev puanı =" << info.değerlendirilen.ödeviki << endl;
-        cout << "1.kısa sınav puanı = " << info.değerlendirilen.kısasınavbir << endl;
-        cout << "2.kısa sınav puanı = " << info.değerlendirilen.kısasınaviki << endl;
-      
-        // Ortalama puanın ekrana yazdırılması ve en yüksek/en düşük notların güncellenmesi
-        cout << "öğrencini ortalaması = " << öğrencininortalama << endl;
-        if (öğrencininortalama > enKucukNot)
-        {
-            enKucukNot = öğrencininortalama;
-        }
-        if (öğrencininortalama < enBuyukNot)
-        {
-            enBuyukNot = öğrencininortalama;
-        };
-        // Sınıf ortalamasının güncellenmesi
-        sınıf_ortalaması += öğrencininortalama;
-
-        basariNotu[i] = öğrencininortalama;
-
-       
-        // Öğrencinin geçme/kalma durumunun kontrolü ve ekrana yazdırılması
-        if (öğrencininortalama <= info.değerlendirilen.puanının_geçme_not)
-        {
-            cout << "öğrenci derste kaldı, seneye bekleriz (: \n";
-        }
-        else { cout << "öğrenci  dersten geçti \n "; }
-
-
-        cout << "-----------------------------------------" << endl;
-    };
-    // Döngü: Sınıfın %20 ile %50 arasındaki öğrencileri için not hesaplaması
-    for (int i = yüzdeyirmi; i < yüzdeelli; i++)
-    {
-        // Öğrencilere orta seviye notlar atama işlemi
-        info.değerlendirilen.vize = rand() % 31 + 50;
-        info.değerlendirilen.ödevbir = rand() % 31 + 50;
-        info.değerlendirilen.ödeviki = rand() % 31 + 50;
-        info.değerlendirilen.kısasınavbir = rand() % 31 + 50;
-        info.değerlendirilen.kısasınaviki = rand() % 31 + 50;
-
-        // Öğrencilere rastgele ad ve soyad atama işlemi
-        ogrenci[i].ad = strisimler.admatrisi[rand() % 43];
-        ogrenci[i].soyad = strisimler.soyadmatrisi[rand() % 38];
-        // Öğrencinin adı, soyadı ve atanan notların ekrana yazdırılması
-        cout << i + 1 << ".Öğrenci " << endl;
-        cout << "Ad Soyad: " << ogrenci[i].ad << " " << ogrenci[i].soyad << endl;
-        cout << "vize puanı = " << info.değerlendirilen.vize << endl;
-        cout << "1.ödevin puanı = " << info.değerlendirilen.ödevbir << endl;
-        cout << "2.ödev puanı = " << info.değerlendirilen.ödeviki << endl;
-        cout << "1.kısa sınav puanı = " << info.değerlendirilen.kısasınavbir << endl;
-        cout << "2.kısa sınav puanı = " << info.değerlendirilen.kısasınaviki << endl;
-        // Öğrencinin dönem içi ortalamasının hesaplanması
-        öğrencininortalama = ((info.değerlendirilen.vize * info.ağırlık.vize) / 100 +
-            (info.değerlendirilen.ödevbir * info.ağırlık.ödevbir) / 100 +
-            (info.değerlendirilen.ödeviki * info.ağırlık.ödeviki) / 100 +
-            (info.değerlendirilen.kısasınavbir * info.ağırlık.kısasınavbir) / 100 +
-            (info.değerlendirilen.kısasınaviki * info.ağırlık.kısasınaviki) / 100);
-        cout << "öğrencini ortalaması = " << öğrencininortalama << endl;
-        // Ortalama puanın ekrana yazdırılması ve en yüksek/en düşük notların güncellenmesi
-        if (öğrencininortalama > enKucukNot)
-        {
-            enKucukNot = öğrencininortalama;
-        }
-        if (öğrencininortalama < enBuyukNot)
-        {
-            enBuyukNot = öğrencininortalama;
-        };
-        // Sınıf ortalamasının güncellenmesi
-        sınıf_ortalaması += öğrencininortalama;
-
-        basariNotu[i] = öğrencininortalama;
-
-        // Öğrencinin notuna göre harf notunun belirlenmesi ve ilgili sayacın artırılması
-        if (öğrencininortalama >= 90.00)
-        {
-            cout << "AA" << endl; AAalansayı++;
-        }
-        else if (öğrencininortalama >= 85.00)
-        {
-            cout << "BA" << endl; BAalansayı++;
-        }
-        else if (öğrencininortalama >= 80.00)
-        {
-            cout << "BB" << endl; BBalansayı++;
-        }
-        else if (öğrencininortalama >= 75.00)
-        {
-            cout << "CB" << endl; CBalansayı++;
-        }
-        else if (öğrencininortalama >= 65.00)
-        {
-            cout << "CC" << endl; CCalansayı++;
-        }
-        else if (öğrencininortalama >= 58.00)
-        {
-            cout << "DC" << endl; DCalansayı++;
-        }
-        else if (öğrencininortalama >= 50.00)
-        {
-            cout << "DD" << endl; DDalansayı++;
-        }
-        else if (öğrencininortalama >= 40.00)
-        {
-            cout << "FD" << endl; FDalansayı++;
-        }
-        else
-        {
-            cout << "FF" << endl; FFalansayı++;
-        }
-        // Öğrencinin geçme/kalma durumunun kontrolü ve ekrana yazdırılması
-        if (öğrencininortalama <= info.değerlendirilen.puanının_geçme_not)
-        {
-            cout << "öğrenci derste kaldı, seneye bekleriz (: \n";
-        }
-        else { cout << "öğrenci  dersten geçti \n "; }
-        cout << "-----------------------------------------" << endl;
-
-
-    };
-
-    // Döngü: Sınıfın %50 ile %100 arasındaki öğrencileri için not hesaplaması
-    for (int i = yüzdeelli; i < öğrenci_sayısı; i++)
-    {
-      
-        cout << i + 1 << ".Öğrenci " << endl;
-        cout << "Ad Soyad: " << ogrenci[i].ad << " " << ogrenci[i].soyad << endl;
-        cout << "vize puanı = " << info.değerlendirilen.vize << endl;
-        cout << "1.ödevin puanı = " << info.değerlendirilen.ödevbir << endl;
-        cout << "2.ödev puanı = " << info.değerlendirilen.ödeviki << endl;
-        cout << "1.kısa sınav puanı = " << info.değerlendirilen.kısasınavbir << endl;
-        cout << "2.kısa sınav puanı = " << info.değerlendirilen.kısasınaviki << endl;
-       
-
-        if (öğrencininortalama > enKucukNot)
-        {
-            enBuyukNot = öğrencininortalama;
-        }
-        if (öğrencininortalama < enBuyukNot)
-        {
-            enBuyukNot = öğrencininortalama;
-        };
-        // Sınıf ortalamasının güncellenmesi
-        sınıf_ortalaması += öğrencininortalama;
-
-        basariNotu[i] = öğrencininortalama;
-
-
-
-
-
-        // Öğrencinin notuna göre harf notunun belirlenmesi ve ilgili sayacın artırılması
-        if (öğrencininortalama >= 90.00)
-        {
-            cout << "AA" << endl; AAalansayı++;
-        }
-        else if (öğrencininortalama >= 85.00)
-        {
-            cout << "BA" << endl; BAalansayı++;
-        }
-        else if (öğrencininortalama >= 80.00)
-        {
-            cout << "BB" << endl; BBalansayı++;
-        }
-        else if (öğrencininortalama >= 75.00)
-        {
-            cout << "CB" << endl; CBalansayı++;
-        }
-        else if (öğrencininortalama >= 65.00)
-        {
-            cout << "CC" << endl; CCalansayı++;
-        }
-        else if (öğrencininortalama >= 58.00)
-        {
-            cout << "DC" << endl; DCalansayı++;
-        }
-        else if (öğrencininortalama >= 50.00)
-        {
-            cout << "DD" << endl; DDalansayı++;
-        }
-        else if (öğrencininortalama >= 40.00)
-        {
-            cout << "FD" << endl; FDalansayı++;
-        }
-        else
-        {
-            cout << "FF" << endl; FFalansayı++;
-        }
-        // Öğrencinin geçme/kalma durumunun kontrolü ve ekrana yazdırılması
-        if (öğrencininortalama <= info.değerlendirilen.puanının_geçme_not)
-        {
-            cout << "öğrenci derste kaldı, seneye bekleriz (: \n";
-        }
-        else { cout << "öğrenci  dersten geçti \n "; }
-        cout << "-----------------------------------------" << endl;
-    };
-    float sinifOrtalamasi = sınıf_ortalaması / öğrenci_sayısı;
-
-    float standartSapma = 0.0;
-
-
-    for (int i = 0; i < öğrenci_sayısı; i++)
-    {
-        standartSapma += pow(basariNotu[i] - sinifOrtalamasi, 2);
-    };
-
-    cout << "sınıfın ortalaması = " << sinifOrtalamasi << endl;
-
-    cout << "En büyük not :" << enKucukNot << endl;
-    cout << "Standart sapmasi = " << sqrt(standartSapma / (öğrenci_sayısı - 1)) << endl;
-    cout << "En küçük not :" << enBuyukNot << endl;
-    cout << "AA alan sayısı   = " << AAalansayı << "\t\t";
-    cout << "AA sınıf yüzdesi = " << (static_cast<double>(AAalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "BA alan sayısı   = " << BAalansayı << "\t\t";
-    cout << "BA sınıf yüzdesi = " << (static_cast<double>(BAalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "BB alan sayısı   = " << BBalansayı << "\t\t";
-    cout << "BB sınıf yüzdesi = " << (static_cast<double>(BBalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "CB alan sayısı   = " << CBalansayı << "\t\t";
-    cout << "CB sınıf yüzdesi = " << (static_cast<double>(CBalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "CC alan sayısı   = " << CCalansayı << "\t\t";
-    cout << "CC sınıf yüzdesi = " << (static_cast<double>(CCalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "DC alan sayısı   = " << DCalansayı << "\t\t";
-    cout << "DC sınıf yüzdesi = " << (static_cast<double>(DCalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "DD alan sayısı   = " << DDalansayı << "\t\t";
-    cout << "DD sınıf yüzdesi = " << (static_cast<double>(DDalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "FD alan sayısı   = " << FDalansayı << "\t\t";
-    cout << "FD sınıf yüzdesi = " << (static_cast<double>(FDalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-    cout << "FF alan sayısı   = " << FFalansayı << "\t\t";
-    cout << "FF sınıf yüzdesi = " << (static_cast<double>(FFalansayı) / öğrenci_sayısı) * 100 << "%" << endl;
-
-}
 
 int main()
 {
     srand(time(0));
     setlocale(LC_ALL, "Turkish");
 
-    sCourse info;
-    int NumberOfStudents;
-
-    NumberOfStudents = ReadNumber(1,10000,"Please enter the number of students in your class.","Only 1-10000");
-
-
-    ağırlıklar(info);
-    rastgele_puan(info, NumberOfStudents);
+    sCourse course;
+    int numberOfStudents = ReadNumber(1, 10000, "Please enter the number of students in your class.", "Only 1-10000");
+    course = ReadCourseInformations();
+    course.vStudents = CreateStudents(numberOfStudents);
+    distributeGradesToStudents(course);
+    printStudentsInformation(course);
+    printCourseStatistics(course);
+   
 
     return 0;
 
