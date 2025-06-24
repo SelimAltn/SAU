@@ -1,0 +1,7 @@
+﻿  ConsoleApplication1.cpp
+D:\Ödevlerim\SAU\BSM 103\Assignment 2\c++ ödev2 - Kopya\ConsoleApplication1\ConsoleApplication1.cpp(784,5): error C2059: sözdizimi hatası: 'return'
+D:\Ödevlerim\SAU\BSM 103\Assignment 2\c++ ödev2 - Kopya\ConsoleApplication1\ConsoleApplication1.cpp(785,1): error C2059: sözdizimi hatası: '}'
+D:\Ödevlerim\SAU\BSM 103\Assignment 2\c++ ödev2 - Kopya\ConsoleApplication1\ConsoleApplication1.cpp(785,1): error C2143: sözdizimi hatası: ';' eksik ('}' öncesinde)
+D:\Ödevlerim\SAU\BSM 103\Assignment 2\c++ ödev2 - Kopya\ConsoleApplication1\ConsoleApplication1.cpp(787,1): error C2143: sözdizimi hatası: ';' eksik ('{' öncesinde)
+D:\Ödevlerim\SAU\BSM 103\Assignment 2\c++ ödev2 - Kopya\ConsoleApplication1\ConsoleApplication1.cpp(787,1): error C2447: '{': işlev üstbilgisi eksik (eski tarzda biçimsel liste mi?)
+D:\Ödevlerim\SAU\BSM 103\Assignment 2\c++ ödev2 - Kopya\ConsoleApplication1\ConsoleApplication1.cpp(835,5): error C3861: 'SecilenSayiYonlendirme': tanımlayıcı bulunamadı
