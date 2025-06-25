@@ -13,6 +13,7 @@
 #include <cmath>
 #include<ctime>
 #include <clocale>
+#include <vector>
 #pragma warning (disable : 4996)
 using namespace std;
 enum ENhesapTuru { genelHesap = 1, OzelHesap = 2 };
@@ -45,6 +46,7 @@ class Hesap
 {
 public:
     user info[100];
+    vector<user> vUser;
     bool cinHataDurumu()
     {
         //kullanıcının doğru bir giriş yapmasını kontrol eder. Eğer giriş doğruysa true döndürür, hatalıysa hata mesajı gösterip girişi temizler ve false döndürür.
