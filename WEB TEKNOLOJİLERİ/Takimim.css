@@ -1,0 +1,273 @@
+
+/* Genel Ayarlar */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: lightcyan;
+}
+/*
+---------------------------------------------
+------------------header
+---------------------------------------------
+*/
+header {
+  background-color: rgb(208, 252, 252);
+}
+
+nav ul li.current a {
+  color: darkturquoise !important; /* İlgili sayfa aktifken renk değişimi */
+}
+
+nav {
+  display: flex;
+  width: 84%;
+  margin: auto;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000000 !important; /* Normal metin rengi beyaz */
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+nav ul li a:hover {
+  color: darkturquoise !important; /* Hover metin rengi darkturquoise */
+}
+
+.navbar-brand img.logo {
+  width: 100px;
+  height: 150px;
+}
+
+
+/*
+---------------------------------------------
+------------------box
+---------------------------------------------
+*/
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 5em;
+  color: #333;
+}
+
+section {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.box {
+
+  background-color: lightcyan;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  color: #333;
+  background-color: lightblue;
+}
+.box p{
+  font-size: 1.3rem;
+} 
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.takim_resmi, .oyuncu_resmi {
+  width: 45%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.details {
+  width: 50%;
+  background-color: rgb(190, 233, 233);
+  padding: 20px;
+  box-shadow: 0 9px 8px rgba(0, 0, 0, 0.262);
+  border-radius: 1.6rem;
+}
+
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Orta ve Büyük Cihazlar için Ayarlar */
+@media (min-width: 769px) {
+  .box {
+      width: 80%;
+      
+  }
+
+  .content {
+      flex-direction: row;
+  }
+
+  .takim_resmi, .oyuncu_resmi {
+      width: 45%;
+      max-width: 500px;
+  }
+
+  .details {
+      width: 50%;
+      padding-left: 20px;
+  }
+}
+
+/* Küçük Cihazlar için Ayarlar */
+@media (max-width: 1200px) {
+  .box {
+    width: 90%;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .takim_resmi, .oyuncu_resmi {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .details {
+    width: 100%;
+  }
+  
+}
+/* Telefonlar için Ayarlar */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5em; /* Başlık boyutunu artırdık */
+    margin-top: 10px;
+  }
+
+  .box {
+    padding: 15px;
+  }
+
+  .box h2 {
+    font-size: 1.8rem; /* Başlık boyutunu artırdık */
+    margin-bottom: 15px;
+  }
+
+  .details {
+    padding: 15px;
+  }
+
+  .details p {
+    font-size: 1.2rem; /* Paragraf boyutunu artırdık */
+  }
+}
+
+
+/*
+------------------------------------
+----------------Footer
+------------------------------------
+*/
+footer {
+  background-color: #000000;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #fffefe;
+}
+
+footer h3 {
+  margin-bottom: 20px;
+  color: darkcyan;
+}
+
+footer p {
+  color: lightsteelblue;
+  margin-bottom: 5px;
+}
+
+footer .text h2 {
+  color: #fffefe;
+}
+
+footer .text span {
+  color: darkcyan;
+}
+
+footer .son {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+footer .siteHaritasi,
+footer .iletisim {
+  text-align: left;
+}
+
+footer .siteHaritasi ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex; /* Flexbox düzeni */
+  gap: 10px; /* Linkler arasındaki boşluk */
+}
+
+footer .siteHaritasi ul li {
+  display: inline; /* Yan yana gelmeleri için */
+  margin: 10px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #fffefe;
+}
+
+footer ul li a:hover {
+  color: #007bff;
+}
+
+footer .iletisim a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+footer .iletisim img {
+  width: 24px;
+  height: 24px;
+}
+
+footer .telifHakki {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #fffefe;
+}

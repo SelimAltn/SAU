@@ -1,0 +1,164 @@
+*{
+    margin:0 ;
+    padding: 0;
+}
+
+body{
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   background:lightcyan;
+   font-family: 'Josefin Sans', sans-serif;
+}
+/* Custom Styles */
+header {
+    background-color: rgb(208, 252, 252);
+  }
+  
+  nav ul li.current a {
+    color: darkturquoise !important; /* İlgili sayfa aktifken renk değişimi */
+  }
+  
+  nav {
+    display: flex;
+
+    width: 84%;
+    margin: auto;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav ul {
+    display: flex;
+    padding: 0;
+  }
+  
+  nav ul li {
+    list-style: none;
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #000000 !important; /* Normal metin rengi beyaz */
+    font-weight: bold;
+    transition: 0.4s;
+  }
+  
+  nav ul li a:hover {
+    color: darkturquoise !important; /* Hover metin rengi darkturquoise */
+  }
+  
+  .navbar-brand img.logo {
+    width: 100px;
+    height: 150px;
+  }
+   
+  
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image {
+    position: relative;
+    margin: 10px;
+}
+
+.image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h2,
+.overlay p {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.overlay h2 {
+    font-size: 24px;
+}
+
+.overlay p {
+    font-size: 16px;
+}
+
+/* Responsive Styles for Different Screen Sizes */
+@media (max-width: 768px) {
+  .gallery {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .image {
+      margin: 10px 0;
+  }
+
+  .image img {
+      width: 100%;
+      height: auto;
+  }
+} 
+
+/* Responsive Styles for Different Screen Sizes */
+@media (max-width: 1200px) {
+  .image {
+      flex: 1 1 calc(25% - 20px); /* 4 images per row */
+  }
+}
+
+@media (max-width: 992px) {
+  .image {
+      flex: 1 1 calc(33.333% - 20px); /* 3 images per row */
+      width: 300px;
+      height: 300px;
+     
+  }
+}
+
+@media (max-width: 768px) {
+  .image {
+      flex: 1 1 calc(50% - 20px); /* 2 images per row */
+      width: 500px;
+      height: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .image {
+      flex: 1 1 calc(100% - 20px); /* 1 image per row */
+      width: 600px;
+      height: 600px;
+  }
+}
+

@@ -1,0 +1,323 @@
+@import url(animate.min.css);
+@import url(normalize.css);
+@import url(icomoon.css);
+@import url(css/font-awesome.min.css);
+@import url(meanmenu.css);
+@import url(owl.carousel.min.css);
+@import url(swiper.min.css);
+@import url(slick.css);
+@import url(jquery.fancybox.min.css);
+@import url(jquery-ui.css);
+@import url(nice-select.css);
+
+* {
+    box-sizing: border-box !important;
+    transition: ease all 0.5s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #666666;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.80857;
+    font-weight: normal;
+    overflow-x: hidden;
+    background-color: lightcyan;
+}
+
+/* Custom Styles */
+header {
+    background-color: rgb(208, 252, 252);
+  }
+  
+  nav ul li.current a {
+    color: darkturquoise !important; /* İlgili sayfa aktifken renk değişimi */
+  }
+  
+  nav {
+    display: flex;
+
+    width: 84%;
+    margin: auto;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav ul {
+    display: flex;
+    padding: 0;
+  }
+  
+  nav ul li {
+    list-style: none;
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #000000 !important; /* Normal metin rengi beyaz */
+    font-weight: bold;
+    transition: 0.4s;
+  }
+  
+  nav ul li a:hover {
+    color: darkturquoise !important; /* Hover metin rengi darkturquoise */
+  }
+  
+  .navbar-brand img.logo {
+    width: 100px;
+    height: 150px;
+  }
+   
+button {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.read_bt {
+    width: 170px;
+    margin: 20px auto 0;
+    text-align: center;
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.read_bt a {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #d78373;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #d78373;
+    text-transform: uppercase;
+    padding: 8px;
+}
+
+.read_bt a:hover {
+    color: #3b3b3b;
+    border: 1px solid #3b3b3b;
+}
+
+
+.bulit_icon {
+    text-align: center;
+}
+
+
+/* blog section start */
+
+.blog_section {
+    width: 100%;
+    float: left;
+}
+
+.blog_section_2 {
+    width: 100%;
+    float: left;
+    padding-top: 60px;
+}
+
+.blog_box {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px 0px;
+    padding: 0px 0px 30px 0px;
+    position: relative; /* Ensure position relative for absolute positioning within */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 70px; /* Extra space for the button */
+}
+
+.blog_img {
+    width: 100%;
+    transition: 1s;
+}
+
+.blog_img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.blog_img img:hover {
+    transform: scale(0.9); /* Maus resimlere gelince resim 1.3 boyucek */
+}
+
+.date_text {
+    width: 100px;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0px;
+    background-color: red;
+    position: absolute;
+    top: -10px; /* Adjusted positioning */
+    left: -5px;
+    z-index: 1; /* Ensure it appears on top */
+}
+
+.prep_text {
+    width: 100%;
+    font-size: 20px;
+    color: #3b3b3b;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px 20px 10px 20px;
+}
+
+.lorem_text {
+    width: 100%;
+    font-size: 14px;
+    color: #3b3b3b;
+    margin: 0px;
+    padding: 0px 20px;
+}
+
+/* Responsive Styles for Different Screen Sizes */
+@media (min-width: 1200px) {
+    .blog_box {
+        flex: 0 0 calc(33.333% - 20px);
+        margin: 10px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .blog_box {
+        flex: 0 0 calc(50% - 20px);
+        margin: 10px;
+    }
+}
+
+@media (max-width: 991px) {
+    .blog_box {
+        flex: 0 0 calc(100% - 20px);
+        margin: 10px;
+    }
+}
+
+.blog_section_2 .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/*
+------------------------------------
+----------------Footer
+------------------------------------
+*/
+footer {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #fffefe;
+  }
+  
+  footer h3 {
+    margin-bottom: 20px;
+    color: darkcyan;
+  }
+  
+  footer p {
+    color: lightsteelblue;
+    margin-bottom: 5px;
+  }
+  
+  footer .text h2 {
+    color: #fffefe;
+  }
+  
+  footer .text span {
+    color: darkcyan;
+  }
+  
+  footer .son {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  footer .siteHaritasi,
+  footer .iletisim {
+    text-align: left;
+  }
+  
+  footer .siteHaritasi ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Flexbox düzeni */
+    gap: 10px; /* Linkler arasındaki boşluk */
+  }
+  
+  footer .siteHaritasi ul li {
+    display: inline; /* Yan yana gelmeleri için */
+    margin: 10px;
+  }
+  
+  footer ul li a {
+    text-decoration: none;
+    color: #fffefe;
+  }
+  
+  footer ul li a:hover {
+    color: #007bff;
+  }
+  
+  footer .iletisim a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  footer .iletisim img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  footer .telifHakki {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #fffefe;
+  }
+  /* Responsive düzenlemeler */
+  @media (max-width: 768px) {
+    footer .son {
+        flex-direction: column; /* Dikey hizalama */
+        align-items: center;
+    }
+  
+    footer .siteHaritasi ul {
+        justify-content: center; /* Ortada hizalama */
+    }
+  
+    footer .siteHaritasi,
+    footer .iletisim {
+        text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    footer .siteHaritasi ul {
+        flex-direction: column; /* Linkleri dikey hizalama */
+    }
+  
+    footer .siteHaritasi ul li {
+        margin-bottom: 10px;
+    }
+  
+    footer .iletisim a {
+        margin-bottom: 10px;
+    }
+  }
+  
