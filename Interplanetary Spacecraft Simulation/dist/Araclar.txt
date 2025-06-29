@@ -1,0 +1,11 @@
+Uzay_araci_adi#cikis_gezegeni#varis_gezegeni#cikis_tarihi#mesafe_saat_olarak
+A#X#Y#24.04.2025#60
+B#Y#Z#25.04.2025#45
+C#Z#W#26.04.2025#90
+D#W#V#27.04.2025#20
+E#V#X#28.04.2025#30
+F#X#Z#24.04.2025#72
+G#Y#V#25.04.2025#54
+H#Z#X#26.04.2025#36
+I#W#Y#27.04.2025#100
+J#V#W#28.04.2025#120
