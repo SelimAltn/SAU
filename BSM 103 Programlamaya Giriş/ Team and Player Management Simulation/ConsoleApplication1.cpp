@@ -6,7 +6,6 @@
 **
 ** PROJE 
 ** ÖĞRENCİ ADI :SELİM ALTIN .
-** ÖĞRENCİ NUMARASI :G231210558 .
 ** DERS GRUBU : B .
 ****************************************************************************/
 #include <iostream>
