@@ -1,0 +1,520 @@
+1. : 
+oyuncu TC : 95518627722
+oyuncu adı : Lionel
+oyuncu soy adı : ter Stegen
+oyuncu doğum tarihi : 29.12.2005
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 4570000TL
+oyuncu kodu : 963
+-----------------------------------------------
+2. : 
+oyuncu TC : 54931578782
+oyuncu adı : Neymar
+oyuncu soy adı : van Dijk
+oyuncu doğum tarihi : 7.10.1986
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : CDM - Central Defensive Midfielder
+oyuncu ucreti : 900000TL
+oyuncu kodu : 626
+-----------------------------------------------
+3. : 
+oyuncu TC : 78858932992
+oyuncu adı : Riyad
+oyuncu soy adı : Ronaldo
+oyuncu doğum tarihi : 23.11.1988
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : SW - Sweeper
+oyuncu ucreti : 5690000TL
+oyuncu kodu : 245
+-----------------------------------------------
+4. : 
+oyuncu TC : 32926415757
+oyuncu adı : Virgil
+oyuncu soy adı : Griezmann
+oyuncu doğum tarihi : 23.1.2005
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : LB - Left Back
+oyuncu ucreti : 8860000TL
+oyuncu kodu : 471
+-----------------------------------------------
+5. : 
+oyuncu TC : 39175641989
+oyuncu adı : Sergio
+oyuncu soy adı : Kroos
+oyuncu doğum tarihi : 27.3.1988
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : RW - Right Winger
+oyuncu ucreti : 4910000TL
+oyuncu kodu : 232
+-----------------------------------------------
+6. : 
+oyuncu TC : 34186763827
+oyuncu adı : Alisson
+oyuncu soy adı : Kane
+oyuncu doğum tarihi : 1.5.1989
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : ST - Striker
+oyuncu ucreti : 6860000TL
+oyuncu kodu : 143
+-----------------------------------------------
+7. : 
+oyuncu TC : 56713156178
+oyuncu adı : Kevin
+oyuncu soy adı : de Jong
+oyuncu doğum tarihi : 23.5.1991
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : SS - Second Striker
+oyuncu ucreti : 190000TL
+oyuncu kodu : 733
+-----------------------------------------------
+8. : 
+oyuncu TC : 38366568735
+oyuncu adı : Leroy
+oyuncu soy adı : Jr
+oyuncu doğum tarihi : 27.12.2001
+oyuncu bağlı oldu takım : Afyonkarahisar SPOR
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 8340000TL
+oyuncu kodu : 173
+-----------------------------------------------
+9. : 
+oyuncu TC : 62435453212
+oyuncu adı : Raheem
+oyuncu soy adı : Lewandowski
+oyuncu doğum tarihi : 28.8.1999
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : CAM - Central Attacking Midfielder
+oyuncu ucreti : 5430000TL
+oyuncu kodu : 459
+-----------------------------------------------
+10. : 
+oyuncu TC : 93694463616
+oyuncu adı : Heung-Min
+oyuncu soy adı : Salah
+oyuncu doğum tarihi : 27.12.1991
+oyuncu bağlı oldu takım : phŸo
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 5360000TL
+oyuncu kodu : 413
+-----------------------------------------------
+11. : 
+oyuncu TC : 36924773338
+oyuncu adı : Sergio
+oyuncu soy adı : van Dijk
+oyuncu doğum tarihi : 13.10.2003
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : CAM - Central Attacking Midfielder
+oyuncu ucreti : 2440000TL
+oyuncu kodu : 582
+-----------------------------------------------
+12. : 
+oyuncu TC : 81459214115
+oyuncu adı : Luka
+oyuncu soy adı : Foden
+oyuncu doğum tarihi : 27.6.2004
+oyuncu bağlı oldu takım : phŸo
+oyundaki konumu : CAM - Central Attacking Midfielder
+oyuncu ucreti : 5980000TL
+oyuncu kodu : 570
+-----------------------------------------------
+13. : 
+oyuncu TC : 71825232524
+oyuncu adı : Kai
+oyuncu soy adı : bonu
+oyuncu doğum tarihi : 15.8.2003
+oyuncu bağlı oldu takım : Afyonkarahisar SPOR
+oyundaki konumu : LM - Left Midfielder
+oyuncu ucreti : 4750000TL
+oyuncu kodu : 178
+-----------------------------------------------
+14. : 
+oyuncu TC : 86369686183
+oyuncu adı : Phil
+oyuncu soy adı : van Dijk
+oyuncu doğum tarihi : 22.5.2000
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 4820000TL
+oyuncu kodu : 61
+-----------------------------------------------
+15. : 
+oyuncu TC : 58342572455
+oyuncu adı : Toni
+oyuncu soy adı : Aguero
+oyuncu doğum tarihi : 23.4.1992
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : ST - Striker
+oyuncu ucreti : 9540000TL
+oyuncu kodu : 358
+-----------------------------------------------
+16. : 
+oyuncu TC : 17589644322
+oyuncu adı : Erling
+oyuncu soy adı : Havertz
+oyuncu doğum tarihi : 19.9.2003
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : RB - Right Back
+oyuncu ucreti : 3120000TL
+oyuncu kodu : 535
+-----------------------------------------------
+17. : 
+oyuncu TC : 77599878728
+oyuncu adı : Mohamed
+oyuncu soy adı : Lukaku
+oyuncu doğum tarihi : 2.10.1990
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : ST - Striker
+oyuncu ucreti : 9120000TL
+oyuncu kodu : 640
+-----------------------------------------------
+18. : 
+oyuncu TC : 38515182713
+oyuncu adı : Kylian
+oyuncu soy adı : Ibrahimovic
+oyuncu doğum tarihi : 3.3.2001
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 6450000TL
+oyuncu kodu : 124
+-----------------------------------------------
+19. : 
+oyuncu TC : 46212751349
+oyuncu adı : Kai
+oyuncu soy adı : Kimmich
+oyuncu doğum tarihi : 18.9.1980
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : RW - Right Winger
+oyuncu ucreti : 2180000TL
+oyuncu kodu : 641
+-----------------------------------------------
+20. : 
+oyuncu TC : 34325345546
+oyuncu adı : Heung-Min
+oyuncu soy adı : Lukaku
+oyuncu doğum tarihi : 2.3.1988
+oyuncu bağlı oldu takım : phŸo
+oyundaki konumu : LW - Left Winger
+oyuncu ucreti : 7350000TL
+oyuncu kodu : 331
+-----------------------------------------------
+21. : 
+oyuncu TC : 37876541699
+oyuncu adı : Trent
+oyuncu soy adı : Sancho
+oyuncu doğum tarihi : 24.8.1993
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 7190000TL
+oyuncu kodu : 895
+-----------------------------------------------
+22. : 
+oyuncu TC : 67696554354
+oyuncu adı : Cristiano
+oyuncu soy adı : Griezmann
+oyuncu doğum tarihi : 13.8.1985
+oyuncu bağlı oldu takım : phŸo
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 1420000TL
+oyuncu kodu : 924
+-----------------------------------------------
+23. : 
+oyuncu TC : 62826564622
+oyuncu adı : Riyad
+oyuncu soy adı : ter Stegen
+oyuncu doğum tarihi : 28.7.1999
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 5420000TL
+oyuncu kodu : 175
+-----------------------------------------------
+24. : 
+oyuncu TC : 76482611262
+oyuncu adı : Virgil
+oyuncu soy adı : Fernandes
+oyuncu doğum tarihi : 2.12.2005
+oyuncu bağlı oldu takım : Afyonkarahisar SPOR
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 8200000TL
+oyuncu kodu : 394
+-----------------------------------------------
+25. : 
+oyuncu TC : 84751534489
+oyuncu adı : Kai
+oyuncu soy adı : Modric
+oyuncu doğum tarihi : 2.7.1986
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : CM - Central Midfielder
+oyuncu ucreti : 9350000TL
+oyuncu kodu : 653
+-----------------------------------------------
+26. : 
+oyuncu TC : 91117315765
+oyuncu adı : Zlatan
+oyuncu soy adı : Salah
+oyuncu doğum tarihi : 28.8.1985
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : LM - Left Midfielder
+oyuncu ucreti : 8460000TL
+oyuncu kodu : 983
+-----------------------------------------------
+27. : 
+oyuncu TC : 44336311925
+oyuncu adı : Eden
+oyuncu soy adı : de Jong
+oyuncu doğum tarihi : 7.2.1985
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : CM - Central Midfielder
+oyuncu ucreti : 3360000TL
+oyuncu kodu : 525
+-----------------------------------------------
+28. : 
+oyuncu TC : 95286412248
+oyuncu adı : Kevin
+oyuncu soy adı : Modric
+oyuncu doğum tarihi : 29.1.1982
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 8760000TL
+oyuncu kodu : 382
+-----------------------------------------------
+29. : 
+oyuncu TC : 18593994257
+oyuncu adı : Joshua
+oyuncu soy adı : Lewandowski
+oyuncu doğum tarihi : 28.7.1985
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : LM - Left Midfielder
+oyuncu ucreti : 4610000TL
+oyuncu kodu : 122
+-----------------------------------------------
+30. : 
+oyuncu TC : 86646277765
+oyuncu adı : Erling
+oyuncu soy adı : Mbappe
+oyuncu doğum tarihi : 2.9.1999
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : SW - Sweeper
+oyuncu ucreti : 1960000TL
+oyuncu kodu : 968
+-----------------------------------------------
+31. : 
+oyuncu TC : 31345747575
+oyuncu adı : Ederson
+oyuncu soy adı : Moraes
+oyuncu doğum tarihi : 11.12.1984
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : LW - Left Winger
+oyuncu ucreti : 3650000TL
+oyuncu kodu : 18
+-----------------------------------------------
+32. : 
+oyuncu TC : 52249141246
+oyuncu adı : Virgil
+oyuncu soy adı : De Bruyne
+oyuncu doğum tarihi : 22.9.2000
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : RW - Right Winger
+oyuncu ucreti : 4500000TL
+oyuncu kodu : 820
+-----------------------------------------------
+33. : 
+oyuncu TC : 31534661714
+oyuncu adı : Leroy
+oyuncu soy adı : Moraes
+oyuncu doğum tarihi : 1.5.2003
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : SS - Second Striker
+oyuncu ucreti : 2900000TL
+oyuncu kodu : 625
+-----------------------------------------------
+34. : 
+oyuncu TC : 28672384741
+oyuncu adı : Thibaut
+oyuncu soy adı : Mane
+oyuncu doğum tarihi : 6.8.1990
+oyuncu bağlı oldu takım : Afyonkarahisar SPOR
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 9200000TL
+oyuncu kodu : 262
+-----------------------------------------------
+35. : 
+oyuncu TC : 61494664144
+oyuncu adı : Zlatan
+oyuncu soy adı : Modric
+oyuncu doğum tarihi : 21.9.1996
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : SW - Sweeper
+oyuncu ucreti : 2800000TL
+oyuncu kodu : 157
+-----------------------------------------------
+36. : 
+oyuncu TC : 29654144641
+oyuncu adı : Zlatan
+oyuncu soy adı : Hazard
+oyuncu doğum tarihi : 16.2.2001
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : RB - Right Back
+oyuncu ucreti : 2970000TL
+oyuncu kodu : 794
+-----------------------------------------------
+37. : 
+oyuncu TC : 93999848897
+oyuncu adı : Eden
+oyuncu soy adı : Sane
+oyuncu doğum tarihi : 26.4.1991
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : GK - Goalkeeper
+oyuncu ucreti : 1740000TL
+oyuncu kodu : 141
+-----------------------------------------------
+38. : 
+oyuncu TC : 25585259715
+oyuncu adı : Trent
+oyuncu soy adı : Suarez
+oyuncu doğum tarihi : 13.11.1996
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 6070000TL
+oyuncu kodu : 402
+-----------------------------------------------
+39. : 
+oyuncu TC : 73975498199
+oyuncu adı : Sergio
+oyuncu soy adı : Pique
+oyuncu doğum tarihi : 21.3.1999
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : CB - Center Back
+oyuncu ucreti : 90000TL
+oyuncu kodu : 29
+-----------------------------------------------
+40. : 
+oyuncu TC : 41413493168
+oyuncu adı : Riyad
+oyuncu soy adı : Moraes
+oyuncu doğum tarihi : 26.12.1991
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : CAM - Central Attacking Midfielder
+oyuncu ucreti : 8880000TL
+oyuncu kodu : 742
+-----------------------------------------------
+41. : 
+oyuncu TC : 79792878232
+oyuncu adı : Toni
+oyuncu soy adı : Modric
+oyuncu doğum tarihi : 7.1.1991
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : RW - Right Winger
+oyuncu ucreti : 5490000TL
+oyuncu kodu : 591
+-----------------------------------------------
+42. : 
+oyuncu TC : 45135111653
+oyuncu adı : Raheem
+oyuncu soy adı : Kimmich
+oyuncu doğum tarihi : 7.9.1985
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : SS - Second Striker
+oyuncu ucreti : 8540000TL
+oyuncu kodu : 979
+-----------------------------------------------
+43. : 
+oyuncu TC : 48682213247
+oyuncu adı : Lionel
+oyuncu soy adı : Ibrahimovic
+oyuncu doğum tarihi : 30.8.2000
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : CF - Center Forward
+oyuncu ucreti : 420000TL
+oyuncu kodu : 537
+-----------------------------------------------
+44. : 
+oyuncu TC : 78772522967
+oyuncu adı : Kalidou
+oyuncu soy adı : Suarez
+oyuncu doğum tarihi : 4.2.2001
+oyuncu bağlı oldu takım : Gümüşhane SPOR
+oyundaki konumu : CAM - Central Attacking Midfielder
+oyuncu ucreti : 7330000TL
+oyuncu kodu : 457
+-----------------------------------------------
+45. : 
+oyuncu TC : 49344783629
+oyuncu adı : Eden
+oyuncu soy adı : Ronaldo
+oyuncu doğum tarihi : 7.5.1982
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : RB - Right Back
+oyuncu ucreti : 6740000TL
+oyuncu kodu : 910
+-----------------------------------------------
+46. : 
+oyuncu TC : 43775322477
+oyuncu adı : Raheem
+oyuncu soy adı : bonu
+oyuncu doğum tarihi : 27.6.1993
+oyuncu bağlı oldu takım : Denizli SPOR
+oyundaki konumu : RM - Right Midfielder
+oyuncu ucreti : 1200000TL
+oyuncu kodu : 847
+-----------------------------------------------
+47. : 
+oyuncu TC : 41475688294
+oyuncu adı : Luis
+oyuncu soy adı : Mane
+oyuncu doğum tarihi : 7.2.1993
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : CM - Central Midfielder
+oyuncu ucreti : 8360000TL
+oyuncu kodu : 186
+-----------------------------------------------
+48. : 
+oyuncu TC : 93919775399
+oyuncu adı : Bruno
+oyuncu soy adı : Kroos
+oyuncu doğum tarihi : 20.10.1984
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : SW - Sweeper
+oyuncu ucreti : 1270000TL
+oyuncu kodu : 869
+-----------------------------------------------
+49. : 
+oyuncu TC : 23817721534
+oyuncu adı : Antoine
+oyuncu soy adı : Modric
+oyuncu doğum tarihi : 11.1.2005
+oyuncu bağlı oldu takım : phŸo
+oyundaki konumu : CM - Central Midfielder
+oyuncu ucreti : 9180000TL
+oyuncu kodu : 670
+-----------------------------------------------
+50. : 
+oyuncu TC : 51919948564
+oyuncu adı : Karim
+oyuncu soy adı : Ronaldo
+oyuncu doğum tarihi : 21.8.1980
+oyuncu bağlı oldu takım : Şanlıurfa SPOR
+oyundaki konumu : LW - Left Winger
+oyuncu ucreti : 300000TL
+oyuncu kodu : 339
+-----------------------------------------------
+51. : 
+oyuncu TC : 38934262457
+oyuncu adı : Phil
+oyuncu soy adı : Kane
+oyuncu doğum tarihi : 2.2.1991
+oyuncu bağlı oldu takım : phŸo
+oyundaki konumu : SS - Second Striker
+oyuncu ucreti : 2620000TL
+oyuncu kodu : 709
+-----------------------------------------------
+52. : 
+oyuncu TC : 88382649386
+oyuncu adı : Cristiano
+oyuncu soy adı : Son
+oyuncu doğum tarihi : 21.6.2000
+oyuncu bağlı oldu takım : Eskişehir SPOR
+oyundaki konumu : ST - Striker
+oyuncu ucreti : 4560000TL
+oyuncu kodu : 781
+-----------------------------------------------
