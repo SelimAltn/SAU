@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="satisfaction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\satisfaction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly kadın saç Kesim güzelik salonu.3d 31595" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly kadın saç Kesim güzelik salonu.3d 31595.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 092253" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 092253.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kaş Boyama. guzelik salonda Örtülü kadın 3d 36128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kaş Boyama. guzelik salonda Örtülü kadın 3d 36128.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="476" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\476.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-2 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-2 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly kadın saç Kesim güzelik salonu.3d 70882" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly kadın saç Kesim güzelik salonu.3d 70882.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Yüz Temizleme 3d 35806" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Yüz Temizleme 3d 35806.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Manikür ve Pedikür Cila el tırnak .3d 57236" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Manikür ve Pedikür Cila el tırnak .3d 57236.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\33.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 13759" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 13759.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name=" - Kopya" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ - Kopya.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 82700" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 82700.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Yüz Temizleme 3d güzelik salonuda 35806" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Yüz Temizleme 3d güzelik salonuda 35806.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezinde 3d çalışan 60783" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezinde 3d çalışan 60783.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 54559" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 54559.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Gelin Makyajı 3d 15173" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Gelin Makyajı 3d 15173.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="444" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\444.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="666" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\666.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="remove-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\remove-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3D Örtülü kadın çalışan 89141" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3D Örtülü kadın çalışan 89141.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="515" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\515.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new-employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new-employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sign-out-alt (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sign-out-alt (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bullseye-pointer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bullseye-pointer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 827001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 827001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pexels-gabby-k-6621434" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pexels-gabby-k-6621434.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 104200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 104200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kaş ve Kirpik Bakımı yapan kadın -3d 17937" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kaş ve Kirpik Bakımı yapan kadın -3d 17937.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Yüz Temizleme 3d güzelik salonuda 30919" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Yüz Temizleme 3d güzelik salonuda 30919.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Manikür ve Pedikür el tırnak .3d 32930" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Manikür ve Pedikür el tırnak .3d 32930.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 74053" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 74053.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\52.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 092808" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 092808.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="program-host" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program-host.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="77" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\77.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezinde 3d çalışan 51676" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezinde 3d çalışan 51676.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kozmetik Ürünler 3d 28936" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kozmetik Ürünler 3d 28936.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="333" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\333.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezinde 3d çalışan 83758" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezinde 3d çalışan 83758.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="makeup-brush" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\makeup-brush.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly kıvırcık saç hizmeti kuafor .3d 5912" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly kıvırcık saç hizmeti kuafor .3d 5912.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="66" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\66.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="power-off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\power-off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kozmetik Ürünler 3d 51384" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kozmetik Ürünler 3d 51384.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="workflow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\workflow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9898" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9898.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Manikür ve Pedikür el tırnak .3d 30036" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Manikür ve Pedikür el tırnak .3d 30036.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="74" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\74.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly diş macun ve diş fırça Ürünleri 3d 91844" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly diş macun ve diş fırça Ürünleri 3d 91844.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma guzelik salon 3d 51384" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma guzelik salon 3d 51384.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="585" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\585.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\22.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="happy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kozmetik Ürünler 3d 48434" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kozmetik Ürünler 3d 48434.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Lazer Epilasyon yapan kadın .3d 50231" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Lazer Epilasyon yapan kadın .3d 50231.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Yüz Temizleme 3d 23573" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Yüz Temizleme 3d 23573.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly uzman kadın ve odası .guzellik salon 3d 99771" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly uzman kadın ve odası .guzellik salon 3d 99771.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly mesaj yatağı .Güzellik Merkezi 3d çalışan kadın 99771" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly mesaj yatağı .Güzellik Merkezi 3d çalışan kadın 99771.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="layers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\layers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Manikür ve Pedikür Topuk Bakımı .3d 57236" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Manikür ve Pedikür Topuk Bakımı .3d 57236.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="555" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\555.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="facial-massage (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\facial-massage (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kuaför 3d çalışan kapalı kadın 13759" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kuaför 3d çalışan kapalı kadın 13759.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="615" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\615.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dikeylogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dikeylogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="square-plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\square-plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma guzelik salon 3d 48434" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma guzelik salon 3d 48434.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Makyaj hizmeti kuafor .3d 13269" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Makyaj hizmeti kuafor .3d 13269.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bullseye-pointer (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bullseye-pointer (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 092724" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 092724.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="888" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\888.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Buhar- Buhar, cildi nemlendirir ve gözeneklerin açılmasını sağlar. Bu, cildin daha derinleme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Buhar- Buhar, cildi nemlendirir ve gözeneklerin açılmasını sağlar. Bu, cildin daha derinleme.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\111.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kaş ve Kirpik Bakımı yapan kadın -3d 65923" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kaş ve Kirpik Bakımı yapan kadın -3d 65923.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Parfüm &amp; Deodorant Ürünleri 3d 55110" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Parfüm &amp; Deodorant Ürünleri 3d 55110.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Lazer Epilasyon yapan kadın .3d 81355" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Lazer Epilasyon yapan kadın .3d 81355.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 407271" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 407271.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shuffle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shuffle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Kirpik Kıvırma yapan kadın -3d 65923" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Kirpik Kıvırma yapan kadın -3d 65923.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Epilasyon Ürünleri Ürünleri 3d 32868" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Epilasyon Ürünleri Ürünleri 3d 32868.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezinde 3d çalışan 516761" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezinde 3d çalışan 516761.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-1 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-1 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="expand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 092836" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 092836.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Yüz Temizleme 3d güzelik salonuda 23573 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Yüz Temizleme 3d güzelik salonuda 23573 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Makyaj Ürünleri 3d 55110" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Makyaj Ürünleri 3d 55110.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Gündelik Makyaj- Doğal ve hafif .3D Örtülü kadın 90809" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Gündelik Makyaj- Doğal ve hafif .3D Örtülü kadın 90809.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly saç boyama .Kuaförda 3d kadın 18092" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly saç boyama .Kuaförda 3d kadın 18092.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 103758" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 103758.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\team.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Saç Bakımı Urunleri 3d 32868" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Saç Bakımı Urunleri 3d 32868.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 091915" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 091915.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly saç boyama .Kuaförda 3d kadın 15173" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly saç boyama .Kuaförda 3d kadın 15173.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly saç boyama .Kuaförda 3d kadın 15173 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly saç boyama .Kuaförda 3d kadın 15173 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="customer-review" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customer-review.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Yüz Temizleme 3d güzelik salonuda 85685" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Yüz Temizleme 3d güzelik salonuda 85685.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom (3)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="777" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\777.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Makyaj kuafor .3d 13269" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Makyaj kuafor .3d 13269.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="222" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\222.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly mesaj yatağı .guzellik salon 3d 99218" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly mesaj yatağı .guzellik salon 3d 99218.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folder-download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder-download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Shower Products 3d 73192" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Shower Products 3d 73192.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Manikür ve Pedikür el tırnak .3d 5912" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Manikür ve Pedikür el tırnak .3d 5912.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezinde 3d çalışan 53318" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezinde 3d çalışan 53318.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly mesaj yatağı .guzellik salon 3d 99771" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly mesaj yatağı .guzellik salon 3d 99771.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 092202" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 092202.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="88" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\88.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 092237" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 092237.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="happy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\55.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="44" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\44.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="satisfaction (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\satisfaction (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 39947" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 39947.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="group" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\61.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yaşlanma," type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yaşlanma,.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma Ürünleri 3d 55110" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma Ürünleri 3d 55110.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="8747" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8747.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="86" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\86.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3D Örtülü kadın çalışan 891411" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3D Örtülü kadın çalışan 891411.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 40727" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 40727.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="forehead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forehead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Firefly Bronzlaşma hizmeti guzelik salonda 3d 28936" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Firefly Bronzlaşma hizmeti guzelik salonda 3d 28936.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1_org_zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_org_zoom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circle-31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle-31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 165809" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 165809.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 165836" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 165836.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ekran görüntüsü 2024-05-23 165925" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ekran görüntüsü 2024-05-23 165925.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

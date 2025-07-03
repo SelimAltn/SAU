@@ -1,0 +1,545 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u00D6devlerim\\RandevuSistemi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmyenipersonelekle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmyenipersonelekle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|d:\\\u00F6devlerim\\randevusistemi\\randevusistemi\\forms\\frmyenipersonelekle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmyenipersonelekle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clsurun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clsurun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\hostgirisi.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\hostgirisi.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\hostgirisi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\hostgirisi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clshizmetlertanimlari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clshizmetlertanimlari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\clscalisanlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\clscalisanlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\clsrandevudurumu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\clsrandevudurumu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\clsihizmet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\clsihizmet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clsmusterimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clsmusterimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clsrandevusuzmusteri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clsrandevusuzmusteri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\clstemarenki.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\clstemarenki.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\hostgirisi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\hostgirisi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmrandevu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmrandevu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\clsmusteri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\clsmusteri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clspersonelmanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clspersonelmanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clsrandevusuzmusterimanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clsrandevusuzmusterimanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\clshizmetler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\clshizmetler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmrandevuduzenle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmrandevuduzenle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmkayitlimusterilerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmkayitlimusterilerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmhostsayfasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmhostsayfasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmhostsayfasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmhostsayfasi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmkayitlimusterilerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmkayitlimusterilerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmrandevusuzmussteriler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmrandevusuzmussteriler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmrandevuduzenle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmrandevuduzenle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmhizmetlerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmhizmetlerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\frmhizmetlerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\frmhizmetlerimiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|D:\\\u00D6devlerim\\RandevuSistemi\\randevusistemi\\forms\\hizmetformu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5977C8E8-B9F4-4F6B-A52C-E045596B2791}|RandevuSistemi\\RandevuSistemi.csproj|solutionrelative:randevusistemi\\forms\\hizmetformu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmYeniPersonelEkle.Designer.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmYeniPersonelEkle.Designer.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmYeniPersonelEkle.Designer.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmYeniPersonelEkle.Designer.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\frmYeniPersonelEkle.Designer.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T00:21:50.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmYeniPersonelEkle.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmYeniPersonelEkle.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmYeniPersonelEkle.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmYeniPersonelEkle.cs [Tasar\u0131m]",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\frmYeniPersonelEkle.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T00:21:42.812Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HostGirisi.Designer.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.Designer.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\HostGirisi.Designer.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.Designer.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\HostGirisi.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T00:10:43.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Form1.Designer.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Form1.Designer.cs",
+              "RelativeToolTip": "RandevuSistemi\\Form1.Designer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwFQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T22:47:32.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Form1.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Form1.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Form1.cs",
+              "RelativeToolTip": "RandevuSistemi\\Form1.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAIA6wMoAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T20:03:57.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form1.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Form1.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Form1.cs",
+              "ToolTip": "D:\\c#\\RandevuSistemi\\RandevuSistemi\\Form1.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\RandevuSistemi\\RandevuSistemi\\Form1.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T20:03:55.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Program.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Program.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Program.cs",
+              "RelativeToolTip": "RandevuSistemi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T20:03:50.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "HostGirisi.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\HostGirisi.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\HostGirisi.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAxwE0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:55.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HostGirisi.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\HostGirisi.cs",
+              "ToolTip": "D:\\c#\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\RandevuSistemi\\RandevuSistemi\\Forms\\HostGirisi.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "clsMusteri.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsMusteri.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\clsMusteri.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsMusteri.cs",
+              "RelativeToolTip": "RandevuSistemi\\clsMusteri.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "clsRandevusuzMusteri.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsRandevusuzMusteri.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsRandevusuzMusteri.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsRandevusuzMusteri.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsRandevusuzMusteri.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "clsTemaRenki.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsTemaRenki.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\clsTemaRenki.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsTemaRenki.cs",
+              "RelativeToolTip": "RandevuSistemi\\clsTemaRenki.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowCgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "clsUrun.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsUrun.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsUrun.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsUrun.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsUrun.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "clsMusteriManager.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsMusteriManager.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsMusteriManager.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsMusteriManager.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsMusteriManager.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAwwAwAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ClsIHizmet.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\ClsIHizmet.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\ClsIHizmet.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\ClsIHizmet.cs",
+              "RelativeToolTip": "RandevuSistemi\\ClsIHizmet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "clsRandevuDurumu.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsRandevuDurumu.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\clsRandevuDurumu.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsRandevuDurumu.cs",
+              "RelativeToolTip": "RandevuSistemi\\clsRandevuDurumu.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA5wAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "clsCalisanlar.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsCalisanlar.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\clsCalisanlar.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\clsCalisanlar.cs",
+              "RelativeToolTip": "RandevuSistemi\\clsCalisanlar.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAuwAQAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "clsHizmetlerTanimlari.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsHizmetlerTanimlari.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsHizmetlerTanimlari.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsHizmetlerTanimlari.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsHizmetlerTanimlari.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAYwAsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "frmRandevu.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevu.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmRandevu.cs",
+              "ToolTip": "D:\\c#\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevu.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevu.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-12-09T20:00:02.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "clsHizmetler.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsHizmetler.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsHizmetler.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsHizmetler.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsHizmetler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "clsRandevusuzMusteriManger.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsRandevusuzMusteriManger.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsRandevusuzMusteriManger.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsRandevusuzMusteriManger.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsRandevusuzMusteriManger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "clsPersonelManger.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsPersonelManger.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\clsPersonelManger.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\clsPersonelManger.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\clsPersonelManger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T17:42:56.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "frmRandevuDuzenle.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevuDuzenle.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmRandevuDuzenle.cs",
+              "ToolTip": "D:\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevuDuzenle.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevuDuzenle.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "frmKayitliMusterilerimiz.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "frmHostSayfasi.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHostSayfasi.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmHostSayfasi.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHostSayfasi.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\frmHostSayfasi.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAswHIAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "frmHostSayfasi.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHostSayfasi.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmHostSayfasi.cs",
+              "ToolTip": "D:\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHostSayfasi.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHostSayfasi.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "frmRandevuDuzenle.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevuDuzenle.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmRandevuDuzenle.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevuDuzenle.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\frmRandevuDuzenle.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAnwH0AAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "frmKayitliMusterilerimiz.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs",
+              "ToolTip": "D:\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmKayitliMusterilerimiz.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "frmRandevusuzMussteriler.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevusuzMussteriler.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmRandevusuzMussteriler.cs",
+              "ToolTip": "D:\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevusuzMussteriler.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmRandevusuzMussteriler.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "frmHizmetlerimiz.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHizmetlerimiz.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmHizmetlerimiz.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHizmetlerimiz.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\frmHizmetlerimiz.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwJsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "frmHizmetlerimiz.cs [Tasar\u0131m]",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHizmetlerimiz.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\frmHizmetlerimiz.cs",
+              "ToolTip": "D:\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHizmetlerimiz.cs [Tasar\u0131m]",
+              "RelativeToolTip": "..\\..\\c#\\yeni\\RandevuSistemi\\RandevuSistemi\\Forms\\frmHizmetlerimiz.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "HizmetFormu.cs",
+              "DocumentMoniker": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HizmetFormu.cs",
+              "RelativeDocumentMoniker": "RandevuSistemi\\Forms\\HizmetFormu.cs",
+              "ToolTip": "D:\\\u00D6devlerim\\RandevuSistemi\\RandevuSistemi\\Forms\\HizmetFormu.cs",
+              "RelativeToolTip": "RandevuSistemi\\Forms\\HizmetFormu.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAcwA8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-10-26T17:42:56.119Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

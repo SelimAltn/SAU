@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5977C8E8-B9F4-4F6B-A52C-E045596B2791}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RandevuSistemi</RootNamespace>
+    <AssemblyName>RandevuSistemi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsCalisanlar.cs" />
+    <Compile Include="ClsIHizmet.cs" />
+    <Compile Include="clsRandevuDurumu.cs" />
+    <Compile Include="Forms\anaDegiskenler.cs" />
+    <Compile Include="Forms\BizeDegerlendiriniz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BizeDegerlendiriniz.Designer.cs">
+      <DependentUpon>BizeDegerlendiriniz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\clsHizmetlerTanimlari.cs" />
+    <Compile Include="Forms\clsMusteriManager.cs" />
+    <Compile Include="Forms\clsPersonelManger.cs" />
+    <Compile Include="Forms\clsRandevusuzMusteri.cs" />
+    <Compile Include="Forms\clsRandevusuzMusteriManger.cs" />
+    <Compile Include="Forms\clsUrun.cs" />
+    <Compile Include="Forms\frmCalisanlar1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCalisanlar1.Designer.cs">
+      <DependentUpon>frmCalisanlar1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCalisanlar2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCalisanlar2.Designer.cs">
+      <DependentUpon>frmCalisanlar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmKayitliMusterilerimiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmKayitliMusterilerimiz.Designer.cs">
+      <DependentUpon>frmKayitliMusterilerimiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmKozmatikUrunlerKategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmKozmatikUrunlerKategori.Designer.cs">
+      <DependentUpon>frmKozmatikUrunlerKategori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOnayBeklenenPersoneller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOnayBeklenenPersoneller.Designer.cs">
+      <DependentUpon>frmOnayBeklenenPersoneller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRandevu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRandevu.Designer.cs">
+      <DependentUpon>frmRandevu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRandevuDuzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRandevuDuzenle.Designer.cs">
+      <DependentUpon>frmRandevuDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRandevusuzMussteriler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRandevusuzMussteriler.Designer.cs">
+      <DependentUpon>frmRandevusuzMussteriler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUrunler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUrunler.Designer.cs">
+      <DependentUpon>frmUrunler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Hakkimizda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Hakkimizda.Designer.cs">
+      <DependentUpon>Hakkimizda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HizmetFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HizmetFormu.Designer.cs">
+      <DependentUpon>HizmetFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\clsHizmetler.cs" />
+    <Compile Include="Forms\frmHizmetlerimiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHizmetlerimiz.Designer.cs">
+      <DependentUpon>frmHizmetlerimiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HostGirisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HostGirisi.Designer.cs">
+      <DependentUpon>HostGirisi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHostSayfasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHostSayfasi.Designer.cs">
+      <DependentUpon>frmHostSayfasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MemnuniyetMesajlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MemnuniyetMesajlari.Designer.cs">
+      <DependentUpon>MemnuniyetMesajlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmYeniPersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmYeniPersonelEkle.Designer.cs">
+      <DependentUpon>frmYeniPersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clsMusteri.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\frmRandevuİptal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\frmRandevuİptal.Designer.cs">
+      <DependentUpon>frmRandevuİptal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clsTemaRenki.cs" />
+    <EmbeddedResource Include="Forms\BizeDegerlendiriniz.resx">
+      <DependentUpon>BizeDegerlendiriniz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCalisanlar1.resx">
+      <DependentUpon>frmCalisanlar1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCalisanlar2.resx">
+      <DependentUpon>frmCalisanlar2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmKayitliMusterilerimiz.resx">
+      <DependentUpon>frmKayitliMusterilerimiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmKozmatikUrunlerKategori.resx">
+      <DependentUpon>frmKozmatikUrunlerKategori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOnayBeklenenPersoneller.resx">
+      <DependentUpon>frmOnayBeklenenPersoneller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRandevu.resx">
+      <DependentUpon>frmRandevu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRandevuDuzenle.resx">
+      <DependentUpon>frmRandevuDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRandevusuzMussteriler.resx">
+      <DependentUpon>frmRandevusuzMussteriler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUrunler.resx">
+      <DependentUpon>frmUrunler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Hakkimizda.resx">
+      <DependentUpon>Hakkimizda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HizmetFormu.resx">
+      <DependentUpon>HizmetFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHizmetlerimiz.resx">
+      <DependentUpon>frmHizmetlerimiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HostGirisi.resx">
+      <DependentUpon>HostGirisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHostSayfasi.resx">
+      <DependentUpon>frmHostSayfasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MemnuniyetMesajlari.resx">
+      <DependentUpon>MemnuniyetMesajlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmYeniPersonelEkle.resx">
+      <DependentUpon>frmYeniPersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resources\frmRandevuİptal.resx">
+      <DependentUpon>frmRandevuİptal.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-review.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facial-massage %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forehead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\program-host.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\satisfaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\satisfaction %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ - Kopya.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 40727.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 82700.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3D Örtülü kadın çalışan 89141.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezinde 3d çalışan 51676.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 13759.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 407271.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3d çalışan Örtülü kadın 827001.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezi 3D Örtülü kadın çalışan 891411.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezinde 3d çalışan 516761.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezinde 3d çalışan 53318.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezinde 3d çalışan 60783.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Güzellik Merkezinde 3d çalışan 83758.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-1 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-2 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kuaför 3d çalışan kapalı kadın 13759.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workflow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shuffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-out-alt %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullseye-pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullseye-pointer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Buhar- Buhar, cildi nemlendirir ve gözeneklerin açılmasını sağlar. Bu, cildin daha derinleme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Gelin Makyajı 3d 15173.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Gündelik Makyaj- Doğal ve hafif .3D Örtülü kadın 90809.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly kadın saç Kesim güzelik salonu.3d 31595.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly kadın saç Kesim güzelik salonu.3d 70882.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly saç boyama .Kuaförda 3d kadın 15173 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly saç boyama .Kuaförda 3d kadın 15173.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly saç boyama .Kuaförda 3d kadın 18092.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Yüz Temizleme 3d 23573.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Yüz Temizleme 3d 35806.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Yüz Temizleme 3d güzelik salonuda 23573 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Yüz Temizleme 3d güzelik salonuda 30919.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Yüz Temizleme 3d güzelik salonuda 35806.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Yüz Temizleme 3d güzelik salonuda 85685.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-gabby-k-6621434.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Makyaj hizmeti kuafor .3d 13269.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Makyaj kuafor .3d 13269.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly kıvırcık saç hizmeti kuafor .3d 5912.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Manikür ve Pedikür el tırnak .3d 5912.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Manikür ve Pedikür el tırnak .3d 30036.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Manikür ve Pedikür el tırnak .3d 32930.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Manikür ve Pedikür Cila el tırnak .3d 57236.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Manikür ve Pedikür Topuk Bakımı .3d 57236.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Lazer Epilasyon yapan kadın .3d 50231.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Lazer Epilasyon yapan kadın .3d 81355.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma- Ciltte bronz bir renk elde etmek için bronzlaşma kremi veya sprey kullanılması i.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma guzelik salon 3d 48434.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma guzelik salon 3d 51384.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma hizmeti guzelik salonda 3d 28936.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kaş Boyama. guzelik salonda Örtülü kadın 3d 36128.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kaş ve Kirpik Bakımı yapan kadın -3d 17937.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kaş ve Kirpik Bakımı yapan kadın -3d 65923.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kirpik Kıvırma yapan kadın -3d 65923.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kozmetik Ürünler 3d 28936.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kozmetik Ürünler 3d 48434.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Kozmetik Ürünler 3d 51384.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly mesaj yatağı .guzellik salon 3d 99218.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly mesaj yatağı .guzellik salon 3d 99771.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly mesaj yatağı .Güzellik Merkezi 3d çalışan kadın 99771.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly uzman kadın ve odası .guzellik salon 3d 99771.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 39947.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 54559.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Lazer Epilasyon yapan kadın .Güzellik Merkezi 3d 74053.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\makeup-brush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Bronzlaşma Ürünleri 3d 55110.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly diş macun ve diş fırça Ürünleri 3d 91844.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Epilasyon Ürünleri Ürünleri 3d 32868.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Makyaj Ürünleri 3d 55110.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Parfüm &amp; Deodorant Ürünleri 3d 55110.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Saç Bakımı Urunleri 3d 32868.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firefly Shower Products 3d 73192.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_org_zoom %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_org_zoom %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_org_zoom %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_org_zoom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\515.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\585.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8747.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yaşlanma,.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\61.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\74.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\86.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\476.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\615.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9898.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\222.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\333.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\444.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\555.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\666.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\777.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\888.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 091915.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 092202.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 092237.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 092253.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dikeylogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 092724.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 092808.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 092836.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 103758.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 104200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 165809.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 165836.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ekran görüntüsü 2024-05-23 165925.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
