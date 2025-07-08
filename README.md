@@ -1,24 +1,26 @@
-# ?? Sakarya University - Computer Engineering Assignments
+🎓 Sakarya University – Computer Engineering Assignments
 
-This repository contains assignments and projects from various courses offered by the **Department of Computer Engineering at Sakarya University**.
+This repository contains assignments and projects from various courses offered by the Department of Computer Engineering at Sakarya University.
 
-Each folder corresponds to a specific course and includes:
-- The assignment implementation
-- A `README` or report for the task
-- The rules and instructions given by the instructor
-- The expected output files (provided by the instructor)
+Each folder represents a specific course and typically includes:
+	•	Assignment source code and implementation files
+	•	A detailed README.md or project report
+	•	Instructor-provided rules and guidelines
+	•	Sample or expected output files (if available)
 
----
+⸻
 
-## ?? Courses Included
+📚 Courses Included
+	•	BSM 103 – Programlamaya Giriş (Introduction to Programming)
+	•	BSM 102 – Nesneye Dayalı Programlama (Object-Oriented Programming)
+	•	BSM 104 – Web Teknolojileri (Web Technologies)
+	•	BSM 207 – Veri Yapıları (Data Structures)
+	•	BSM 211 – Veritabanı Yönetim Sistemleri (Database Management Systems)
+	•	BSM 208 – Programlama Dillerinin Prensipleri (Principles of Programming Languages)
 
-- **BSM 103 - Programlamaya Giri?** (*Introduction to Programming*)
-- **BSM 102 - Nesneye Dayal? Programlama** (*Object-Oriented Programming*)
-- **BSM 104 - Web Teknolojileri** (*Web Technologies*)
-- **BSM 207 - Veri Yap?lar?** (*Data Structures*)
-- **BSM 211 - Veritaban? Y�netim Sistemleri** (*Database Management Systems*)
-- **BSM 208 - Programlama Dillerinin Prensipleri** (*Principles of Programming Languages*)
+⸻
 
----
+📁 Notes
 
-Feel free to explore the folders to see different types of academic work and programming tasks done throughout the undergraduate journey.
+This repository serves as a reference archive of academic work completed during the undergraduate program.
+Feel free to explore the folders for examples of programming tasks, design patterns, algorithms, and project documentation.
